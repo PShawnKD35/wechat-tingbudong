@@ -26,6 +26,7 @@ Page({
                       },
                       success: res => {
                         app.globalData.userId = res.data.userId
+                        app.
                         console.log("got userId from backend")
                         console.log("gloabl data userId: " + app.globalData.userId)
                       }
@@ -69,6 +70,8 @@ Page({
       console.log(app.globalData.userInfo);
       wx.request({
         url: `${app.globalData.url}users/${userId}`,
+        method: 'POST',
+        data: app.globalData.userInfo
       })
     } else {
       //用户按了拒绝按钮

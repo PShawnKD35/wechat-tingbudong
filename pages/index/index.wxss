@@ -73,6 +73,10 @@
 
 }
 
-.category-tabs {
-  
+.slider,
+.slider image,
+.slider swiper{
+  width: 100%;
+  height:390rpx;
+
 }

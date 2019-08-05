@@ -27,33 +27,4 @@
     <van-search value="{{ value }}" shape ="round" background="#415F77" placeholder="每日一词" />
   </view>
   </view>
- 
- <!-- Slider  -->
-  <view class='slider'>
-      <swiper indicator-dots="{{ true }}" autoplay="{{ true }}" interval="2500" duration="400" circular="{{ true }}">
- <!-- first swiper-item -->
-    <swiper-item>
-      <view class="container">
-        <view class="popular-card">
-        
-        
-        </view>
-      </view>
-    </swiper-item>      
-<!-- first swiper-item -->
-
-<!-- second swiper-item -->
-    <swiper-item>
-      <view class="container">
-        <view class="popular-card">
-        
-        
-        </view>
-      </view>
-    </swiper-item>   
-<!-- second swiper-item -->
-      </swiper>
-  </view>
-
-  
-</view>
+ </view>

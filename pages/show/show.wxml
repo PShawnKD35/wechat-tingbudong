@@ -1,0 +1,32 @@
+<!--pages/show/show.wxml-->
+<view class="body">
+
+  <view class="content">
+    <view class="main-card">
+      <view class="left"></view>
+      <view class="right"></view>
+        <view class="h1"><text>扎心了老铁</text></view>
+         <view class="p"><text>Zhā xīn le! Lǎo tiě</text></view>
+           <view class="white"></view>
+           <view class="stickers"></view>
+    </view>
+
+
+  <!-- <view class="content"> -->
+      <view class="main-card">
+        <view class="left"></view>
+        <view class="right"></view>
+        <view class="h1"><text># 相关词条</text></view>
+        <view class="p"><text># xiāng guān cí tiáo</text></view>
+        <view class="feeds">
+          <view class="recommended"></view>
+          <view class="recommended"></view>
+        </view>
+      </view>
+  </view>
+
+</view>
+
+
+
+

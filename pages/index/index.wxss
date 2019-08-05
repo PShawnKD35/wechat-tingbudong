@@ -73,9 +73,14 @@
 
 }
 
+<<<<<<< HEAD
 .slider,
 .slider image,
 .slider swiper{
   width: 100%;
   height:390rpx;
+=======
+.category-tabs {
+  
+>>>>>>> 7577982c24520c38cfe47b1141f55db6ce59dc54
 }

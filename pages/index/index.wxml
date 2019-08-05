@@ -55,6 +55,13 @@
 <!-- second swiper-item -->
       </swiper>
   </view>
+<!--  end of Slider  -->
+
+<!-- The rest  -->
+  <view class="container"> -->
+
 
   
+  </view>
+
 </view>

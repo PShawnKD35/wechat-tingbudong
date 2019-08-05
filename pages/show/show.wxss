@@ -1,60 +1,17 @@
 /* pages/show/show.wxss */
-.body{
-  background-color: #D5E8EA;
-  height:100%;
-  width:100%;
-}
-
-.main-card{
- position:relative;
-  display: flex;
-  padding:50rpx;
-}
-
-.left{
-flex:70%;
+.left {
 width: 300rpx;
 height: 900rpx;
-background: #475F75;
 }
 
 .right {
-flex:20%;
 width: 100rpx;
-height: 900rpx;
-background: rgba(248, 208, 73, 0.79);
+ height: 900rpx;
 }
 
-.h1{
-position: absolute;
-left: 109rpx;
-top: 83rpx;
-
-font-family: PingFang HK;
-font-weight: 500;
-font-size: 60rpx;
-line-height: 84rpx;
-color:white;
-}
-
-.p {
-position: absolute;
-left: 109rpx;
-top: 180rpx;
-font-family: PingFang HK;
-font-size: 30rpx;
-line-height: 42rpx;
-color:white;
-
-}
-
-.white{
-position: absolute;
+.white {
 width: 525rpx;
 height: 350rpx;
-left: 126rpx;
-top: 302rpx;
-background: #F0F2F4;
 }
 
 .stickers{

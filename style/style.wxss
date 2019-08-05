@@ -1,0 +1,58 @@
+/*body component */
+.body{
+  background-color: #D5E8EA;
+  height:100%;
+  width:100%;
+}
+
+/*card component */
+.main-card{
+ position:relative;
+  display: flex;
+  padding:50rpx;
+}
+
+.left{
+flex:70%;
+background: #475F75;
+}
+
+.right {
+flex:20%;
+background: rgba(248, 208, 73, 0.79);
+}
+
+.white{
+position: absolute;
+left: 126rpx;
+top: 302rpx;
+background: #F0F2F4;
+}
+
+/*card component white title */
+.h1{
+position: absolute;
+left: 109rpx;
+top: 83rpx;
+
+font-family: PingFang HK;
+font-weight: 500;
+font-size: 60rpx;
+line-height: 84rpx;
+color:white;
+}
+/*card component white pinyin */
+.p {
+position: absolute;
+left: 109rpx;
+top: 180rpx;
+font-family: PingFang HK;
+font-size: 30rpx;
+line-height: 42rpx;
+color:white;
+
+}
+
+.tab {
+  
+}

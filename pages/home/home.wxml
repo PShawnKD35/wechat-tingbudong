@@ -1,0 +1,11 @@
+<!--pages/home/home.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">导航栏</view>
+</cu-custom>
+
+<view class="container">
+<view class="search"></view>
+
+
+</view>

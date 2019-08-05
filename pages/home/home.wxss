@@ -1,0 +1,16 @@
+/* pages/home/home.wxss */
+.container {
+  position: relative;
+width: 787px;
+height: 2628px;
+background: #D5E8EA;
+}
+.search {
+background: #415F77;
+position: absolute;
+width: 819px;
+height: 256px;
+left: -32px;
+top: -57px;
+
+}

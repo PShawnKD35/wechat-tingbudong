@@ -2,39 +2,32 @@ const app = getApp()
 
 Page({
   data: {
-    //判断小程序的API，回调，参数，组件等是否在当前版本可用。
+    // isHide is the user home page
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isHide: false
   },
 
   onLoad: function () {
     var that = this;
-    // 查看是否授权
+    // check authorisation granted or not
     wx.getSetting({
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: function (res) {
-              // 用户已经授权过,不需要显示授权页面,所以不需要改变 isHide 的值
-              // 根据自己的需求有其他操作再补充
-              // 我这里实现的是在用户授权成功后，调用微信的 wx.login 接口，从而获取code
               wx.login({
                 success: res => {
-                  // 获取到用户的 code 之后：res.code
                   console.log("用户的code:" + res.code);
-                  // 可以传给后台，再经过解析获取用户的 openid
-                  // 或者可以直接使用微信的提供的接口直接获取 openid ，方法如下：
                   wx.request({
-                      // 自行补上自己的 APPID 和 SECRET
                       url: `${app.globalData.url}` + 'login',
                       method: 'POST',
                       data: {
                         code: res.code
                       },
                       success: res => {
-                        this.globalData.userId = res.data.userId
+                        app.globalData.userId = res.data.userId
                         console.log("got userId from backend")
-                        console.log("gloabl data userId: " + this.globalData.userId)
+                        console.log("gloabl data userId: " + app.globalData.userId)
                       }
                   });
                 }
@@ -52,17 +45,31 @@ Page({
     });
   },
 
+  onShow: function () {
+    let page = this
+    wx.request({
+      url: `${app.globalData.url}` + 'slangs',
+      get: 'GET',
+      success: res => {
+        console.log(res)
+      }
+    })
+  },
+
   bindGetUserInfo: function (e) {
     if (e.detail.userInfo) {
-      //用户按了允许授权按钮
-      var that = this;
-      // 获取到用户的信息了，打印到控制台上看下
-      console.log("用户的信息如下：");
+      var page = this;
+      console.log("userinfo：");
       console.log(e.detail.userInfo);
       //授权成功后,通过改变 isHide 的值，让实现页面显示出来，把授权页面隐藏起来
-      that.setData({
+      page.setData({
         isHide: false
       });
+      app.globalData.userInfo = e.detail.userInfo;
+      console.log(app.globalData.userInfo);
+      wx.request({
+        url: `${app.globalData.url}users/${userId}`,
+      })
     } else {
       //用户按了拒绝按钮
       wx.showModal({

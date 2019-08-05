@@ -20,8 +20,20 @@
  
 
 <view wx:else>
-    <van-search value="{{ value }}" shape ="round" background="#415F77" placeholder="请输入搜索关键词" />
-    <view class="containter">
+  <view class="top">
+    <view class="image">
+      <image src='/images/logo2.png'></image>
+    </view>
+  <view class="search-bar">
+    <van-search value="{{ value }}" shape ="round" background="#415F77" placeholder="每日一词" />
+  </view>
+  </view>
+
+    <view class="container">
+      <view class="popular-card">
+      
+      
+      </view>
     </view>
   
 </view>

@@ -1,0 +1,16 @@
+.top image {
+  width: 180rpx;
+  height: 108rpx;
+  flex-grow: 0;
+}
+
+.search-bar {
+  flex-grow: 1;
+}
+ 
+ .top {
+  position: sticky;
+  display:flex;
+  justify-content: space-around;
+
+}

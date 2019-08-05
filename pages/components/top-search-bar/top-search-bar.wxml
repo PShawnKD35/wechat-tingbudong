@@ -1,0 +1,6 @@
+<view class="top">
+  <image src='/images/logo2.png'></image>
+  <view class="search-bar">
+    <van-search value="{{ value }}" shape ="round" background="#415F77" placeholder="Search by tag or slang" />
+  </view>
+</view>

@@ -27,8 +27,8 @@ Page({
                       },
 // Respond with userId, header
                       success: res => {
-                        console.log("trying to get x-user info" + res)
-                        app.globalData.userId = res.data.userId
+                        console.log(res)
+                        // app.globalData.userId = res.data.userId
                         // app.globalData.header = res.data.X-User-Email
                       }
                   });
@@ -57,7 +57,7 @@ Page({
   //   })
   // },
 
-// 
+
   bindGetUserInfo: function (e) {
     if (e.detail.userInfo) {
       var page = this;

@@ -26,7 +26,7 @@
 <!-- container for all elements -->
   <!-- Slider  -->
   <view class='slider'>
-    <swiper indicator-dots="{{ true }}" autoplay="{{ true }}" interval="2500" duration="400" circular="{{ true }}">
+    <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
   <!-- first swiper-item -->
     <swiper-item>
       <view class="popular-card"></view>

@@ -1,60 +1,12 @@
-.header {
-    border-bottom: 1px solid #ccc;
-    text-align: center;
-    width: 100%;
-    height: 500rpx;
-    line-height: 450rpx;
-    background: #415F77;
-}
- 
-.header image {
-  padding-top:100rpx;
-    width: 300rpx;
-    height: 200rpx;
-}
- 
- 
-.content text {
-    display: block;
-    color: grey;
-    margin-top: 40rpx;
-}
- 
-.container{
-  background-color: #D5E8EA;
-}
-
-
-
-.image {
-  flex: 15%;
-}
-
-.image image {
-  width:100%;
-  height:100%;
-}
-.search-bar{
-  flex:70%;
-  width:300rpx;
-}
 
 .popular-card {
-  position: absolute;
-  margin-top:-50rpx;
   height: 180px;
-  width: 280px;
+  width: 365px;
+  margin: 5px;
   background: #F8D049;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 
-}
-
-.slider,
-.slider image,
-.slider swiper{
-  width: 100%;
-  height:250rpx;
 }
 
 

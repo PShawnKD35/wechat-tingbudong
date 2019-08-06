@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -61,6 +61,20 @@
 					"id": -1,
 					"name": "pages/show/show",
 					"pathName": "pages/show/show",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "top-search bar",
+					"pathName": "pages/components/top-search-bar/top-search-bar",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/components/top-swiper",
+					"pathName": "pages/components/top-swiper/top-swiper",
 					"query": "",
 					"scene": null
 				}

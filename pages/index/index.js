@@ -21,7 +21,7 @@ Page({
                 success: res => {
                   console.log("用户的code:" + res.code);
                   wx.request({
-                      // url: `${app.globalData.url}` + 'login',
+                      url: `${app.globalData.url}` + 'login',
                       method: 'POST',
                       data: {
                         code: res.code

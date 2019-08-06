@@ -5,7 +5,7 @@ Page({
 // isHide is the user home page
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isHide: false,
-    DotStyle: true
+    DotStyle: true,
   },
 
   onLoad: function () {
@@ -26,11 +26,10 @@ Page({
                       data: {
                         code: res.code
                       },
-// Respond with userId, header
                       success: res => {
+                        console.log("???")
                         console.log(res)
-                        // app.globalData.userId = res.data.userId
-                        // app.globalData.header = res.data.X-User-Email
+
 
                       }
                   });
@@ -71,11 +70,11 @@ Page({
       });
       app.globalData.userInfo = e.detail.userInfo;
       console.log(app.globalData.userInfo);
-      wx.request({
-        url: `${app.globalData.url}users/${userId}`,
-        method: 'PUT',
-        data: app.globalData.userInfo
-      })
+      // wx.request({
+      //   url: `${app.globalData.url}users/${userId}`,
+      //   method: 'PUT',
+      //   data: app.globalData.userInfo
+      // })
     } else {
       //用户按了拒绝按钮
       wx.showModal({
@@ -91,5 +90,11 @@ Page({
         }
       });
     }
-  }
+  },
+  // cardSwiper
+  cardSwiper(e) {
+    this.setData({
+      cardCur: e.detail.current
+    })
+  },
 })

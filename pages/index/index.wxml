@@ -34,7 +34,9 @@
   <!-- first swiper-item -->
   <!-- second swiper-item -->
     <swiper-item>
-      <view class="popular-card" mode="aspectFill"></view>
+      <view class="popular-card" mode="aspectFill">
+
+      </view>
     </swiper-item>      
   <!-- second swiper-item -->
     </swiper>
@@ -43,10 +45,10 @@
 
 <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
     <swiper-item>
-      <view class="image"></view>
+      <view class="popular-card" class="bg-red padding radius text-center shadow-blur"></view>
     </swiper-item>    
         <swiper-item>
-      <view class="image"></view>
+      <view class="popular-card"></view>
     </swiper-item>    
 
 

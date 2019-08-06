@@ -1,8 +1,0 @@
-<!--pages/components/content-card/content-card.wxml-->
-
-<view class="main-card">
-    <view class="left"></view>
-    <view class="right"></view>
-    <!-- <view class="h1"><text>扎心了老铁</text></view>
-    <view class="p"><text>Zhā xīn le! Lǎo tiě</text></view> -->
-</view>

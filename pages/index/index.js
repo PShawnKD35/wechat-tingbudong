@@ -2,19 +2,20 @@ const app = getApp()
 
 Page({
   data: {
-    // isHide is the user home page
+// isHide is the user home page
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isHide: false
   },
 
   onLoad: function () {
     var that = this;
-    // check authorisation granted or not
+// check authorisation granted or not
     wx.getSetting({
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: function (res) {
+// login check to get openID
               wx.login({
                 success: res => {
                   console.log("用户的code:" + res.code);
@@ -24,11 +25,12 @@ Page({
                       data: {
                         code: res.code
                       },
+// Respond with userId, header
                       success: res => {
-                        app.globalData.userId = res.data.userId
-                        app.
-                        console.log("got userId from backend")
-                        console.log("gloabl data userId: " + app.globalData.userId)
+                        console.log(res)
+                        // app.globalData.userId = res.data.userId
+                        // app.globalData.header = res.data.X-User-Email
+
                       }
                   });
                 }
@@ -36,8 +38,6 @@ Page({
             }
           });
         } else {
-          // 用户没有授权
-          // 改变 isHide 的值，显示授权页面
           that.setData({
             isHide: true
           });
@@ -46,16 +46,18 @@ Page({
     });
   },
 
-  onShow: function () {
-    let page = this
-    wx.request({
-      url: `${app.globalData.url}` + 'slangs',
-      get: 'GET',
-      success: res => {
-        console.log(res)
-      }
-    })
-  },
+// get: index page @slangs
+  // onShow: function () {
+  //   let page = this
+  //   wx.request({
+  //     url: `${app.globalData.url}` + 'slangs',
+  //     get: 'GET',
+  //     success: res => {
+  //       console.log(res)
+  //     }
+  //   })
+  // },
+
 
   bindGetUserInfo: function (e) {
     if (e.detail.userInfo) {
@@ -70,14 +72,14 @@ Page({
       console.log(app.globalData.userInfo);
       wx.request({
         url: `${app.globalData.url}users/${userId}`,
-        method: 'POST',
+        method: 'PUT',
         data: app.globalData.userInfo
       })
     } else {
       //用户按了拒绝按钮
       wx.showModal({
-        title: '警告',
-        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!!!',
+        title: 'Warning',
+        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!',
         showCancel: false,
         confirmText: '返回授权',
         success: function (res) {

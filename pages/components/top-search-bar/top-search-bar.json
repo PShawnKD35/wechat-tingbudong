@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-search": "/dist1/search/index"
+  }
+}

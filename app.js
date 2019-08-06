@@ -5,8 +5,10 @@ App({
   },
   globalData: {
     userInfo: null,
-    url: `https://localhost:3000/api/v1/`,
-    // faker open_email
+    userId: '',
+    url: `http://localhost:3000/api/v1/`,
+    // fake open_email for authentication
+
     header: ''
   }
 })

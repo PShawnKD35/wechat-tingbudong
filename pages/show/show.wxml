@@ -99,7 +99,7 @@
 </view>
 
 
-<view class="cu-bar tabbar margin-bottom-xl bg-white">
+<view class="cu-bar tabbar bg-white">
     <view class="action text-green">
       <view class="cuIcon-homefill"></view> 首页
     </view>

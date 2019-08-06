@@ -48,15 +48,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 4,
 			"list": [
-				{
-					"id": -1,
-					"name": "index",
-					"pathName": "pages/index/index",
-					"query": "",
-					"scene": null
-				},
 				{
 					"id": -1,
 					"name": "pages/show/show",
@@ -79,16 +72,16 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "show",
-					"pathName": "pages/index/index",
+					"id": 5,
+					"name": "footer",
+					"pathName": "pages/components/footer/footer",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 5,
-					"name": "footer",
-					"pathName": "pages/components/footer/footer",
+					"id": -1,
+					"name": "pages/form/form",
+					"pathName": "pages/form/form",
 					"query": "",
 					"scene": null
 				}

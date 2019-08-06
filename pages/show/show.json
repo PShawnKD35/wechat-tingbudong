@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "top-search-bar": "../components/top-search-bar/top-search-bar",
+    "content-card": "../components/content-card/content-card"
+  }
 }

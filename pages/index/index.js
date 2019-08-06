@@ -90,5 +90,11 @@ Page({
         }
       });
     }
-  }
+  },
+  // cardSwiper
+  cardSwiper(e) {
+    this.setData({
+      cardCur: e.detail.current
+    })
+  },
 })

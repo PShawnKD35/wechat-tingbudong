@@ -4,10 +4,10 @@
     "pages/show/show"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#415F77",
-    "navigationBarTitleText": "Tingbudong",
-    "navigationBarTextStyle": "white"
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
   },
   "sitemapLocation": "sitemap.json"
 }

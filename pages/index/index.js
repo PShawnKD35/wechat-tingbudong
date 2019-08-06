@@ -4,7 +4,8 @@ Page({
   data: {
 // isHide is the user home page
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isHide: false
+    isHide: false,
+    DotStyle: true
   },
 
   onLoad: function () {

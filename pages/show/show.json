@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "top-search-bar": "../components/top-search-bar/top-search-bar"
+    "top-search-bar": "../components/top-search-bar/top-search-bar",
+    "footer": "../components/footer/footer"
   }
 }

@@ -1,10 +1,31 @@
+.header {
+    /* margin:  0 0 0; */
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    width: 100%;
+    height: 500rpx;
+    line-height: 450rpx;
+    background: linear-gradient(110deg, #0081ff, #1cbbb4);
+}
+ 
+.header image {
+  margin-left:15rpx;
+  padding-top: 123rpx;
+    width: 500rpx;
+    height: 250rpx;
+}
+
+.image {
+  width:200rpx;
+  height:100rpx;
+}
 
 .popular-card {
-  height: 360px;
-  margin: 5px;
+  height: 300rpx;
+  margin: 10rpx;
   background: #F8D049;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20rpx;
 
 }
 
@@ -19,5 +40,16 @@
   margin: 5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  background: grey;
+  background: greydark;
+}
+
+.content {
+  margin-top:30rpx;
+}
+.content text {
+margin-left:20rpx;
+font-family: PingFang HK;
+font-size: 30rpx;
+color:grey;
+
 }

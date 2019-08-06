@@ -1,8 +1,8 @@
 <!--pages/show/show.wxml-->
 <view class="container">
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-	<view slot="backText">返回</view>
-	<view slot="content">导航栏</view>
+	<view slot="backText">back</view>
+	<view slot="content">听不懂</view>
 </cu-custom>
 
 <view class="body">
@@ -57,6 +57,8 @@
   </view>
   
 </view>
+
+
 
 
 

@@ -1,39 +1,31 @@
 <!--pages/show/show.wxml-->
 <view class="body">
+  <top-search-bar></top-search-bar>
 
   <view class="content">
-    <view class="main-card">
-      <view class="left"></view>
-      <view class="right"></view>
-      <view class="nav-bar">
-      <view class="intro">
-        <view class="h1"><text>扎心了老铁</text></view>
-          <view class="p"><text>Zhā xīn le! Lǎo tiě</text></view>
-        </view>
-        <button class="contribute">奉献</button>
-      </view>
+    <content-card></content-card>
+     <view class="h1"><text>扎心了老铁</text></view>
+    <view class="p"><text>Zhā xīn le! Lǎo tiě</text></view>
+     <button class="contribute">奉献</button>
            <view class="white"></view>
-           <view class="stickers"></view>
-    </view>
-
-
-  <!-- <view class="content"> -->
-      <view class="main-card">
-        <view class="left"></view>
-        <view class="right"></view>
-        
-          <view class="h1"><text># 相关词条</text></view>
-    
+           <view class="stickers"></view> 
+      </view>
+      
   
-        <view class="p"><text>xiāng guān cí tiáo</text></view>
+
+  <view class="content"> 
+     <content-card></content-card> 
+      <view class="h2"><text>相关词条</text></view>    
         <view class="feeds">
           <view class="recommended"></view>
           <view class="recommended"></view>
         </view>
-      </view>
+  </view>
   </view>
 
-</view>
+
+
+
 
 
 

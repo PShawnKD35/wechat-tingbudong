@@ -30,6 +30,7 @@ Page({
                         console.log(res)
                         // app.globalData.userId = res.data.userId
                         // app.globalData.header = res.data.X-User-Email
+
                       }
                   });
                 }

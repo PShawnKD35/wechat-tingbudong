@@ -72,10 +72,11 @@ background: #E95D57;
 position: absolute;
 left: 50px;
 top: 109px;
+padding:30rpx;
 }
 
 .recommended {
-margin:30rpx;
+margin-bottom:30rpx;
 width: 262px;
 height: 43px;
 /* left: 50px;
@@ -84,3 +85,11 @@ background: #F0F2F4;
 border-radius: 20px;
 }
 
+.contribute{
+  background: #E95D57;
+  position: absolute;
+  right: 70rpx;
+  float: right;
+  top: 80rpx;
+
+}

@@ -6,6 +6,14 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isHide: false,
     DotStyle: true,
+    topSlang: {
+      name: '',
+      definition: [{ name: '', createdBy: '', createdDate: '' }],
+    },
+    slang: {
+      name: '',
+      definition: [{name: '', createdBy: '', createdDate: ''}],
+    }
   },
 
   onLoad: function () {
@@ -29,8 +37,10 @@ Page({
                       success: res => {
                         console.log("???")
                         console.log(res)
-
-
+                        app.globalData.userId = res.data.userId
+                        app.globalData.header = {
+                          'X-User-Email': `res.data.email`,
+                          'X-User-Token': `res.data.userToken`}
                       }
                   });
                 }
@@ -44,16 +54,20 @@ Page({
         }
       }
     });
+    wx.request({
+      url: `${app.globalData.url}` + 'slangs',
+      header: `app.globalData.header`,
+      method: 'GET',
+      success: res => {
+        console.log("get")
+        console.log(res)
+      }
+    })
   },
 
 // get: index page @slangs
   // onShow: function () {
-  //   let page = this
-  //   wx.request({
-  //     url: `${app.globalData.url}` + 'slangs',
-  //     get: 'GET',
-  //     success: res => {
-  //       console.log(res)
+
   //     }
   //   })
   // },
@@ -70,6 +84,8 @@ Page({
       });
       app.globalData.userInfo = e.detail.userInfo;
       console.log(app.globalData.userInfo);
+      console.log(app.globalData.userInfo.nickName)
+      console.log(app.globalData.userInfo.avatarUrl)
       // wx.request({
       //   url: `${app.globalData.url}users/${userId}`,
       //   method: 'PUT',

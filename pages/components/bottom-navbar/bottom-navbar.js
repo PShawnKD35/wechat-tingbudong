@@ -1,4 +1,4 @@
-// pages/components/footer/footer.js
+// pages/components/bottom-navbar/bottom-navbar.js
 Component({
   /**
    * Component properties

@@ -87,8 +87,8 @@
 				},
 				{
 					"id": 5,
-					"name": "footer",
-					"pathName": "pages/components/footer/footer",
+					"name": "navbar",
+					"pathName": "pages/components/bottom-navbar/bottom-navbar",
 					"query": "",
 					"scene": null
 				}

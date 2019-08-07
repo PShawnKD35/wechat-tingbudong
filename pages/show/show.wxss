@@ -3,23 +3,12 @@ text {
   color:white;
 }
 
-.main-card{
- position:relative;
-  padding:50rpx;
-  display: flex;
-}
-
-.card-swiper swiper-item {
-  right: -20px;
-}
-
 .background{
 flex:70%;
 width: 300rpx;
 height: 900rpx;
 background: linear-gradient(45deg, #0081ff, #1cbbb4);
 }
-
 
 .h1{
 font-family: PingFang HK;

@@ -12,5 +12,5 @@
   position: sticky;
   display:flex;
   justify-content: space-around;
-
+  background: linear-gradient(60deg,#0081ff ,#1cbbb4);  
 }

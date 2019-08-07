@@ -3,11 +3,9 @@
 
 .container {
   background:#e7ebed;
-
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
-  padding: 100rpx 0;
 } 
 
 

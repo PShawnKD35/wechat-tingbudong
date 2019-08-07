@@ -38,10 +38,12 @@
     
         <!--definition input-->
 
-            <!--uploadImage input-->
-        <view class="padding-sm" >
-          <button bindtap="chooseImage" class="cu-btn round line-blue"role="button"aria-disabled="false">Upload Images</button>
-        </view>
+        <!--uploadImage input-->
+    <view class="uploadImg" >
+      <view class="section__title">上传一个表情 </view>
+      <button bindtap="chooseImage" class="cu-btn round lines-blue"role="button">Upload Images</button>
+    </view>
+
       <!--uploadImage input-->
 
 

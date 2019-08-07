@@ -1,4 +1,7 @@
 /* pages/show/show.wxss */
+.container{
+  position: relative;
+}
 text {
   color:white;
 }
@@ -77,3 +80,8 @@ border-radius: 20px;
 }
 
 
+.cu-bar tabbar {
+  position: absolute;
+  bottom: 0rpx;
+
+}

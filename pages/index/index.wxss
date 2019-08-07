@@ -1,7 +1,3 @@
-@font-face {
-  font-family: 'youth';
-  src: url('https://img.yzcdn.cn/vant/vant-icon-76f274.ttf') format('truetype');
-}
 .title {
   font-family: PingFang HK;
 font-weight: 500;

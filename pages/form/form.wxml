@@ -6,7 +6,7 @@
 
 
  <!--copying from pages/addservice-->
- <view class="purple">
+ <view class="blue">
   <view class="title">Enter your slang</view>
      <view class="white">
       

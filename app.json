@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/show/show",
-    "pages/form/form"
+    "pages/form/form",
+    "pages/profile/profile",
+    "pages/addDef/addDef"
 
   ],
   "window": {
@@ -10,6 +12,31 @@
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"
+  },"tabBar": {
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "selectedColor": "#0081ff",
+    "color": "#white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "Explore",
+        "iconPath": "/images/search-2.png",
+        "selectedIconPath": "/images/search.png"
+      },
+      {
+        "pagePath": "pages/form/form",
+        "text": "Create",
+        "iconPath": "/images/idea-2.png",
+        "selectedIconPath": "/images/idea.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "My Profile",
+        "iconPath": "/images/user-2.png",
+        "selectedIconPath": "/images/user.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

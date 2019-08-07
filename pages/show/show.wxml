@@ -4,11 +4,13 @@
 	<view slot="backText">back</view>
 	<view slot="content">听不懂</view>
 </cu-custom>
+
 <!-- start of body tag -->
 <view class="body">
-<!-- start of body tag -->
+
 <!-- start of slang card -->
-<view class="body">
+
+<!-- <view class="body"> -->
   <view class="show-card">
       <view class="background radius shadow-blur light">
       <view class="h1"><text>扎心了！老铁</text> 
@@ -20,30 +22,27 @@
             <view class="cu-card dynamic">
               <view class="cu-item shadow">
               <view class="cu-list menu-avatar">
-                
                  <text id= "edit" class="cuIcon-edit lg text-grey"        bindtap="editDefinition"></text>
-                <view class="text-content" id="definition-text">
-      "扎心了！老铁"是一句网络流行语，“老铁”是东北的方言，意思是好朋友。"扎心了！老铁"是一句网络流行语，“老铁”是东北的方言
-      
-                </view>
-                      <view class="content flex-sub">
-                      <view id="definition-contributor" class="text-grey text-sm"> Contributed by Olivia 2019年12月3日
-                      
-                      <text id="like" class="cuIcon-like lg text-grey"        bindtap="likeDefinition">100</text>
-                      </view>
-                      
-                  </view>
-                </view>
 
+                <view class="text-content" id="definition-text">
+      "扎心了！老铁"是一句网络流行语，“老铁”是东北的方言，意思是好朋友。"扎心了！老铁"是一句网络流行语，“老铁”是东北的方言</view>
+                <view class="content flex-sub">
+                <view id="definition-contributor" class="text-grey text-sm"> Contributed by Olivia 2019年12月3日
+                      
+                <text id="like" class="cuIcon-like lg text-grey"        bindtap="likeDefinition">100</text>
+                </view>
               </view>
-            </view>
-          </swiper-item>    
-        </swiper>         
+          </view>
+
+        </view>
       </view>
-    </view>
+    </swiper-item>    
+  </swiper>         
   </view>
+</view></view>
 <!-- end of slang card -->
-  <view class="main-card">
+<!-- start of slang card -->
+  <view class="show-card">
     <view class="background">
 
      <view class="h1"><text>相关词条</text></view>  
@@ -53,36 +52,10 @@
           <view class="recommended"></view>
         </view>
      </view>   
-  </view> 
+<!-- end of slang card -->
        
 </view>
 
-
-<view class="cu-bar tabbar bg-white">
-    <view class="action text-green">
-      <view class="cuIcon-homefill"></view> 首页
-    </view>
-    <view class="action text-gray">
-      <view class="cuIcon-similar"></view> 分类
-    </view>
-    <view class="action text-gray add-action">
-      <button class="cu-btn cuIcon-add bg-green shadow"></button>
-      发布
-    </view>
-    <view class="action text-gray">
-      <view class="cuIcon-cart">
-        <view class="cu-tag badge">99</view>
-      </view>
-      购物车
-    </view>
-    <view class="action text-gray">
-      <view class="cuIcon-my">
-        <view class="cu-tag badge"></view>
-      </view>
-      我的
-    </view>
-  </view>
-  
 </view>
 
 

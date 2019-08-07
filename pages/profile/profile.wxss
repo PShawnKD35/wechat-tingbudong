@@ -1,25 +1,17 @@
-/* pages/profile/profile.wxss */
-
-.section{
-  padding: 20rpx;
-  border-bottom: 1px solid #aaaaaa;
- }
-
- .blue {
+/* pages/addDefinition/addDefinition.wxss */
+.blue {
   background:linear-gradient(110deg, #0081ff, #1cbbb4);
-  height: 100px;
-  position:relative;
-  z-index: -1;
+  height: 300rpx;
+  padding:50rpx 0 50rpx 0;
 }
+
 
 .white {
 border-radius: 20px;
-position: relative;
-height: 80px;
-margin-top: -40px;
 background-color: white;
+margin-top: 40px;
+margin:40rpx;
 }
-
 
 .title{
 font-size: 26px;
@@ -29,88 +21,32 @@ z-index: 1;
 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 } 
 
+.section-title{
+  font-size: 18px;
+  color:#0081ff;
+  margin-bottom: 30rpx;
+}
 
- .user-info {
-  margin:50px;
-  margin-bottom:20px;
-  padding:30px;
+
+.uploadImg button {
+  margin-top:30rpx;
+}
+
+.info {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-} 
+  padding:50rpx;
+  margin-left:100rpx;
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-
-  text-align: center;
-  border-radius: 50%;
 }
-
-.avatar-click {
-  text-align:center;
-  margin-left:100px;
-  margin-right:100px;
-  border-radius: 20px;
-}
-.userinfo-nickname {
-  color: #aaa;
-}
-.instruction {
-  color:darkgray;
-  font-size: 16px;
+.userinfo{
+  margin-left:50rpx;
+  display:block;
 
 }
 
-.usermotto {
-  margin-top: 200px;
-}
+.userNickname {
+  color:grey;
+  font-size:30rpx;
 
-.form-group {
-  margin:20px;
-}
-
-.section__title{
-  margin-left:10px;
-   font-size: 18px;
-  color:#5744CC;
-  padding:10px;
-
-}
-
- .input {
-  margin-left:20px;
-}
-.content {
-  background:white;
-  padding:15px;
-  border-radius: 20px;
-  border: 1px solid #5744CC;
-}
-
-.radio-group {
-text-align: center;
-  margin:30px;
-}
-.radios {
-  padding-right:10px;
-  padding-bottom: 15px;
-   font-size: 16px;
-  font-style: italic;
-  color:white;
-}
-
-.btn-area{
-  margin:30px;
-}
-
-.button{
-  margin:30px;
-  background-color:#5744CC;
-  border: 1px solid #5744CC;
-  opacity:0.9;
-}
-
-.button text{
-  color: white;
+  
 }

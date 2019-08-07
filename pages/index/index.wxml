@@ -40,7 +40,7 @@
   <!-- first swiper-item -->
     <swiper-item>
       <view class="popular-card" style="position: relative;" mode="aspectFill">
-      <image class="gif" src='https://media.giphy.com/media/l378eqTxeeyQrUgAo/giphy.gif'></image>
+      <image class="gif" src='https://media.giphy.com/media/l378kCHSmb5z0UNQ4/giphy.gif'></image>
       <view style="background: linear-gradient(black,red)">
       <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">今天还听不懂吗？</text>
       </view>
@@ -50,6 +50,10 @@
   <!-- second swiper-item -->
     <swiper-item>
       <view class="popular-card" mode="aspectFill">
+      <image class="gif" src='https://media.giphy.com/media/l378kCHSmb5z0UNQ4/giphy.gif'></image>
+      <view style="background: linear-gradient(black,red)">
+      <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">今天教你：</text>
+      </view>
 
       </view>
     </swiper-item>      

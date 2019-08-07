@@ -1,4 +1,6 @@
 const app = getApp()
+const AV = require('../../utils/av-weapp-min.js');
+
 Page({
 
   /**
@@ -69,5 +71,51 @@ Page({
         });
       }
     })
+  },
+
+  radioChange: function (e) {
+    this.setData({
+      category: e.detail.value
+    })
+  },
+
+  bindStartTimeChange(e) {
+    let { value } = e.detail;
+    this.setData({
+      startTime: value
+    })
+  },
+
+  bindEndTimeChange(e) {
+    let { value } = e.detail;
+    this.setData({
+      endTime: value
+    })
+  },
+
+  bindDateChange(e) {
+    let { value } = e.detail;
+    console.log("date:", value);
+    this.setData({
+      date: value
+    })
+  },
+  takePhoto: function () {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        let tempFilePath = res.tempFilePaths[0];
+        new AV.File('file-name', {
+          blob: {
+            uri: tempFilePath,
+          },
+        }).save().then(
+          file => console.log(file.url())
+        ).catch(console.error);
+        console.log('successfully uploaded')
+      }
+    });
   }
 })

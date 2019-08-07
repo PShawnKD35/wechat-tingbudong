@@ -65,14 +65,6 @@ Page({
     })
   },
 
-// get: index page @slangs
-  // onShow: function () {
-
-  //     }
-  //   })
-  // },
-
-
   bindGetUserInfo: function (e) {
     if (e.detail.userInfo) {
       var page = this;
@@ -84,13 +76,15 @@ Page({
       });
       app.globalData.userInfo = e.detail.userInfo;
       console.log(app.globalData.userInfo);
-      console.log(app.globalData.userInfo.nickName)
-      console.log(app.globalData.userInfo.avatarUrl)
-      // wx.request({
-      //   url: `${app.globalData.url}users/${userId}`,
-      //   method: 'PUT',
-      //   data: app.globalData.userInfo
-      // })
+
+      wx.request({
+        url: `${app.globalData.url}users/${app.globalData.userId}`,
+        method: 'PUT',
+        data: {
+          name: app.globalData.userInfo.nickName,
+          avatar_url: app.globalData.userInfo.avatarUrl
+        }
+      })
     } else {
       //用户按了拒绝按钮
       wx.showModal({
@@ -107,6 +101,14 @@ Page({
       });
     }
   },
+
+  toSlangShow(e) {
+    let id = e.markerId
+    wx.navigateTo({
+      url: `/pages/show/show?id=${id}`,
+    })
+  },
+
   // cardSwiper
   cardSwiper(e) {
     this.setData({

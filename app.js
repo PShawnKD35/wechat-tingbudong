@@ -1,6 +1,15 @@
 //app.js
+const AV = require('./utils/av-weapp-min.js')
+const config = require('./key')
+// Initialization of the app
+
+
 App({
   onLaunch: function () {
+    AV.init({
+      appId: config.appId,
+      appKey: config.appKey,
+    });
     wx.getSystemInfo({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight;

@@ -41,7 +41,7 @@
         <!--uploadImage input-->
     <view class="uploadImg" >
       <view class="section__title">上传一个表情 </view>
-      <button bindtap="chooseImage" class="cu-btn round lines-blue"role="button">Upload Images</button>
+      <button bindtap="takePhoto" class="cu-btn round lines-blue"role="button">Upload Images</button>
     </view>
 
       <!--uploadImage input-->

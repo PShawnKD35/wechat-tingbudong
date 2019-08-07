@@ -20,12 +20,12 @@ background: rgb(216,240,240);
 border-radius: 10rpx;
 }
 
-.container {
+/* .container {
   background:#e7ebed;
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
-}
+} */
 
 .show-card{
  position:relative;

@@ -1,4 +1,5 @@
 // pages/show/show.js
+const app = getApp()
 Page({
 
   /**
@@ -19,6 +20,11 @@ Page({
       success(res) {
         console.log(res)
       }
+    })
+  },
+  BackPage(e) {
+    wx.navigateBack({
+      delta: 1
     })
   }
 })

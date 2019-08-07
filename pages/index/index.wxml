@@ -41,7 +41,7 @@
     <swiper-item>
       <view class="popular-card" mode="aspectFill">
       <view id="banner" class="purple text-lg text-center shadow-blur">#Slang of the day</view>
-      <view class="test">testing 字体测试</view>
+      <view class="test">#Slang of the day</view>
       </view>
     </swiper-item>      
   <!-- first swiper-item -->
@@ -58,27 +58,25 @@
 
 <!-- start of slang card -->
 <view class="body">
-  <view class="show-card">
+<!-- first loop for main-card -->
+  <view class="show-card" wx:for="{{slangs}}" wx:for-item="slang">
       <view data-id="{{slang.id}}" class="background radius shadow-blur " bindTap="toSlangShow">
-      <view class="h1"><text>扎心了！老铁</text> 
-        <view id="show-card-avatar" class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+      <view class="h1"><text>{{slang.name}}</text> 
+        <view id="show-card-avatar" class="cu-avatar round lg" style="background-image:url('{{slang.user.avatar_url}}');"></view>
       </view>
       <view class="p"><text>Zhā xīn le! Lǎo tiě</text></view> 
-        <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="1000" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">   
+<!-- second lopp for definition -->
+        <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="1000" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff" wx:for="{{slang.definitions}}" wx:for-item="definition">   
           <swiper-item>
             <view class="cu-card dynamic">
               <view class="cu-item shadow">
               <view class="cu-list menu-avatar">
-                
                  <text id= "edit" class="cuIcon-edit lg text-grey"        bindtap="editDefinition"></text>
-                <view class="text-content" id="definition-text">
-      "扎心了！老铁"是一句网络流行语，“老铁”是东北的方言，意思是好朋友。"扎心了！老铁"是一句网络流行语，“老铁”是东北的方言
-      
-                </view>
+                <view class="text-content" id="definition-text">{{definition.content}}</view>
                       <view class="content flex-sub">
-                      <view id="definition-contributor" class="text-grey text-sm"> Contributed by Olivia 2019年12月3日
+                      <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user}} 2019年12月3日
                       
-                      <text id="like" class="cuIcon-like lg text-grey"        bindtap="likeDefinition">100</text>
+                      <text id="like" class="cuIcon-like lg text-grey"        bindtap="likeDefinition">{{definition.likes}}</text>
                       </view>
                       
                   </view>

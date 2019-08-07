@@ -6,14 +6,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isHide: false,
     DotStyle: true,
-    topSlang: {
-      name: '',
-      definition: [{ name: '', createdBy: '', createdDate: '' }],
-    },
-    slang: {
-      name: '',
-      definition: [{name: '', createdBy: '', createdDate: ''}],
-    }
+    slangs: []
   },
 
   onLoad: function () {
@@ -35,12 +28,10 @@ Page({
                         code: res.code
                       },
                       success: res => {
-                        console.log("???")
-                        console.log(res)
                         app.globalData.userId = res.data.userId
                         app.globalData.header = {
-                          'X-User-Email': `res.data.email`,
-                          'X-User-Token': `res.data.userToken`}
+                          'X-User-Email': `${res.data.email}`,
+                          'X-User-Token': `${res.data.userToken}`}
                       }
                   });
                 }
@@ -56,11 +47,13 @@ Page({
     });
     wx.request({
       url: `${app.globalData.url}` + 'slangs',
-      header: `app.globalData.header`,
+      header: app.globalData.header,
       method: 'GET',
       success: res => {
-        console.log("get")
-        console.log(res)
+        this.setData({
+          slangs: res.data.slangs
+        })
+        console.log(this.data.slangs)
       }
     })
   },
@@ -70,16 +63,15 @@ Page({
       var page = this;
       console.log("userinfo：");
       console.log(e.detail.userInfo);
-      //授权成功后,通过改变 isHide 的值，让实现页面显示出来，把授权页面隐藏起来
       page.setData({
         isHide: false
       });
       app.globalData.userInfo = e.detail.userInfo;
-      console.log(app.globalData.userInfo);
-
+      console.log(app.globalData.header);
       wx.request({
         url: `${app.globalData.url}users/${app.globalData.userId}`,
         method: 'PUT',
+        header: app.globalData.header,
         data: {
           name: app.globalData.userInfo.nickName,
           avatar_url: app.globalData.userInfo.avatarUrl

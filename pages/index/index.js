@@ -94,8 +94,9 @@ Page({
     }
   },
 
-  toSlangShow(e) {
-    let id = e.markerId
+  toSlangShow: function(event) {
+    console.log(event)
+    let id = event.currentTarget.dataset.id
     wx.navigateTo({
       url: `/pages/show/show?id=${id}`,
     })
@@ -106,5 +107,5 @@ Page({
     this.setData({
       cardCur: e.detail.current
     })
-  },
+  }
 })

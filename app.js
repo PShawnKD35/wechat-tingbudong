@@ -15,7 +15,8 @@ App({
     userInfo: null,
     userId: '',
     header: {},
-    url: `http://localhost:3000/api/v1/`,
+    // url: `http://localhost:3000/api/v1/`,
+    url: `https://tingbudong.wogengapp.cn/api/v1/`,
     header: '',
   }
 })

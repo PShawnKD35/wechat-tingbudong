@@ -5,6 +5,7 @@
   height: 100px;
 }
 
+
 .white {
 border-radius: 20px;
 height: 100vh;
@@ -40,3 +41,11 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   border: 1px solid #0081ff;
 }
 
+.uploadImg{
+  display: flex;
+  justify-content: space-between;
+ 
+}
+.uploadImg button {
+  margin-top:30rpx;
+}

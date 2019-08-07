@@ -21,6 +21,13 @@ background: rgb(216,240,240);
 border-radius: 10rpx;
 }
 
+.container {
+  background:#e7ebed;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .show-card{
  position:relative;
   padding:50rpx;
@@ -73,9 +80,9 @@ padding-left: 20rpx;
   font-size: 25rpx;
   padding-right: 30rpx;
   padding-bottom: 30rpx;
-} 
+}
 
-.white{
+.white {
 margin:40rpx;
 width: 570rpx;
 height: 350rpx;
@@ -83,7 +90,6 @@ background: #F0F2F4;
 }
 
 .stickers{
-
 width: 650rpx;
 height: 200rpx;
 background: linear-gradient(45deg, #ff9700, #ed1c24);

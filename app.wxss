@@ -1,18 +1,11 @@
 /**app.wxss**/
 @font-face {
-  font-family: 'youth';
-  src: url('https://img.yzcdn.cn/vant/vant-icon-76f274.ttf') format('truetype');
+  font-family: 'zhun';
+  src: url('../style/zihun.tff');
 }
 
 
-.container {
-  background:#e7ebed;
 
-  height: 100%;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 100rpx 0;
-} 
 /* slang card */
 
 .text {
@@ -23,8 +16,8 @@
 flex:70%;
 width: 300rpx;
 height: 700rpx;
-background: linear-gradient(45deg, #9000ff, #5e00ff);
-opacity: 0.6;
+background: rgb(216,240,240);
+/* background: linear-gradient(45deg, rgba(144,0,255,0.6),rgba(94,0,255,0.6)); */
 border-radius: 10rpx;
 }
 
@@ -54,7 +47,7 @@ border-radius: 10rpx;
  .h1{
 font-family: Microsoft JhengHei;
 font-weight: bold;
-color: white;
+color: rgb(117,197,193);
 font-size: 60rpx;
 line-height: 84rpx;
 margin: 20rpx;
@@ -65,7 +58,7 @@ padding-bottom: 0rpx;
 #show-card,
  .p {
 font-size: 30rpx;
-color:white !important;
+color:rgb(117,197,193);
 margin-left: 20rpx;
 padding-left: 20rpx;
 } 

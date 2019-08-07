@@ -41,8 +41,7 @@
     <swiper-item>
       <view class="popular-card" mode="aspectFill">
       <view id="banner" class="purple text-lg text-center shadow-blur">#Slang of the day</view>
-      <view class="test">字体测试</view>
-<view class="icon van-icon van-icon van-icon-upgrade van-icon-upgrade" style="font-size: 32rpx;"></view>
+      <view class="test">testing 字体测试</view>
       </view>
     </swiper-item>      
   <!-- first swiper-item -->

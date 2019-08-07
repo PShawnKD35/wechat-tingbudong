@@ -17,7 +17,6 @@ flex:70%;
 width: 300rpx;
 height: 700rpx;
 background: rgb(216,240,240);
-/* background: linear-gradient(45deg, rgba(144,0,255,0.6),rgba(94,0,255,0.6)); */
 border-radius: 10rpx;
 }
 
@@ -54,7 +53,7 @@ border-radius: 10rpx;
  .h1{
 font-family: Microsoft JhengHei;
 font-weight: bold;
-color: rgb(117,197,193);
+color:white;
 font-size: 60rpx;
 line-height: 84rpx;
 margin: 20rpx;
@@ -65,7 +64,7 @@ padding-bottom: 0rpx;
 #show-card,
  .p {
 font-size: 30rpx;
-color:rgb(117,197,193);
+color: white;
 margin-left: 20rpx;
 padding-left: 20rpx;
 } 
@@ -82,12 +81,12 @@ padding-left: 20rpx;
   padding-bottom: 30rpx;
 }
 
-.white {
+/* .white {
 margin:40rpx;
 width: 570rpx;
 height: 350rpx;
 background: #F0F2F4;
-}
+} */
 
 .stickers{
 width: 650rpx;

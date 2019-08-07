@@ -1,0 +1,38 @@
+<!--pages/addDefinition/addDefinition.wxml-->
+<!--pages/form/form.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">back</view>
+	<view slot="content">听不懂</view>
+</cu-custom>
+
+
+ <!--copying from pages/addservice-->
+ <view class="blue">
+  <view class="title">Enter your slang\n</view>
+  <view class="title">#扎心了 老铁！</view>
+     <view class="white">
+      
+      <view class="form-group">
+
+      <!--definition input-->
+        <view class="section__title">Definition</view>
+          <view class="input">
+            <textarea bindinput="serviceCharge" name="serviceCharge" placeholder="扎心了！老铁 是一句网络流行语，“老铁”是东北的方言，意思是好朋友，而这句话完整的意思可能为某件事情很让你触动，引起了你比较感动或者是悲伤的情感因素的变化，被称之为“扎心了。" />
+          </view>
+    
+        <!--definition input-->
+
+
+      <!--button input-->
+
+     <view class="padding flex flex-direction" >
+        <button bindtap="submitNewService" formType="submit" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Submit!</button>
+     </view>
+        
+    <!--button input-->
+    </view>
+  </view>
+
+</view>
+
+

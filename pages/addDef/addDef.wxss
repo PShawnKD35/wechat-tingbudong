@@ -1,8 +1,8 @@
-/* pages/form/form.wxss */
-
- .blue {
+/* pages/addDefinition/addDefinition.wxss */
+.blue {
   background:linear-gradient(110deg, #0081ff, #1cbbb4);
-  height: 100px;
+  height: 300rpx;
+  padding:50rpx 0 50rpx 0;
 }
 
 

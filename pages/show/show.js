@@ -1,9 +1,5 @@
-// pages/show/show.js
+const app = getApp()
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
 
   },
@@ -14,7 +10,7 @@ Page({
   onLoad: function (options) {
     let page = this
     wx.request({
-      url: `${app.globalData.url}slangs/${option.id}`,
+      url: `${app.globalData.url}slangs/${options.id}`,
       method: 'GET',
       success(res) {
         console.log(res)

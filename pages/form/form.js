@@ -6,92 +6,68 @@ Page({
    */
   data: {
 
-    // name: "",
-    // content: "",
-    // category: "",
-    // sticker_url
+    name: '',
+    content: '',
+    tag: '',
+    sticker_url:'',
+    slang_id: ''
   },
 
   onLoad: function (options) {
 
   },
 
-  serviceName(e) {
+  slangName(e) {
     this.setData({
       name: e.detail.value
     })
   },
 
-  serviceCharge(e) {
+  definitionTag(e) {
     this.setData({
-      charge: e.detail.value
+      tag: e.detail.value
     })
   },
 
-  serviceDescription(e) {
+  definitionContent(e) {
     this.setData({
-      description: e.detail.value
+      content: e.detail.value
     })
   },
 
-  serviceAddress(e) {
-    this.setData({
-      address: e.detail.value
-    })
-  },
-
-  submitNewService(e) {
-    let newService = {
-      name: this.data.name,
-      description: this.data.description,
-      address: this.data.address,
-      charge: this.data.charge,
-      category: this.data.category,
-    }
-
+  submitNewSlang(e) {
+    let page = this
+    console.log("userid")
+    console.log(app.globalData.header)
+    console.log(page.data.name)
     wx.request({
-      url: `${app.globalData.url}users/${app.globalData.userId}/services`,
+      url: `${app.globalData.url}slangs`,
       method: 'POST',
-      data: newService,
+      header: app.globalData.header,
+      data: {name: page.data.name},
       success: function (res) {
-        console.log(res)
+        page.data.slang_id = res.data.slang_id
+        console.log(page.data.slang_id)
+        wx.request({
+          url: `${app.globalData.url}definitions`,
+          method: 'POST',
+          header: app.globalData.header,
+          data: {
+            content: page.data.content,
+            slang_id: page.data.slang_id
+          },
+          success: function (res) {
+            console.log(res)
+          }
+        })
         wx.navigateTo({
-          url: "additem",
+          url: `/pages/show/show?id=${page.data.slang_id}`,
         })
         wx.showToast({
-          title: `Now add your items!`,
+          title: `Slang Added🥳`,
           icon: 'none'
         });
       }
-    })
-
-  },
-
-  radioChange: function (e) {
-    this.setData({
-      category: e.detail.value
-    })
-  },
-
-  bindStartTimeChange(e) {
-    let { value } = e.detail;
-    this.setData({
-      startTime: value
-    })
-  },
-
-  bindEndTimeChange(e) {
-    let { value } = e.detail;
-    this.setData({
-      endTime: value
-    })
-  },
-
-  bindDateChange(e) {
-    let { value } = e.detail;
-    console.log("date:", value);
-    this.setData({
-      date: value
     })
   }
 })

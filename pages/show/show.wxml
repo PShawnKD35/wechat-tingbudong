@@ -42,20 +42,17 @@
 </view></view>
 <!-- end of slang card -->
 <!-- start of slang card -->
-  <view class="show-card">
+  <!-- <view class="show-card">
     <view class="background">
-
-     <view class="h1"><text>相关词条</text></view>  
+      <view class="h1"><text>相关词条</text></view>  
       <view class="p"><text>Zhā xīn le! Lǎo tiě</text></view>
-       <view class="feeds">
-          <view class="recommended"></view>
-          <view class="recommended"></view>
-        </view>
-     </view>   
+    <view class="feeds">
+      <view class="recommended"></view>
+      <view class="recommended"></view>
+    </view>
+  </view>  
+</view>  -->
 <!-- end of slang card -->
-       
-</view>
-
 </view>
 
 

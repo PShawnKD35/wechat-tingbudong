@@ -28,8 +28,8 @@
 <top-search-bar></top-search-bar>
 <!--tag swiper -->
 <scroll-view scroll-x class="bg-gradual-blue nav" scroll-with-animation scroll-left>
-  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{10}}" wx:key bindtap="tabSelect" data-id="{{index}}">
-    Tab{{index}}
+  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{categories}}" wx:for-item="category" wx:key bindtap="tabSelect" data-id="{{index}}">
+    {{index}}{{category.dialect}}
   </view>
 </scroll-view>
   <!--tag swiper -->
@@ -52,7 +52,7 @@
       <view class="popular-card" mode="aspectFill">
       <image class="gif" src='https://media.giphy.com/media/l378kCHSmb5z0UNQ4/giphy.gif'></image>
       <view style="background: linear-gradient(black,red)">
-      <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">今天教你：</text>
+      <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">我们教你</text>
       </view>
 
       </view>

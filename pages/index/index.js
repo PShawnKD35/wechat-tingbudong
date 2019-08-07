@@ -6,7 +6,8 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isHide: false,
     DotStyle: true,
-    slangs: []
+    slangs: [],
+    categories: [{ dialect: '官话' },{ dialect: '广东话' }, { dialect: '东北话' }, { dialect: '粤语' }, { dialect: '四川话' },{ dialect: '湖南话' }, { dialect: '客家话' }, { dialect: '闽南话' }]
   },
 
   onLoad: function () {

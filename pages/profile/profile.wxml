@@ -1,2 +1,55 @@
 <!--pages/profile/profile.wxml-->
-<text>pages/profile/profile.wxml</text>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">back</view>
+	<view slot="content">听不懂</view>
+</cu-custom>
+
+<view class="purple">
+ <view class="title">Profile</view>
+     <view class="white">
+      <view class="user-info">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+    
+  <block wx:if="{{!hasRegistered}}">
+        <view class="avatar-click">
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 
+      <text class="instruction">Click for Avatar!</text></button>
+    </view>
+    <form bindsubmit="formSubmit" bindreset="formReset" class="form">
+    <view class="form-group">
+      <view class="section__title">Name</view>
+        <view class="content">
+        <input class="input" bindinput="userName" name="name" value="{{user.name}}" placeholder="give us your name"/>
+      </view>
+      <view class="section__title">Description</view>
+      <view class="content">
+       <input class="input" name="description" bindinput="userDescription" placeholder="Tell us more"value="{{user.description}}" />
+      </view>
+      <view class="section__title">Email</view>
+      <view class="content">
+        <input class="input" bindinput="userEmail" placeholder="So we can reach out" name="email" value="{{user.email}}" />
+      </view>
+       <view class="section__title">Password</view>
+      <view class="content">
+        <input class="input" bindinput="userPassword" password placeholder="It's a secret between us" name="password" value="{{user.password}}" />
+      </view>
+    <view class="btn-area">
+      <wux-button block round size="default" type="royal" bindtap="bindSubmit" formType="submit" >Register</wux-button>
+    </view>
+    </view>
+    </form>
+  </block>
+<block wx:else>
+
+
+  <view class="section__title">Name: {{user.name}}</view>
+  <view class="section__title">Email: {{user.email}}</view>
+  <view class="section__title">Description: {{user.description}}</view>
+
+   <button class="button" bindtap="bindViewTap"><text>Be a Shifu!</text></button>
+</block>
+</view>
+</view>
+

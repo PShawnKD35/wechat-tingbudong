@@ -5,7 +5,7 @@
 </cu-custom>
 
 
- <!--copying from pages/addservice-->
+ <!--copying from pages/addslang-->
  <view class="blue">
   <view class="title">Enter your slang</view>
      <view class="white">
@@ -14,7 +14,7 @@
        <!--slang input-->
         <view class="section__title">A word or a sentence</view>
           <view class="input">
-            <input type="text" bindinput="serviceName" name="serviceName" maxlength="30" placeholder="e.g 扎心了老铁" />
+            <input type="text" bindinput="slangName" name="slangName" maxlength="30" placeholder="e.g 扎心了老铁" />
           </view>
     
         <!--slang input-->
@@ -23,7 +23,7 @@
         <!--category input-->
         <view class="section__title">Catagory and location tags</view>
           <view class="input">
-            <input type="text" bindinput="serviceDescription" name="serviceDescription" maxlength="60" placeholder="#chinese #东北话 #流行语" />
+            <input type="text" bindinput="definitionTag" name="definitionTag" maxlength="60" placeholder="#chinese #东北话 #流行语" />
           </view>
 
          <!--category input-->
@@ -33,7 +33,7 @@
           <!--definition input-->
         <view class="section__title">Definition</view>
           <view class="input">
-            <textarea bindinput="serviceCharge" name="serviceCharge" placeholder="扎心了！老铁 是一句网络流行语，“老铁”是东北的方言，意思是好朋友，而这句话完整的意思可能为某件事情很让你触动，引起了你比较感动或者是悲伤的情感因素的变化，被称之为“扎心了。" />
+            <textarea bindinput="definitionContent" name="definitionContent" placeholder="扎心了！老铁 是一句网络流行语，“老铁”是东北的方言，意思是好朋友，而这句话完整的意思可能为某件事情很让你触动，引起了你比较感动或者是悲伤的情感因素的变化，被称之为“扎心了。" />
           </view>
     
         <!--definition input-->
@@ -50,7 +50,7 @@
       <!--button input-->
 
      <view class="padding flex flex-direction" >
-        <button bindtap="submitNewService" formType="submit" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Enter</button>
+        <button bindtap="submitNewslang" formType="submit" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Enter</button>
      </view>
         
     <!--button input-->

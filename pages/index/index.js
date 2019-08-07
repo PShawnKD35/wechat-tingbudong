@@ -106,5 +106,5 @@ Page({
     this.setData({
       cardCur: e.detail.current
     })
-  },
+  }
 })

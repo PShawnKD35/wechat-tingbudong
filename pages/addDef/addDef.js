@@ -1,9 +1,10 @@
-// pages/addDefinition/addDefinition.js
+const app = getApp()
 Page({
 
   data: {
     name: '',
-    definition_id: ''
+    slang_id: '',
+    content: ''
   },
 
   onLoad: function (options) {
@@ -11,12 +12,39 @@ Page({
     const name = options.name;
     this.setData({
       name: name,
-      definition_id: id
+      slang_id: id
     })
   },
 
-  onReady: function () {
-
+  definitionInput: function (e){
+    console.log(e.detail.value)
+    this.setData({
+      content: e.detail.value
+    })
+    console.log(this.data.content)
   },
+
+  submitAddDefinition (e){
+    let page = this
+    wx.request({
+      url: `${app.globalData.url}definitions`,
+      method: 'POST',
+      header: app.globalData.header,
+      data: {
+        slang_id: page.data.slang_id,
+        content: page.data.content
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
+  wx.navigateTo({
+    url: `/pages/show/show?id=${page.data.slang_id}`,
+  })
+  wx.showToast({
+    title: `Definition Added🥳`,
+    icon: 'none'
+  });
+  }
 
 })

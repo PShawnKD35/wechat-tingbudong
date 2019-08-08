@@ -17,6 +17,7 @@ Page({
     })
   },
 // definition id required
+// param missing
   giveItaLike: function (e) {
     console.log(e.currentTarget.dataset.id)
     let definition_id = e.currentTarget.dataset.id
@@ -24,7 +25,7 @@ Page({
       url: `${app.globalData.url}likes`,
       method: 'POST',
       header: app.globalData.header,
-      data: definition_id,
+      data: {definition_id: definition_id},
       success: function (res) {
         console.log(res)
       }
@@ -42,33 +43,18 @@ Page({
   editDefinition: function (e) {
     let id = e.currentTarget.dataset.id
     let name = e.currentTarget.dataset.name
+    let content = e.currentTarget.dataset.content
     wx.navigateTo({
-      url: `/pages/addDef/addDef?id=${id}&name=${name}`,
+      url: `/pages/editDef/editDef?id=${id}&name=${name}&content=${content}`,
     })
   },
 
   addDefinition: function (e) {
-    console.log(e.currentTarget.dataset.id)
-    let slang_id = e.currentTarget.dataset.id
-    wx.request({
-      url: `${app.globalData.url}definitions`,
-      method: 'POST',
-      header: app.globalData.header,
-      data: {
-        content: page.data.content,
-        slang_id: page.data.slang_id
-      },
-      success: function (res) {
-        console.log(res)
-      }
-    })
+    let id = e.currentTarget.dataset.id
+    let name = e.currentTarget.dataset.name
     wx.navigateTo({
-      url: `/pages/show/show?id=${page.data.slang_id}`,
+      url: `/pages/addDef/addDef?id=${id}&name=${name}`,
     })
-    wx.showToast({
-      title: `Definition Added🥳`,
-      icon: 'none'
-    });
   },
   // cardSwiper
   cardSwiper(e) {

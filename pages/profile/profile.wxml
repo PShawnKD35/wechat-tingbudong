@@ -11,13 +11,14 @@
  <view class="info">
   <view id="avatar" class="cu-avatar round xl" style="background-image:url({{userInfo.avatarUrl}});"></view>
   <view class="userinfo">
-    <view class="section-title">昵称</view>
+    <view class="section-title">听不懂居民</view>
     <view class="userNickname">{{userInfo.nickName}}</view>
   </view>
  </view>
       
   <!-- start of slang card -->
-  <view class="activity">我的日常动态</view>
+  <text class="activity cuIcon-profilefill lg text-gray">我的日常动态</text>
+  
   <swiper class="card-swiper square-dot}}" indicator-dots="true" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
   <block wx:for="{{slangs}}" wx:for-item="slang" wx:key="xxx">   
 <!-- first loop for main-card -->

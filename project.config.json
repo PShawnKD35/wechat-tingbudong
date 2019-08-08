@@ -98,7 +98,14 @@
 					"pathName": "pages/profile/profile",
 					"query": "",
 					"scene": null
-				}
+				},
+        {
+          "id": 8,
+          "name": "Add definition",
+          "pathName": "pages/addDef/addDef",
+          "query": "",
+          "scene": null
+        }
 			]
 		}
 	}

@@ -6,7 +6,8 @@
     "pages/profile/profile",
     "pages/addDef/addDef",
     "pages/editSlang/editSlang",
-    "pages/tags/tags"
+    "pages/tags/tags",
+    "pages/editDef/editDef"
   ],
   
   "window": {

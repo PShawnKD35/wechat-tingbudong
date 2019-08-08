@@ -10,9 +10,9 @@
       <view class="form-group">
 
       <!--definition input-->
-        <view class="section__title">Add New Definition</view>
+        <view class="section__title">Edit Definition</view>
           <view class="input">
-            <textarea bindinput="definitionInput" value=""/>
+            <textarea bindinput="definitionInput" value="{{content}}"/>
           </view>
     
         <!--definition input-->
@@ -21,7 +21,7 @@
       <!--button input-->
 
      <view class="padding flex flex-direction" >
-        <button bindtap="submitAddDefinition" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Submit!</button>
+        <button bindtap="submitEditDefinition" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Submit!</button>
      </view>
         
     <!--button input-->

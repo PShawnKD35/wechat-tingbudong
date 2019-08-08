@@ -21,7 +21,7 @@
             <view class="cu-card dynamic">
               <view class="cu-item shadow">
               <view class="cu-list menu-avatar">
-                 <text data-id="{{definition.id}}" data-name="{{slang.name}}" id= "edit" class="cuIcon-edit lg text-grey" bindtap="editDefinition"></text>
+                 <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" id= "edit" class="cuIcon-edit lg text-grey" bindtap="editDefinition"></text>
                 <view class="text-content" id="definition-text">
                 {{definition.content}}</view>
                 <view class="content flex-sub">
@@ -31,12 +31,13 @@
                 </view>
               </view>
           </view>
-
         </view>
       </view>
     </swiper-item> 
-    </block>   
-  </swiper>         
+    </block>  
+    
+  </swiper>  
+  <button class="cu-btn bg-white shadow" data-id="{{slang.id}}" data-name="{{slang.name}}" bindtap="addDefinition"><text id="add" class="cuIcon-add text-black" ></text>definition!</button>         
   </view>
 </view></view>
 <!-- end of slang card -->

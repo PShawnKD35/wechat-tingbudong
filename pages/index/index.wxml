@@ -30,7 +30,7 @@
 <!--tag swiper -->
 <scroll-view scroll-x class="bg-gradual-blue nav" scroll-with-animation scroll-left>
   <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{categories}}" wx:for-item="category" wx:key bindtap="tabSelect">
-    {{category.dialect}}
+    <text class="cuIcon-tag lg text-white">{{category.dialect}}</text> 
 
   </view>
 </scroll-view>

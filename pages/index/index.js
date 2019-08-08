@@ -69,6 +69,7 @@ Page({
           slangs: res.data.slangs
         })
         console.log(this.data.slangs)
+        // console.log(new Date(res.data.slangs.first["created_at"]))
       }
     })
   },

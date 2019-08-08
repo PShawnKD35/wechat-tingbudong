@@ -2,10 +2,7 @@ const app = getApp()
 Page({
   data: {
   },
-
-  /**
-   * Lifecycle function--Called when page load
-   */
+  
   onLoad: function (options) {
     let page = this        
     wx.request({
@@ -35,20 +32,18 @@ Page({
   },
 // require slang-id
   editSlang: function (e) {
-    // let id = e.currentTarget.dataset.id
+    let id = e.currentTarget.dataset.id
     let name = e.currentTarget.dataset.name
-    let abc = 4
     wx.navigateTo({
-      url: `/pages/editSlang/editSlang?id=${abc}&name=${name}`,
+      url: `/pages/editSlang/editSlang?id=${id}&name=${name}`,
     })
   },
 
   editDefinition: function (e) {
-    // let id = e.currentTarget.dataset.id
+    let id = e.currentTarget.dataset.id
     let name = e.currentTarget.dataset.name
-    let abc = 4
     wx.navigateTo({
-      url: `/pages/addDef/addDef?id=${abc}&name=${name}`,
+      url: `/pages/addDef/addDef?id=${id}&name=${name}`,
     })
   },
 

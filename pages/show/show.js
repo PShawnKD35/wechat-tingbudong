@@ -1,6 +1,7 @@
 const app = getApp()
 Page({
   data: {
+    favored: false
   },
   
   onLoad: function (options) {
@@ -25,7 +26,7 @@ Page({
       url: `${app.globalData.url}likes`,
       method: 'POST',
       header: app.globalData.header,
-      data: {definition_id: definition_id},
+      data: {like: {definition_id: definition_id}},
       success: function (res) {
         console.log(res)
       }
@@ -61,5 +62,11 @@ Page({
     this.setData({
       cardCur: e.detail.current
     })
+  },
+
+  saveSlang(e) {
+    console.log(e)
+    const favored = !this.data.favored
+    this.setData({ favored: favored })
   }
 })

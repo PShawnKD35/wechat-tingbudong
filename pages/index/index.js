@@ -36,7 +36,7 @@ Page({
                           },
                           // check with shawn
                           success: res => {
-                            console.log(res)
+                            console.log("****************POST FOR OPEN-ID************")
                             app.globalData.userId = res.data.userId
                             app.globalData.header = {
                               'X-User-Email': `${res.data.email}`,
@@ -65,6 +65,7 @@ Page({
       header: app.globalData.header,
       method: 'GET',
       success: res => {
+        console.log("****************GET FOR SLANGS************")
         this.setData({
           slangs: res.data.slangs
         })
@@ -94,6 +95,9 @@ Page({
         data: {
           name: app.globalData.userInfo.nickName,
           avatar_url: app.globalData.userInfo.avatarUrl
+        },
+        success: function(res) {
+          console.log("****************PUT FOR USERINFO************")
         }
       })
     } else {

@@ -1,9 +1,4 @@
-<!--pages/form/form.wxml-->
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-	<view slot="backText">back</view>
-	<view slot="content">听不懂</view>
-</cu-custom>
-
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">听不懂</view></cu-custom>
 
  <!--copying from pages/addslang-->
  <view class="blue">
@@ -39,10 +34,19 @@
         <!--definition input-->
 
         <!--uploadImage input-->
-    <view class="uploadImg" >
-      <view class="section__title">上传一个表情 </view>
-      <button bindtap="takePhoto" class="cu-btn round lines-blue"role="button">Upload Images</button>
-    </view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
 
       <!--uploadImage input-->
 
@@ -50,7 +54,7 @@
       <!--button input-->
 
      <view class="padding flex flex-direction" >
-        <button bindtap="submitNewslang" formType="submit" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Enter</button>
+        <button bindtap="submitNewSlang" formType="submit" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Enter</button>
      </view>
         
     <!--button input-->

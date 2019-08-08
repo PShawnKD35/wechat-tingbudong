@@ -1,15 +1,10 @@
 <!--pages/addDefinition/addDefinition.wxml-->
 <!--pages/form/form.wxml-->
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-	<view slot="backText">back</view>
-	<view slot="content">听不懂</view>
-</cu-custom>
-
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">听不懂</view></cu-custom>
 
  <!--copying from pages/addservice-->
  <view class="blue">
-  <view class="title">Enter your slang\n</view>
-  <view class="title">#扎心了 老铁！</view>
+  <view class="title">{{name}}</view>
      <view class="white">
       
       <view class="form-group">

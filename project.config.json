@@ -48,53 +48,53 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 1,
 			"list": [
 				{
-					"id": -1,
-					"name": "pages/show/show",
+					"id": 1,
+					"name": "Index page",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "Show page",
 					"pathName": "pages/show/show",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": 2,
-					"name": "top-search bar",
-					"pathName": "pages/components/top-search-bar/top-search-bar",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/components/top-swiper",
-					"pathName": "pages/components/top-swiper/top-swiper",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 5,
-					"name": "footer",
-					"pathName": "pages/components/footer/footer",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/form/form",
+					"id": 3,
+					"name": "New Slang",
 					"pathName": "pages/form/form",
 					"query": "",
 					"scene": null
 				},
 				{
+					"id": 4,
+					"name": "Edit definition",
+					"pathName": "pages/editDefinition/editDefinition",
+					"query": "",
+					"scene": null
+				},
+				{
 					"id": 5,
+					"name": "Edit Slang",
+					"pathName": "pages/editSlang/editSlang",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
 					"name": "pages/addDef/addDef",
 					"pathName": "pages/addDef/addDef",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/profile/profile",
+					"id": 7,
+					"name": "Profile",
 					"pathName": "pages/profile/profile",
 					"query": "",
 					"scene": null

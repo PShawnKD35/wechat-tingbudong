@@ -4,9 +4,10 @@
     "pages/show/show",
     "pages/form/form",
     "pages/profile/profile",
-    "pages/addDef/addDef"
-
+    "pages/addDef/addDef",
+    "pages/editSlang/editSlang"
   ],
+  
   "window": {
     "navigationStyle": "custom"
   },

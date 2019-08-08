@@ -1,0 +1,37 @@
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">听不懂</view></cu-custom>
+
+ <!--copying from pages/addslang-->
+ <view class="blue">
+  <view class="title">{{name}}</view>
+     <view class="white">
+      
+      <view class="form-group">
+     
+        <!--category input-->
+        <view class="section__title">Add new tags</view>
+          <view class="input">
+            <input type="text" bindinput="definitionTag" name="definitionTag" maxlength="60" placeholder="#chinese #东北话 #流行语" />
+          </view>
+
+        <!--uploadImage input-->
+    <view class="uploadImg" >
+      <view class="section__title">上传一个表情 </view>
+      <button bindtap="takePhoto" class="cu-btn round lines-blue"role="button">Upload Images</button>
+    </view>
+
+      <!--uploadImage input-->
+
+
+      <!--button input-->
+
+     <view class="padding flex flex-direction" >
+        <button bindtap="submitNewSlang" formType="submit" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Enter</button>
+     </view>
+        
+    <!--button input-->
+    </view>
+  </view>
+
+</view>
+
+

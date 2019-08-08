@@ -4,12 +4,12 @@ Page({
   data: {
 // isHide is the user home page
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isHide: false,
+    isHide: true,
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
     categories: [{ dialect: '官话' },{ dialect: '广东话' }, { dialect: '东北话' }, { dialect: '粤语' }, { dialect: '四川话' },{ dialect: '湖南话' }, { dialect: '客家话' }, { dialect: '闽南话' }],
-    favored: false
+    // favored: false??S??//、、//
   },
 
   onLoad: function () {

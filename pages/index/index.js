@@ -8,7 +8,8 @@ Page({
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
-    categories: [{ dialect: '官话' },{ dialect: '广东话' }, { dialect: '东北话' }, { dialect: '粤语' }, { dialect: '四川话' },{ dialect: '湖南话' }, { dialect: '客家话' }, { dialect: '闽南话' }]
+    categories: [{ dialect: '官话' },{ dialect: '广东话' }, { dialect: '东北话' }, { dialect: '粤语' }, { dialect: '四川话' },{ dialect: '湖南话' }, { dialect: '客家话' }, { dialect: '闽南话' }],
+    favored: false
   },
 
   onLoad: function () {

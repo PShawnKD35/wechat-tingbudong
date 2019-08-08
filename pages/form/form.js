@@ -34,11 +34,11 @@ Page({
 
   submitNewSlang(e) {
     let page = this
+    let sticker_url = page.data.sticker_url
     console.log("userid")
     console.log(app.globalData.header)
     console.log(page.data.name)
     page.data.imgList.forEach(function(img){
-      console.log(img)
       new AV.File('file-name', {
         blob: {
           uri: img,
@@ -46,11 +46,12 @@ Page({
         // please set upload file valid domain name
         // check how to push file.url
       }).save().then(
-        file => console.log(file.url())
+        file => {
+          sticker_url.push(file.url())
+          console.log(sticker_url)
+          console.log('successfully uploaded')
+        }
       ).catch(console.error);
-      // page.data.sticker_url.push(file.url())
-      // console.log(page.data.sticker_url)
-      console.log('successfully uploaded')
     });
     wx.request({
       url: `${app.globalData.url}slangs`,

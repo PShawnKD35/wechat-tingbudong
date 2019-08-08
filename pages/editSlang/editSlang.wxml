@@ -14,10 +14,21 @@
           </view>
 
         <!--uploadImage input-->
-    <view class="uploadImg" >
-      <view class="section__title">上传一个表情 </view>
-      <button bindtap="takePhoto" class="cu-btn round lines-blue"role="button">Upload Images</button>
-    </view>
+<view class="section__title">上传一个表情 </view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
 
       <!--uploadImage input-->
 

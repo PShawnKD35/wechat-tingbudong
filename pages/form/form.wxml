@@ -34,6 +34,7 @@
         <!--definition input-->
 
         <!--uploadImage input-->
+<view class="section__title">上传一个表情 </view>
 	<view class="cu-form-group">
 		<view class="grid col-4 grid-square flex-sub">
 			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">

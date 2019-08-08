@@ -5,8 +5,9 @@ Page({
   data: {
     name: '',
     tag: '',
-    sticker_url: '',
-    slang_id: ''
+    slang_id: '',
+    sticker_url: [],
+    imgList: []
   },
 
   onLoad: function (options) {
@@ -59,22 +60,44 @@ Page({
     })
   },
 
-  takePhoto: function () {
+  ChooseImage() {
     wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success: function (res) {
-        let tempFilePath = res.tempFilePaths[0];
-        new AV.File('file-name', {
-          blob: {
-            uri: tempFilePath,
-          },
-        }).save().then(
-          file => console.log(file.url())
-        ).catch(console.error);
-        console.log('successfully uploaded')
+      count: 4,
+      sizeType: ['compressed'],
+      sourceType: ['album'],
+      success: (res) => {
+        if (this.data.imgList.length != 0) {
+          this.setData({
+            imgList: this.data.imgList.concat(res.tempFilePaths)
+          })
+        } else {
+          this.setData({
+            imgList: res.tempFilePaths
+          })
+        }
       }
     });
-  }
+  },
+  ViewImage(e) {
+    wx.previewImage({
+      urls: this.data.imgList,
+      current: e.currentTarget.dataset.url
+    });
+  },
+  DelImg(e) {
+    wx.showModal({
+      title: 'Hello',
+      content: 'Are you sure you want to delete this sticker?',
+      cancelText: 'Not sure',
+      confirmText: 'Yes',
+      success: res => {
+        if (res.confirm) {
+          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
+          this.setData({
+            imgList: this.data.imgList
+          })
+        }
+      }
+    })
+  },
 })

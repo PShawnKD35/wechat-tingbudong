@@ -1,3 +1,14 @@
+.authorization-page {
+  margin:50rpx;
+}
+.content {
+text-align: center;
+}
+.content text {
+  color:grey;
+  font-family: PingFang HK;
+  font-size:30rpx;
+}
 .title {
   font-family: PingFang HK;
 font-weight: 500;
@@ -6,20 +17,24 @@ line-height: 123rpx;
 color: white;
 
 }
-.header {
-    border-bottom: 1px solid #ccc;
-    text-align: center;
-    width: 100%;
-    height: 500rpx;
-    line-height: 450rpx;
-    background: linear-gradient(110deg, #0081ff, #1cbbb4);
+
+.slogan{
+  margin: 0 auto;  
+  writing-mode: vertical-lr;/*从左向右 从右向左是 writing-mode: vertical-rl;*/ 
 }
- 
-.header image {
-  margin-left:15rpx;
-  padding-top: 123rpx;
-    width: 500rpx;
-    height: 250rpx;
+
+.slogan text {
+  display: block;
+  letter-spacing: 20rpx;
+  color:white;
+}
+
+/* .slogan text:nth-child(2) {
+  margin-top: 60rpx;
+}
+  */
+.header {
+    width: 100vw;
 }
 
 .image {
@@ -35,6 +50,10 @@ color: white;
 }
 .gif {
   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+}
+
+#log-in {
+  height:100rpx;
 }
 
 #banner {
@@ -63,3 +82,4 @@ color: white;
     font-size:50px;
     font-family:'youth';
 }
+

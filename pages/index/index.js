@@ -4,7 +4,7 @@ Page({
   data: {
 // isHide is the user home page
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isHide: false,
+    isHide: true,
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
@@ -12,6 +12,8 @@ Page({
   },
 
   onLoad: function () {
+
+    console.log("on load ======================")
     var that = this;
     var story = "听不懂-解锁更多城市用语";
     var i = 0;
@@ -32,43 +34,7 @@ Page({
     //   success: function (res) {
     //   },
     //   fail: (res => {
-        wx.getSetting({
-          success: function (res) {
-            if (res.authSetting['scope.userInfo']) {
-              wx.getUserInfo({
-                success: function (res) {
-    // login check to get openID
-                  wx.login({
-                    success: res => {
-                      console.log("用户的code:" + res.code);
-                      let code = res.code
-                      wx.request({
-                          url: `${app.globalData.url}` + 'login',
-                          method: 'POST',
-                          data: {
-                            code: code
-                          },
-                          // check with shawn
-                          success: res => {
-                            console.log("****************POST FOR OPEN-ID************")
-                            app.globalData.userId = res.data.userId
-                            app.globalData.header = {
-                              'X-User-Email': `${res.data.email}`,
-                              'X-User-Token': `${res.data.userToken}`}
-                            console.log(app.globalData.header)
-                          }
-                      });
-                    }
-                  });
-                }
-              });
-            } else {
-              that.setData({
-                isHide: true
-              });
-            }
-          }
-        });
+        
     //   })
     // })
   },
@@ -90,6 +56,7 @@ Page({
   },
 
   bindGetUserInfo: function (e) {
+    let user_id = app.globalData.userId;
     if (e.detail.userInfo) {
       var page = this;
       console.log("userinfo：");
@@ -98,12 +65,9 @@ Page({
         isHide: false
       });
       app.globalData.userInfo = e.detail.userInfo;
-      wx.reLaunch({
-        url: 'index'
-      })
       console.log(app.globalData.header);
       wx.request({
-        url: `${app.globalData.url}users`,
+        url: `${app.globalData.url}users/${user_id}`,
         method: 'PUT',
         header: app.globalData.header,
         data: {

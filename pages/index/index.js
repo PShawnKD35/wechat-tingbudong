@@ -4,7 +4,7 @@ Page({
   data: {
 // isHide is the user home page
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isHide: false,
+    isHide: true,
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
@@ -13,6 +13,20 @@ Page({
 
   onLoad: function () {
     var that = this;
+    var story = "听不懂-解锁更多城市用语";
+    var i = 0;
+    var time = setInterval(function () {
+      var text = story.substring(0, i);
+      i++;
+      that.setData({
+        text: text
+      });
+      if (text.length == story.length) {
+        //   console.log("定时器结束！");
+        clearInterval(time);
+      }
+    }, 200)
+   
 // check authorisation granted or not
     // wx.checkSession({
     //   success: function (res) {

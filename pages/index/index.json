@@ -2,8 +2,6 @@
   "usingComponents": {
       "van-search": "/dist1/search/index",
       "van-tab": "/dist2/tab/index",
-      "van-tabs": "/dist2/tabs/index",
-      "top-search-bar": "../components/top-search-bar/top-search-bar",
-      "bottom-navbar": "../components/bottom-navbar/bottom-navbar"
+      "van-tabs": "/dist2/tabs/index"      
   }
 }

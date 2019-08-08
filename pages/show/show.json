@@ -1,5 +1,4 @@
 {
   "usingComponents": {
-    "top-search-bar": "../components/top-search-bar/top-search-bar"
   }
 }

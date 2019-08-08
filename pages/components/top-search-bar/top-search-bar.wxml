@@ -1,5 +1,0 @@
-<view class="top">
-  <view class="search-bar">
-    <van-search value="{{ value }}" shape ="round" background="transparent" placeholder="Search by tag or slang" />
-  </view>
-</view>

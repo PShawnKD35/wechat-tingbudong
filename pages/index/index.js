@@ -6,45 +6,60 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     isHide: false,
     DotStyle: true,
-    slangs: []
+    slangs: [],
+    ColorList: app.globalData.ColorList,
+    categories: [{ dialect: '官话' },{ dialect: '广东话' }, { dialect: '东北话' }, { dialect: '粤语' }, { dialect: '四川话' },{ dialect: '湖南话' }, { dialect: '客家话' }, { dialect: '闽南话' }]
   },
 
   onLoad: function () {
     var that = this;
 // check authorisation granted or not
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: function (res) {
-// login check to get openID
-              wx.login({
-                success: res => {
-                  console.log("用户的code:" + res.code);
-                  wx.request({
-                      url: `${app.globalData.url}` + 'login',
-                      method: 'POST',
-                      data: {
-                        code: res.code
-                      },
-                      success: res => {
-                        app.globalData.userId = res.data.userId
-                        app.globalData.header = {
-                          'X-User-Email': `${res.data.email}`,
-                          'X-User-Token': `${res.data.userToken}`}
-                      }
+    // wx.checkSession({
+    //   success: function (res) {
+    //   },
+    //   fail: (res => {
+        wx.getSetting({
+          success: function (res) {
+            if (res.authSetting['scope.userInfo']) {
+              wx.getUserInfo({
+                success: function (res) {
+    // login check to get openID
+                  wx.login({
+                    success: res => {
+                      console.log("用户的code:" + res.code);
+                      let code = res.code
+                      wx.request({
+                          url: `${app.globalData.url}` + 'login',
+                          method: 'POST',
+                          data: {
+                            code: code
+                          },
+                          // check with shawn
+                          success: res => {
+                            console.log(res)
+                            app.globalData.userId = res.data.userId
+                            app.globalData.header = {
+                              'X-User-Email': `${res.data.email}`,
+                              'X-User-Token': `${res.data.userToken}`}
+                            console.log(app.globalData.header)
+                          }
+                      });
+                    }
                   });
                 }
               });
+            } else {
+              that.setData({
+                isHide: true
+              });
             }
-          });
-        } else {
-          that.setData({
-            isHide: true
-          });
-        }
-      }
-    });
+          }
+        });
+    //   })
+    // })
+  },
+
+  onShow: function (e) {
     wx.request({
       url: `${app.globalData.url}` + 'slangs',
       header: app.globalData.header,
@@ -67,9 +82,12 @@ Page({
         isHide: false
       });
       app.globalData.userInfo = e.detail.userInfo;
+      wx.reLaunch({
+        url: 'index'
+      })
       console.log(app.globalData.header);
       wx.request({
-        url: `${app.globalData.url}users/${app.globalData.userId}`,
+        url: `${app.globalData.url}users`,
         method: 'PUT',
         header: app.globalData.header,
         data: {
@@ -93,7 +111,21 @@ Page({
       });
     }
   },
-
+// search
+  searchInput: function(e) {
+    wx.request({
+      url: `${app.globalData.url}slangs`,
+      method: 'GET',
+      header: app.globalData.header,
+      data: e.detail,
+      success: function(res) {
+        this.setData({
+          slangs: res.data.slangs
+        })
+      }
+    })
+  },
+// to show
   toSlangShow: function(event) {
     console.log(event)
     let id = event.currentTarget.dataset.id

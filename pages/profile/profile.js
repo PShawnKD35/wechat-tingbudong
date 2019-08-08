@@ -1,66 +1,56 @@
-// pages/profile/profile.js
+const app = getApp()
+
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
-
+    userInfo: app.globalData.userInfo,
+    slangs: [{
+      name: 'sdfsd',
+      definitions: {
+        content: 'dsafdsfsda',
+        likes: 99
+        }
+      },
+      {
+        name: 'sdfsd',
+        definitions: {
+          content: 'dsafdsfsda',
+          likes: 99
+        }
+      },
+      {
+        name: 'sdfsd',
+        definitions: {
+          content: 'dsafdsfsda',
+          likes: 99
+        }
+      },
+      {
+        name: 'sdfsd',
+        definitions: {
+          content: 'dsafdsfsda',
+          likes: 99
+        }
+      }
+    ]
   },
 
-  /**
-   * Lifecycle function--Called when page load
-   */
   onLoad: function (options) {
-
+    var that = this;
+    wx.showLoading({
+      title: 'Loading',
+    })
+    setTimeout(function () {
+      that.setData({
+        userInfo: app.globalData.userInfo
+      })
+      wx.hideLoading()
+    }, 1000)
+    console.log(app.globalData.userInfo)
   },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+  // cardSwiper
+  cardSwiper(e) {
+    this.setData({
+      cardCur: e.detail.current
+    })
   }
 })

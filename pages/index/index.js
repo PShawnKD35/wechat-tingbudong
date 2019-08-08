@@ -4,7 +4,7 @@ Page({
   data: {
 // isHide is the user home page
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isHide: true,
+    isHide: false,
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,

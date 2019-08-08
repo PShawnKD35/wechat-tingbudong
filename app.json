@@ -30,8 +30,8 @@
       {
         "pagePath": "pages/form/form",
         "text": "Create",
-        "iconPath": "/images/idea-2.png",
-        "selectedIconPath": "/images/idea.png"
+        "iconPath": "/images/pencil-2.png",
+        "selectedIconPath": "/images/pencil.png"
       },
       {
         "pagePath": "pages/profile/profile",

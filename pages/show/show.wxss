@@ -36,6 +36,17 @@ border-radius: 20px;
 
 }
 
+.add-definition {
+  margin-left: 140rpx;
+  font-size: 50rpx;
+
+}
+
+.add-definition text {
+  font-size: 50rpx;
+  margin-left:10rpx;
+}
+
 #edit-slang{
   padding-left: 30rpx;
   font: 15rpx;

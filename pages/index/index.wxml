@@ -2,11 +2,8 @@
 
 <view wx:if="{{isHide}}">
     <view wx:if="{{canIUse}}" >
-         <image class='header'src='https://media.giphy.com/media/3ov9jNFwV8DIzOd7xe/giphy.gif'mode="widthFix"></image>
-      <!-- <view class="title slogan" style="position: absolute; top: 40%; left: 52%; transform: translate(-50%, -50%);">
-        <text>{{text}}</text>
-        <text>城市用语</text>
-      </view> -->
+         <image class='header'src='https://lc-l8bhbw53.cn-n1.lcfile.com/689521c0f769729749b7/AEE31F2B-3A93-403A-BD1B-B6C33B43D240.gif'mode="widthFix"></image>
+     
 
     <view class="title slogan" style="position: absolute; top: 40%; left: 52%; transform: translate(-50%, -50%); height:500rpx;">
     <text>{{text}}</text>
@@ -44,7 +41,7 @@
   <!-- first swiper-item -->
     <swiper-item>
       <view class="popular-card" style="position: relative;" mode="aspectFill">
-      <image class="gif" src='https://media.giphy.com/media/l378kCHSmb5z0UNQ4/giphy.gif'></image>
+      <image class="gif" src='https://lc-l8bhbw53.cn-n1.lcfile.com/4a60053c964dc9ec2968/DAE3C7EC-3DC1-4FB8-B329-37B2E4639909.gif'></image>
       <view style="background: linear-gradient(black,red)">
       <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">今天还听不懂吗？</text>
       </view>

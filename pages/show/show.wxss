@@ -35,3 +35,13 @@ border-radius: 20px;
   bottom: 0rpx;
 
 }
+
+#edit-slang{
+  padding-left: 30rpx;
+  font: 15rpx;
+}
+
+#save-slang {
+  padding-left: 15rpx;
+  font: 15rpx;
+}

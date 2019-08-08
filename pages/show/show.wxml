@@ -12,7 +12,8 @@
       <view class="h1"><text> {{slang.name}} </text>
       
         <view id="show-card-avatar" class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
-        <text data-id="{{slang.id}}" data-name="{{slang.name}}" id= "edit-slang" class="cuIcon-edit lg text-white" bindtap="editSlang"></text>
+        <text data-id="{{slang.id}}" data-name="{{slang.name}}" id= "edit-slang" class="cuIcon-edit sm text-white" bindtap="editSlang"></text>
+        <text id="save-slang" bindtap="saveSlang" class="cuIcon-{{favored?'favorfill':'favor'}}"></text>
       </view>
       <view class="p"><text></text></view> 
         <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="1000" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff"> 

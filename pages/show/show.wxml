@@ -37,8 +37,8 @@
     </block>  
     
   </swiper>  
-  <!-- <button class="cu-btn bg-white shadow" data-id="{{slang.id}}" data-name="{{slang.name}}" bindtap="addDefinition"><text id="add" class="cuIcon-add text-black" ></text>definition!</button>          -->
-  <view class="add-definition cuIcon-roundaddfill xl text-white"><text>创建我的定义</text></view>
+ 
+  <view bindtap="addDefinition" data-id="{{slang.id}}" data-name="{{slang.name}}" class="add-definition cuIcon-roundaddfill xl text-white"><text>创建我的定义</text></view>
 
 
   </view>

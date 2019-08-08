@@ -3,10 +3,7 @@
 <view wx:if="{{isHide}}">
     <view wx:if="{{canIUse}}" >
          <image class='header'src='https://media.giphy.com/media/3ov9jNFwV8DIzOd7xe/giphy.gif'mode="widthFix"></image>
-      <!-- <view class="title slogan" style="position: absolute; top: 40%; left: 52%; transform: translate(-50%, -50%);">
-        <text>{{text}}</text>
-        <text>城市用语</text>
-      </view> -->
+     
 
     <view class="title slogan" style="position: absolute; top: 40%; left: 52%; transform: translate(-50%, -50%); height:500rpx;">
     <text>{{text}}</text>

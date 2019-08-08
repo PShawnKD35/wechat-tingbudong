@@ -1,8 +1,12 @@
 /* pages/addDefinition/addDefinition.wxss */
 .blue {
   background:linear-gradient(110deg, #0081ff, #1cbbb4);
+  height:100vh;
+
+}
+.head {
+  width: 100vw;
   height: 300rpx;
-  padding:50rpx 0 50rpx 0;
 }
 
 
@@ -35,7 +39,7 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 .info {
   display: flex;
   padding:50rpx;
-  margin-left:100rpx;
+  margin-left: 30rpx;
 
 }
 .userinfo{

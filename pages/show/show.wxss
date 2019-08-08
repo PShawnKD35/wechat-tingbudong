@@ -35,3 +35,13 @@ border-radius: 20px;
   bottom: 0rpx;
 
 }
+.add-definition {
+  margin-left: 140rpx;
+  font-size: 50rpx;
+
+}
+
+.add-definition text {
+  font-size: 50rpx;
+  margin-left:10rpx;
+}

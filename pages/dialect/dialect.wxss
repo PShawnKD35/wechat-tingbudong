@@ -1,0 +1,66 @@
+/* pages/dialect/dialect.wxss */
+
+.blue {
+  background:linear-gradient(110deg, #0081ff, #1cbbb4);
+  height:100%;
+  z-index: -1;
+
+}
+
+.header image {
+  margin:20rpx;
+  width: 95vw;
+  height: 300rpx;
+  border-radius: 40rpx;
+}
+
+.title {
+  font-family: PingFang HK;
+font-weight: 500;
+font-size: 90rpx;
+line-height: 123rpx;
+color: white;
+
+}
+
+/* actual index */
+.popular-card {
+  height: 400rpx;
+  margin: 5rpx;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+.gif {
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+}
+
+#log-in {
+  height:100rpx;
+}
+
+#banner {
+  font-size: 70rpx;
+  font-family: helvetica;
+  font-style: bold;
+  justify-content: space-around
+}
+
+#button-swiper {
+  height: 120rpx;
+}
+
+
+.van-icon {
+    position:relative;
+    display:inline-block;
+    font:normal normal normal 14px/1 vant-icon;
+    font-size:inherit;
+    text-rendering:auto;
+}
+.van-icon-upgrade::before {
+    content:"\F058";
+}
+.test {
+    font-size:50px;
+    font-family:'youth';
+}
+

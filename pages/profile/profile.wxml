@@ -3,8 +3,6 @@
  <!--copying from pages/addservice-->
  <view class="blue">
  <image class="head" src='https://lc-l8bhbw53.cn-n1.lcfile.com/4a60053c964dc9ec2968/DAE3C7EC-3DC1-4FB8-B329-37B2E4639909.gif'></image>
-  <!-- <view class="title">听不懂？</view>
-  <view class="title">不要紧!</view> -->
      <view class="white">
 
  <!-- show avatar-->

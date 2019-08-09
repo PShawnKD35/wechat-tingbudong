@@ -8,7 +8,6 @@ Page({
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
-
     categories: [{ dialect: '官话' },{ dialect: '广东话' }, { dialect: '东北话' }, { dialect: '台语' }, { dialect: '四川话' },{ dialect: '湖南话' }, { dialect: '客家话' }, { dialect: '闽南话' }],
     favored: false,
     searched: false
@@ -61,43 +60,49 @@ Page({
   },
 
   bindGetUserInfo: function (e) {
-    let user_id = app.globalData.userId;
-    if (e.detail.userInfo) {
-      var page = this;
-      console.log("userinfo：");
-      console.log(e.detail.userInfo);
-      page.setData({
-        isHide: false
-      });
-      app.globalData.userInfo = e.detail.userInfo;
-      console.log(app.globalData.header);
-      wx.request({
-        url: `${app.globalData.url}users/${user_id}`,
-        method: 'PUT',
-        header: app.globalData.header,
-        data: {
-          name: app.globalData.userInfo.nickName,
-          avatar_url: app.globalData.userInfo.avatarUrl
-        },
-        success: function(res) {
-          console.log("****************PUT FOR USERINFO************")
+    var page = this;
+    console.log(e)
+    wx.getUserInfo({
+      success: function (res) {
+        let user_id = app.globalData.userId;
+        if (e.detail.userInfo) {
+          console.log("userinfo：");
+          console.log(e.detail.userInfo);
+          page.setData({
+            isHide: false
+          });
+          app.globalData.userInfo = e.detail.userInfo;
+          console.log(app.globalData.header);
+          wx.request({
+            url: `${app.globalData.url}users/${user_id}`,
+            method: 'PUT',
+            header: app.globalData.header,
+            data: {
+              name: app.globalData.userInfo.nickName,
+              avatar_url: app.globalData.userInfo.avatarUrl
+            },
+            success: function(res) {
+              console.log("****************PUT FOR USERINFO************")
+            }
+          })
+        } else {
+          //用户按了拒绝按钮
+          wx.showModal({
+            title: 'Warning',
+            content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!',
+            showCancel: false,
+            confirmText: '返回授权',
+            success: function (res) {
+              // 用户没有授权成功，不需要改变 isHide 的值
+              if (res.confirm) {
+                console.log('用户点击了“返回授权”');
+              }
+            }
+          });
         }
-      })
-    } else {
-      //用户按了拒绝按钮
-      wx.showModal({
-        title: 'Warning',
-        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!',
-        showCancel: false,
-        confirmText: '返回授权',
-        success: function (res) {
-          // 用户没有授权成功，不需要改变 isHide 的值
-          if (res.confirm) {
-            console.log('用户点击了“返回授权”');
-          }
-        }
-      });
-    }
+
+      }
+    });
   },
 // search
   onSearch: function(e) {

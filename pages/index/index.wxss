@@ -15,7 +15,10 @@ font-weight: 500;
 font-size: 90rpx;
 line-height: 123rpx;
 color: white;
+}
 
+#definition-swiper {
+  height: 250px;
 }
 
 .slogan{

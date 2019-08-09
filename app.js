@@ -57,8 +57,8 @@ App({
     userInfo: null,
     userId: '',
     header: {},
-    url: `http://localhost:3000/api/v1/`,
-    // url: `https://tingbsudong.wogengapp.cn/api/v1/`,
+    // url: `http://localhost:3000/api/v1/`,
+    url: `https://tingbudong.wogengapp.cn/api/v1/`,
     header: '',
     ColorList: [{ name: 'red' }, { name: 'orange' }, { name: 'blue' }, { name: 'green' }, { name: 'olive' }, { name: 'yellow' }, { name: 'cyan' }, { name: 'purple' }, { name: 'mauve' }, { name: 'pink' }, { name: 'brown' }, { name: 'grey' }]
   }

@@ -42,11 +42,13 @@ Page({
   },
 
   editDefinition: function (e) {
+    console.log(e)
     let id = e.currentTarget.dataset.id
     let name = e.currentTarget.dataset.name
     let content = e.currentTarget.dataset.content
+    let slangid = e.currentTarget.dataset.slangid
     wx.navigateTo({
-      url: `/pages/editDef/editDef?id=${id}&name=${name}&content=${content}`,
+      url: `/pages/editDef/editDef?id=${id}&name=${name}&content=${content}&slangid=${slangid}`
     })
   },
 

@@ -7,7 +7,7 @@ Page({
     tag: '',
     slang_id: '',
     sticker_url: [],
-    imgList: []
+    imgList: [],
   },
 
   onLoad: function (options) {
@@ -19,10 +19,8 @@ Page({
     })
   },
 
-  slangName(e) {
-    this.setData({
-      name: e.detail.value
-    })
+  slangTag: function (e) {
+    console.log(e.detail.value)
   },
 
   submitNewSlang(e) {
@@ -43,19 +41,22 @@ Page({
           header: app.globalData.header,
           data: {
             content: page.data.content,
-            slang_id: page.data.slang_id
+            slang_id: page.data.slang_id,
+            sticker_url: page.data.imgList
           },
           success: function (res) {
             console.log(res)
+            console.log(page.data.slang_id)
+            wx.navigateTo({
+              url: `/pages/show/show?id=${page.data.slang_id}`,
+            })
+            wx.showToast({
+              title: `Slang Added🥳`,
+              icon: 'none'
+            });
           }
         })
-        wx.navigateTo({
-          url: `/pages/show/show?id=${page.data.slang_id}`,
-        })
-        wx.showToast({
-          title: `Slang Added🥳`,
-          icon: 'none'
-        });
+
       }
     })
   },

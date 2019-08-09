@@ -22,7 +22,11 @@ Page({
   },
   
   dialectTag: function (e) {
-    console.log(e)
+    let dialectTag = e.detail.value
+    // this.setData({
+    //   dialectTag: e.detail.value
+    // })
+    // console.log(this.data.dialectTag)
   },
 
   dialectSelect: function (e) {
@@ -48,9 +52,9 @@ Page({
         method: 'POST',
         header: app.globalData.header,
         data: {
-          slang_id: page.data.slang_id,
           tag: {
-            dialect_name: dialect
+            dialect_name: dialect,
+            slang_id: page.data.slang_id
           },
           // slang: page.data.name
         },

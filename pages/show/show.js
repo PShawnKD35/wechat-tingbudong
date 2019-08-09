@@ -1,7 +1,9 @@
 const app = getApp()
 Page({
   data: {
-    favored: false
+    favored: false,
+    liked: false,
+    likedNum: 0,
   },
   
   onLoad: function (options) {
@@ -14,13 +16,17 @@ Page({
         page.setData({
           slang: res.data.slang
         })
+        console.log(res.data)
       }
     })
   },
 // definition id required
 // param missing
   giveItaLike: function (e) {
-    console.log(e.currentTarget.dataset.id)
+    console.log(e.currentTarget.dataset.id)    
+    const liked = !this.data.liked
+    this.setData({ liked: liked })
+// neeeeed to make it dynamic
     let definition_id = e.currentTarget.dataset.id
     wx.request({
       url: `${app.globalData.url}likes`,

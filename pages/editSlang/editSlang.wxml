@@ -7,11 +7,22 @@
       
       <view class="form-group">
      
-        <!--category input-->
-        <view class="section__title">Add new tags</view>
+        <!--tag area input-->
+        <view class="section__title">Select Dialect Tags</view>
           <view class="input">
-            <input type="text" bindinput="slangTag" name="slangTag" maxlength="60" placeholder="#chinese #东北话 #流行语" />
-          </view>
+            <input type="text" name="slangTag" maxlength="60" placeholder="" value="{{dialectTag}}"/>
+  </view>
+        <scroll-view scroll-x class="nav" scroll-with-animation scroll-left>
+          <block wx:for="{{categories}}" wx:for-item="category" wx:key="category">
+            <button class="cu-btn round bg-cyan df margin-sm shadow" data-dialect="{{category.dialect}}" bindtap="dialectSelect">
+            <text class="cuIcon-tag"></text>{{category.dialect}}</button>
+          </block>
+        </scroll-view>
+        <!--tag input -->
+        <view class="section__title">Add New Tags</view>
+          <view class="input">
+            <input type="text" bindinput="slangTag" name="slangTag" maxlength="60" placeholder="" />
+        </view>
 
         <!--uploadImage input-->
 <view class="section__title">上传一个表情 </view>
@@ -36,7 +47,7 @@
       <!--button input-->
 
      <view class="padding flex flex-direction" >
-        <button bindtap="submitNewSlang" formType="submit" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Enter</button>
+        <button bindtap="editSlang" formType="submit" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Enter</button>
      </view>
         
     <!--button input-->

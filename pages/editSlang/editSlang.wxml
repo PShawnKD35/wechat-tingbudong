@@ -10,7 +10,7 @@
         <!--tag area input-->
         <view class="section__title">Select Dialect Tags</view>
           <view class="input">
-            <input type="text" name="slangTag" maxlength="60" placeholder="" value="{{dialectTag}}"/>
+            <input type="text" name="slangTag" maxlength="60" placeholder="" bindinput="dialectTag" value="{{dialectTag}}"/>
   </view>
         <scroll-view scroll-x class="nav" scroll-with-animation scroll-left>
           <block wx:for="{{categories}}" wx:for-item="category" wx:key="category">

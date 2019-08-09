@@ -26,9 +26,9 @@
                 <view class="text-content" id="definition-text">
                 {{definition.content}}</view>
                 <view class="content flex-sub">
-                <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user}} 2019年12月3日
+                <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user}} {{definition.created_at}}
                       
-                <text data-id="{{definition.id}}" id="like" class="cuIcon-like lg text-grey" bindtap="giveItaLike" >{{definition.likes}}</text>
+                <text data-id="{{definition.id}}" id="like" class="cuIcon-like lg text-{{liked?'red':'grey'}}" bindtap="giveItaLike" >{{definition.likes}}</text>
                 </view>
               </view>
           </view>
@@ -38,6 +38,13 @@
     </block>  
     
   </swiper>  
+  
+          <!-- <scroll-view scroll-x class="nav" scroll-with-animation scroll-left>
+          <block wx:for="{{tags}}" wx:for-item="category" wx:key="category">
+            <button class="cu-btn round bg-cyan df margin-sm shadow" data-dialect="{{category.dialect}}" bindtap="dialectSelect">
+            <text class="cuIcon-tag"></text>ds</button>
+          </block>
+        </scroll-view> -->
  
   <view bindtap="addDefinition" data-id="{{slang.id}}" data-name="{{slang.name}}" class="add-definition cuIcon-roundaddfill xl text-white"><text>创建我的定义</text></view>
   <view class="grid col-3 grid-square">

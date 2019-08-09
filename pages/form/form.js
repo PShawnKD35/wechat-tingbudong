@@ -67,19 +67,20 @@ Page({
           header: app.globalData.header,
           data: {
             content: page.data.content,
-            slang_id: page.data.slang_id
+            slang_id: page.data.slang_id,
+            sticker_url: page.data.imgList
           },
           success: function (res) {
             console.log(res)
+            wx.navigateTo({
+              url: `/pages/show/show?id=${page.data.slang_id}`,
+            })
+            wx.showToast({
+              title: `Slang Added🥳`,
+              icon: 'none'
+            });
           }
         })
-        wx.navigateTo({
-          url: `/pages/show/show?id=${page.data.slang_id}`,
-        })
-        wx.showToast({
-          title: `Slang Added🥳`,
-          icon: 'none'
-        });
       }
     })
   },

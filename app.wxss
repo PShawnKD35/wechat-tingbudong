@@ -15,8 +15,8 @@
 #background{
 flex:70%;
 width: 300rpx;
-height: 700rpx;
-background: rgb(216,240,240);
+height: 800rpx;
+/* background: rgb(216,240,240); */
 border-radius: 10rpx;
 }
 
@@ -36,11 +36,13 @@ border-radius: 10rpx;
   font-size: 20rpx;
   padding-left: 30rpx;
   padding-bottom: 20rpx;
+  text-align: left;
 }
 
 #definition-text {
   padding: 30rpx;
   color: black !important;
+  
 }
 
 #show-card,

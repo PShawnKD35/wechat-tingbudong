@@ -10,7 +10,7 @@
         <!--category input-->
         <view class="section__title">Add new tags</view>
           <view class="input">
-            <input type="text" bindinput="definitionTag" name="definitionTag" maxlength="60" placeholder="#chinese #东北话 #流行语" />
+            <input type="text" bindinput="slangTag" name="slangTag" maxlength="60" placeholder="#chinese #东北话 #流行语" />
           </view>
 
         <!--uploadImage input-->

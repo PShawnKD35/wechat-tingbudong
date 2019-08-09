@@ -1,0 +1,23 @@
+/* pages/dialect/dialect.wxss */
+
+.blue {
+  background:linear-gradient(110deg, #0081ff, #1cbbb4);
+  height:110vh;
+
+}
+
+.header image {
+  margin:20rpx;
+  width: 95vw;
+  height: 300rpx;
+  border-radius: 40rpx;
+}
+
+.title {
+  font-family: PingFang HK;
+font-weight: 500;
+font-size: 90rpx;
+line-height: 123rpx;
+color: white;
+
+}

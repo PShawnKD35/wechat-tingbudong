@@ -70,6 +70,7 @@
       <view class="h1"><text>{{slang.name}}</text>
         <view data-id="{{slang.id}}" id="show-card-avatar" class="cu-avatar round lg" style="background-image:url('{{slang.user.avatar_url}}');">
         </view>
+        <p>{{slang.tag}}</p>
       </view>
       <view class="p"><text></text></view> 
 <!-- second lopp for definition -->

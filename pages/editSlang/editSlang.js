@@ -8,6 +8,8 @@ Page({
     slang_id: '',
     sticker_url: [],
     imgList: [],
+    dialectTag: [],
+    categories: [{ dialect: '官话' }, { dialect: '广东话' }, { dialect: '东北话' }, { dialect: '台语' }, { dialect: '四川话' }, { dialect: '湖南话' }, { dialect: '客家话' }, { dialect: '闽南话' }]
   },
 
   onLoad: function (options) {
@@ -18,45 +20,62 @@ Page({
       slang_id: id
     })
   },
+  
+  dialectTag: function (e) {
+    console.log(e)
+  },
+
+  dialectSelect: function (e) {
+    console.log(e.currentTarget.dataset.dialect)
+    let dialect = e.currentTarget.dataset.dialect
+    let dialectTag = this.data.dialectTag
+    dialectTag.push(dialect)
+    this.setData({
+      dialectTag: dialectTag
+    })
+  },
 
   slangTag: function (e) {
     console.log(e.detail.value)
   },
 
-  submitNewSlang(e) {
+  editSlang(e) {
     let page = this
-    console.log(app.globalData.header)
-    console.log(page.data.name)
-    wx.request({
-      url: `${app.globalData.url}slangs`,
-      method: 'POST',
-      header: app.globalData.header,
-      data: { name: page.data.name },
-      success: function (res) {
-        page.data.slang_id = res.data.slang_id
-        console.log(page.data.slang_id)
-        wx.request({
-          url: `${app.globalData.url}definitions`,
-          method: 'POST',
-          header: app.globalData.header,
-          data: {
-            content: page.data.content,
-            slang_id: page.data.slang_id,
-            sticker_url: page.data.imgList
+    page.data.dialectTag.forEach((dialect) => {
+      console.log("TAGGGGGGGGGGG")
+      wx.request({
+        url: `${app.globalData.url}tags`,
+        method: 'POST',
+        header: app.globalData.header,
+        data: {
+          slang_id: page.data.slang_id,
+          tag: {
+            dialect_name: dialect
           },
-          success: function (res) {
-            console.log(res)
-            console.log(page.data.slang_id)
-            wx.navigateTo({
-              url: `/pages/show/show?id=${page.data.slang_id}`,
-            })
-            wx.showToast({
-              title: `Slang Added🥳`,
-              icon: 'none'
-            });
-          }
+          // slang: page.data.name
+        },
+        success: function (res){
+          console.log(res)
+        }
+      })
+    }),
+    wx.request({
+      url: `${app.globalData.url}slangs/${page.data.slang_id}`,
+      method: 'PUT',
+      header: app.globalData.header,
+      data: {
+        content: page.data.content,
+        slang_id: page.data.slang_id,
+        sticker_url: page.data.imgList
+      },
+      success: function (res) {
+        wx.navigateTo({
+          url: `/pages/show/show?id=${page.data.slang_id}`,
         })
-
+        wx.showToast({
+          title: `New stuffs Added🥳`,
+          icon: 'none'
+        });
       }
     })
   },

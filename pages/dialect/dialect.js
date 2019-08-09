@@ -1,10 +1,16 @@
 // pages/dialect/dialect.js
+const app = getApp()
 Page({
 
   /**
    * Page initial data
    */
   data: {
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isHide: true,
+    DotStyle: true,
+    slangs: [],
+    ColorList: app.globalData.ColorList,
 
   },
 
@@ -26,6 +32,22 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
+    this.setData({
+      searched: false
+    })
+    wx.request({
+      url: `${app.globalData.url}` + 'slangs',
+      header: app.globalData.header,
+      method: 'GET',
+      success: res => {
+        console.log("****************GET FOR SLANGS************")
+        this.setData({
+          slangs: res.data.slangs
+        })
+        console.log(this.data.slangs)
+        // console.log(new Date(res.data.slangs.first["created_at"]))
+      }
+    })
 
   },
 
@@ -62,5 +84,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  cardSwiper(e) {
+    this.setData({
+      cardCur: e.detail.current
+    })
   }
 })

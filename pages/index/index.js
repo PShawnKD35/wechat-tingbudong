@@ -8,12 +8,13 @@ Page({
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
-    categories: [{ dialect: '官话' },{ dialect: '广东话' }, { dialect: '东北话' }, { dialect: '粤语' }, { dialect: '四川话' },{ dialect: '湖南话' }, { dialect: '客家话' }, { dialect: '闽南话' }],
-    // favored: false??S??//、、//
+
+    categories: [{ dialect: '官话' },{ dialect: '广东话' }, { dialect: '东北话' }, { dialect: '台语' }, { dialect: '四川话' },{ dialect: '湖南话' }, { dialect: '客家话' }, { dialect: '闽南话' }],
+    favored: false,
+    searched: false
   },
 
   onLoad: function () {
-
     console.log("on load ======================")
     var that = this;
     var story = "听不懂-解锁更多城市用语";
@@ -29,7 +30,7 @@ Page({
         clearInterval(time);
       }
     }, 200)
-   
+
 // check authorisation granted or not
     // wx.checkSession({
     //   success: function (res) {
@@ -41,6 +42,9 @@ Page({
   },
 
   onShow: function (e) {
+    this.setData({
+      searched: false
+    })
     wx.request({
       url: `${app.globalData.url}` + 'slangs',
       header: app.globalData.header,
@@ -96,18 +100,29 @@ Page({
     }
   },
 // search
-  searchInput: function(e) {
+  onSearch: function(e) {
+    console.log("SEARCHHHHHHHHINGGGGGGGGGG")
+    console.log(e.detail)
+    let page = this
     wx.request({
       url: `${app.globalData.url}slangs`,
       method: 'GET',
       header: app.globalData.header,
-      data: e.detail,
+      data: { name: e.detail },
       success: function(res) {
-        this.setData({
-          slangs: res.data.slangs
+        console.log(res)
+        page.setData({
+        slangs: res.data.slangs,
+        searched: true
         })
+        if (e.detail == '') {
+          page.setData({
+            searched: false
+          })
+        } 
       }
-    })
+    });
+
   },
 // to show
   toSlangShow: function(event) {

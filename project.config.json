@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 8,
 			"list": [
 				{
 					"id": 1,
@@ -104,6 +104,12 @@
 					"name": "Add definition",
 					"pathName": "pages/addDef/addDef",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/dialect/dialect",
+					"pathName": "pages/dialect/dialect",
 					"scene": null
 				}
 			]

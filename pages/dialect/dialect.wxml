@@ -5,7 +5,7 @@
 <!--background and header-->
 <view class="blue">
   <view class="header">
-  <image src="https://media2.giphy.com/media/SI7JdaPix700qX6qCm/giphy.gif?cid=790b76112b73cbd45885bfb89fbb4f5d8d13283f306bf2c7&rid=giphy.gif" mode="aspectFill" style="background: linear-gradient(grey,grey)"></image>
+  <image src="https://lc-l8bhbw53.cn-n1.lcfile.com/4754d584c95956c32a80/147137AC-2AFD-4D9D-A09A-D463421225EC.gif" mode="aspectFill" style="background: linear-gradient(grey,grey)"></image>
   <text class="title" style="position: absolute; top: 21%; left: 50%; transform: translate(-50%, -50%);">#广东话</text>
   </view>
 

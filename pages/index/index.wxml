@@ -9,7 +9,6 @@
     <text>{{text}}</text>
     </view>
 
- 
 
         <view class="flex flex-direction" style="margin: 70rpx" >
         <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" class="cu-btn bg-gradual-blue margin-tb-sm lg" id="log-in">解锁听不懂</button>
@@ -84,9 +83,7 @@
                 <view class="text-content" id="definition-text">{{definition.content}}</view>
                       <view class="content flex-sub">
                       <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user}} {{definition.created_at}}
-                  
                       </view>
-
                   </view>
                 </view>
 

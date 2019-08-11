@@ -4,6 +4,9 @@ const config = require('./key')
 App({
   onLaunch: function () {
     let page = this
+    // setTimeout(function () {
+    //   wx.hideTabBar()
+    // }, 500),
     console.log(123, page.globalData)
     wx.getSystemInfo({
       success: e => {
@@ -18,7 +21,9 @@ App({
       appKey: config.appKey,
     });
     console.log("******************Starting the login Process*****************")
-    
+    wx.showLoading({
+      title: 'Loading',
+    }),
     wx.login({
       success: res => {
         console.log("**********************Getting User's Code**********************")
@@ -42,8 +47,10 @@ App({
             console.log(page.globalData.header)
           }
         });
-      }
+      },
     });
+
+
 
     // 获取用户信息
     wx.getSetting({
@@ -54,7 +61,6 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
-              getApp().globalData.isHide = false
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
@@ -65,18 +71,6 @@ App({
         }
       }
     })
-
-    // wx.getSetting({
-    //   success: function (res) {
-    //     if (res.authSetting['scope.userInfo']) {
-    //       wx.getUserInfo({
-    //         success: res => {
-    //           getApp().globalData.isHide = false
-    //         }
-    //       });
-    //     } 
-    //   }
-    // });
   },
 
   globalData: {
@@ -87,7 +81,6 @@ App({
     url: `http://localhost:3000/api/v1/`,
     // url: `https://tingbudong.wogengapp.cn/api/v1/`,
     header: '',
-    dialects: ['官话', '广东话', '东北话', '台语', '四川话', '湖南话', '客家话', '闽南话'],
     ColorList: [{ name: 'red' }, { name: 'orange' }, { name: 'blue' }, { name: 'green' }, { name: 'olive' }, { name: 'yellow' }, { name: 'cyan' }, { name: 'purple' }, { name: 'mauve' }, { name: 'pink' }, { name: 'brown' }, { name: 'grey' }]
   }
 })

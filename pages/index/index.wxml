@@ -1,26 +1,5 @@
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">听不懂</view></cu-custom>
 
-<view wx:if="{{isHide}}">
-    <view wx:if="{{canIUse}}" >
-         <image class='header'src='https://lc-l8bhbw53.cn-n1.lcfile.com/689521c0f769729749b7/AEE31F2B-3A93-403A-BD1B-B6C33B43D240.gif'mode="widthFix"></image>
-     
-
-    <view class="title slogan" style="position: absolute; top: 40%; left: 52%; transform: translate(-50%, -50%); height:500rpx;">
-    <text>{{text}}</text>
-    </view>
-
- 
-
-        <view class="flex flex-direction" style="margin: 70rpx" >
-        <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" class="cu-btn bg-gradual-blue margin-tb-sm lg" id="log-in">解锁听不懂</button>
-        </view>
-        
-    </view>
-    <view wx:else>请升级微信版本</view>
-</view>
-
-<view wx:else>
-<!-- top search bar & brand-logo -->
 <view class="top">
   <view class="search-bar">
     <van-search value="{{ value }}" shape ="round" background="transparent" placeholder="Search by tag or slang" use-action-slot bind:search="onSearch" />
@@ -28,7 +7,7 @@
 </view>
 <!--tag swiper -->
 <scroll-view scroll-x class="bg-gradual-blue nav" scroll-with-animation scroll-left>
-  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{dialects}}" wx:key="dialect" bindtap="tabSelect">
+  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{dialects}}" wx:key="dialect" data-dialect="{{dialects}}" bindtap="tabSelect">
     <text class="cuIcon-tag lg text-white">{{item}}</text> 
 
   </view>
@@ -40,24 +19,24 @@
     <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
   <!-- first swiper-item -->
     <swiper-item>
-      <view class="popular-card" style="position: relative;" mode="aspectFill">
-      <image class="gif" src='https://lc-l8bhbw53.cn-n1.lcfile.com/4a60053c964dc9ec2968/DAE3C7EC-3DC1-4FB8-B329-37B2E4639909.gif'></image>
-      <view style="background: linear-gradient(black,red)">
-      <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">今天还听不懂吗？</text>
-      </view>
-      </view>
+        <view class="popular-card" style="position: relative;" mode="aspectFill">
+        <image class="gif" src='https://lc-l8bhbw53.cn-n1.lcfile.com/4a60053c964dc9ec2968/DAE3C7EC-3DC1-4FB8-B329-37B2E4639909.gif'></image>
+          <view style="background: linear-gradient(black,red)">
+            <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">今天还听不懂吗？</text>
+          </view>
+        </view>
     </swiper-item>      
   <!-- first swiper-item -->
   <!-- second swiper-item -->
     <swiper-item>
-      <view class="popular-card" mode="aspectFill">
-      <image class="gif" src='https://media.giphy.com/media/l378kCHSmb5z0UNQ4/giphy.gif'></image>
+    <view class="popular-card" mode="aspectFill">
+        <image class="gif" src='https://media.giphy.com/media/l378kCHSmb5z0UNQ4/giphy.gif'></image>
       <view style="background: linear-gradient(black,red)">
-      <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">我们教你</text>
+        <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">我们教你</text>
       </view>
 
-      </view>
-    </swiper-item>      
+    </view>
+  </swiper-item>      
   <!-- second swiper-item -->
   </swiper>
 </view>
@@ -100,10 +79,10 @@
         </swiper>         
           <view id="tag-block">
             <block wx:for="{{slang.dialects}}" wx:key="dialect">
-              <view id="tags" class="cu-tag bg-red padding-sm light"><text class="cuIcon-tag"></text>{{item}}</view>
+              <view id="tags" class="cu-tag round bg-red padding-sm light"><text class="cuIcon-tag"></text>{{item}}</view>
             </block>
             <block wx:for="{{slang.tags}}" wx:key="tag">
-              <view id="tags" class="cu-tag bg-pink padding-sm  light"><text class="cuIcon-tag"></text>{{item}}</view>
+              <view id="tags" class="cu-tag round bg-pink padding-sm  light"><text class="cuIcon-tag"></text>{{item}}</view>
             </block>
           </view>
           <!-- </block> -->
@@ -111,5 +90,3 @@
     </view>
   </view>
 <!-- end of slang card -->
-
-</view>

@@ -163,10 +163,9 @@ Page({
       header: app.globalData.header,
       data: { name: e.detail },
       success: function(res) {
-        console.log(res)
+        page.tagsSpliter(res.data.slangs)        
         page.setData({
-        slangs: res.data.slangs,
-        searched: true
+         searched: true
         })
         if (e.detail == '') {
           page.setData({

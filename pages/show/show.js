@@ -15,7 +15,6 @@ Page({
       header: app.globalData.header,
       success(res) {
         page.tagsSpliter(res.data.slang)
-        console.log(res.data)
       }
     })
   },

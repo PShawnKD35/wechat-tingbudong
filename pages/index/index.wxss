@@ -1,6 +1,31 @@
 .authorization-page {
   margin:50rpx;
 }
+
+#show-card,
+ .h1{
+    font-family: Microsoft JhengHei;
+    font-weight: bold;
+    /* color:rgb(88,184,179); */
+    font-size: 45rpx !important;
+    padding: 10rpx;
+    padding-bottom: 0rpx;
+    text-align: left;
+}
+
+#list-background {
+  background: #d8f0f0 !important;
+}
+
+#list-background-searched {
+  background: #f9e6d4;
+}
+
+
+#tag-block {
+  padding-left: 15rpx;
+}
+
 .content {
 text-align: center;
 }
@@ -20,6 +45,7 @@ color: white;
 #definition-swiper {
   height: 250px;
 }
+
 
 .slogan{
   margin: 0 auto;  

@@ -9,10 +9,36 @@ text {
 .background{
 flex:70%;
 width: 300rpx;
-height: 900rpx;
+height: 1100rpx;
 background: linear-gradient(45deg, #0081ff, #1cbbb4);
 }
 
+#share {
+  float: right;
+}
+
+#tag-block {
+  padding-left: 24rpx;
+  padding: 10rpx;
+}
+
+#show-card,
+ .h1{
+    font-family: Microsoft JhengHei;
+    font-weight: bold;
+    /* color:rgb(88,184,179); */
+    font-size: 45rpx !important;
+    flex-wrap: wrap;
+    padding: 30rpx;
+    padding-bottom: 0rpx;
+    text-align: left;
+}
+
+#show-card-avatar {
+  float: right;
+  padding: 40rpx;
+  top: -30rpx; 
+}
 
 .feeds{
   padding:30rpx;
@@ -37,9 +63,9 @@ border-radius: 20px;
 }
 
 .add-definition {
+  margin-top: 30rpx;
   margin-left: 140rpx;
   font-size: 50rpx;
-
 }
 
 .add-definition text {

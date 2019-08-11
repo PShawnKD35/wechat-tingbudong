@@ -11,7 +11,7 @@ Page({
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
-
+    searched: false
   },
 
   /**

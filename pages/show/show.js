@@ -4,6 +4,7 @@ Page({
     favored: false,
     liked: false,
     likedNum: 0,
+    slang: {}
   },
   
   onLoad: function (options) {
@@ -13,9 +14,7 @@ Page({
       method: 'GET',
       header: app.globalData.header,
       success(res) {
-        page.setData({
-          slang: res.data.slang
-        })
+        page.tagsSpliter(res.data.slang)
         console.log(res.data)
       }
     })
@@ -47,6 +46,17 @@ Page({
     })
   },
 
+  tagsSpliter(slang) {
+    let splitedSlang = slang
+    if (slang.tags[0] != undefined) {
+      let tmptags = slang.tags
+      slang.tags = tmptags[0].split(',')
+    }
+    this.setData({
+      slang: splitedSlang
+    })
+  },
+
   editDefinition: function (e) {
     console.log(e)
     let id = e.currentTarget.dataset.id
@@ -70,6 +80,20 @@ Page({
     this.setData({
       cardCur: e.detail.current
     })
+  },
+
+  onShareAppMessage: function () {
+    return {
+      title: `Tingbudong, ${this.data.slang.name}?`,
+      imageUrl: `${this.data.slang.sticker_url}`,
+      path: `/pages/show/show?id=${this.data.slang.id}`
+    },
+      wx.updateShareMenu({
+        withShareTicket: true,
+        success(res) { 
+          console.log(res)
+        }
+      })
   },
 
   saveSlang(e) {

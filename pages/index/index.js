@@ -4,17 +4,25 @@ Page({
   data: {
 // isHide is the user home page
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    // isHide: getApp().globalData.isHide,
     isHide: true,
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
-    categories: [{ dialect: '官话' },{ dialect: '广东话' }, { dialect: '东北话' }, { dialect: '台语' }, { dialect: '四川话' },{ dialect: '湖南话' }, { dialect: '客家话' }, { dialect: '闽南话' }],
+    dialects: [],
     favored: false,
-    searched: false
+    searched: false,
+    preSortedTagsSlangs: []
   },
 
   onLoad: function () {
-    console.log("on load ======================")
+    wx.showShareMenu({
+      withShareTicket: true
+    }),
+    this.setData({
+      dialects: app.globalData.dialects
+    }),
+    console.log("***************Index on Load********************")
     var that = this;
     var story = "听不懂-解锁更多城市用语";
     var i = 0;
@@ -28,39 +36,79 @@ Page({
         //   console.log("定时器结束！");
         clearInterval(time);
       }
-    }, 200)
-
-// check authorisation granted or not
-    // wx.checkSession({
-    //   success: function (res) {
-    //   },
-    //   fail: (res => {
-        
-    //   })
-    // })
+    }, 200);
+      wx.request({
+        url: `${app.globalData.url}` + 'slangs',
+        header: app.globalData.header,
+        method: 'GET',
+        success: res => {
+          console.log(res)
+          that.setData({
+            preSortedTagsSlangs: res.data.slangs,
+            slangs: that.tagsSpliter(res.data.slangs)
+          })
+          // if (this.slangReadyCallback) {
+          //   this.slangReadyCallback(res)
+          // }
+        }
+    })
+    this.setData({
+      searched: false,
+    })
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        isHide: false
+      })
+    } else if (this.data.canIUse) {
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          isHide: false
+        })
+      }
+    } else {
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            isHide: false
+          })
+        }
+      })
+    }
   },
 
-  onShow: function (e) {
-    this.setData({
-      searched: false
-    })
-    wx.request({
-      url: `${app.globalData.url}` + 'slangs',
-      header: app.globalData.header,
-      method: 'GET',
-      success: res => {
-        console.log("****************GET FOR SLANGS************")
-        this.setData({
-          slangs: res.data.slangs
-        })
-        console.log(this.data.slangs)
-        // console.log(new Date(res.data.slangs.first["created_at"]))
+  tagsSpliter(slangs) {
+    let splitedSlangs = slangs
+    splitedSlangs.forEach( function(slang){
+      if (slang.tags[0] != undefined){
+        let tmptags = slang.tags
+        slang.tags = tmptags[0].split(',')
       }
     })
+    this.setData({
+      slangs: splitedSlangs
+    })
+  },
+
+  onShareAppMessage: function () {
+    return {
+      title: `Tingbudong? 不用怕！`,
+      imageUrl: ``,
+      path: `/pages/index/index`
+    },
+      wx.updateShareMenu({
+        withShareTicket: true,
+        success(res) {
+          console.log(res)
+        }
+      })
   },
 
   bindGetUserInfo: function (e) {
-    var page = this;
+    let page = this;
     console.log(e)
     wx.getUserInfo({
       success: function (res) {

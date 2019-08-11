@@ -4,12 +4,13 @@ const AV = require('../../utils/av-weapp-min.js');
 Page({
   data: {
     name: '',
-    tag: '',
     slang_id: '',
     sticker_url: [],
     imgList: [],
-    dialectTag: [],
-    categories: [{ dialect: '官话' }, { dialect: '广东话' }, { dialect: '东北话' }, { dialect: '台语' }, { dialect: '四川话' }, { dialect: '湖南话' }, { dialect: '客家话' }, { dialect: '闽南话' }]
+    dialects: [],
+    tags: [],
+    dialect_name: '',
+    tag_name: ''
   },
 
   onLoad: function (options) {
@@ -17,46 +18,68 @@ Page({
     const name = options.name;
     this.setData({
       name: name,
-      slang_id: id
+      slang_id: id,
+      dialects: app.globalData.dialects
     })
   },
   
-  dialectTag: function (e) {
-    let dialectTag = e.detail.value
-    // this.setData({
-    //   dialectTag: e.detail.value
-    // })
-    // console.log(this.data.dialectTag)
-  },
-
   dialectSelect: function (e) {
-    console.log(e.currentTarget.dataset.dialect)
-    let dialect = e.currentTarget.dataset.dialect
-    let dialectTag = this.data.dialectTag
-    dialectTag.push(dialect)
+    let selected = e.currentTarget.dataset.dialect
+    let dialects = []
+    dialects.push(selected)
     this.setData({
-      dialectTag: dialectTag
+      dialects: dialects,
+      dialects_name: selected,
+      tagHolder: ''
     })
   },
 
-  slangTag: function (e) {
-    console.log(e.detail.value)
+  cancelTag: function (e) {
+    let selected = e.currentTarget.dataset.tag
+    let tags = this.data.tags
+    let filteredTags = tags.filter(function (value, index, arr) {
+      return value != selected;
+    });
+    this.setData({
+      tags: filteredTags,
+    })
   },
+
+  slangTag(e) {
+    let selected = e.detail.value.trim()
+    let tags = this.data.tags
+    // tags.forEach((tag)=>{
+    //   if(tag != selected)
+    //     tags.push(selected)
+    // })
+    tags.push(selected)
+    this.setData({
+      tags: tags,
+      tagHolder: ''
+    })
+  },
+
+  disabledClick: function (e) {
+    this.setData({
+      dialects: app.globalData.dialects
+    })
+  },
+
 
   editSlang(e) {
     let page = this
     page.data.dialectTag.forEach((dialect) => {
-      console.log("TAGGGGGGGGGGG")
+      console.log("*************Adding Tag****************")
       wx.request({
         url: `${app.globalData.url}tags`,
         method: 'POST',
         header: app.globalData.header,
         data: {
           tag: {
-            dialect_name: dialect,
+            dialect_name: page.data.dialect_name,
+            tag_name: page.data.tags.toString(),
             slang_id: page.data.slang_id
           },
-          // slang: page.data.name
         },
         success: function (res){
           console.log(res)

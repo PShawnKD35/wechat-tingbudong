@@ -7,11 +7,24 @@
 
 }
 
+#list-background {
+  background: #d8f0f0 !important;
+}
+
+#list-background-searched {
+  background: #f9e6d4;
+}
+
+
 .header image {
   margin:20rpx;
   width: 95vw;
   height: 300rpx;
   border-radius: 40rpx;
+}
+
+#tag-block {
+  padding-left: 15rpx;
 }
 
 .title {

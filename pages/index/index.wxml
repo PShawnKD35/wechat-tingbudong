@@ -28,8 +28,8 @@
 </view>
 <!--tag swiper -->
 <scroll-view scroll-x class="bg-gradual-blue nav" scroll-with-animation scroll-left>
-  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{categories}}" wx:for-item="category" wx:key bindtap="tabSelect">
-    <text class="cuIcon-tag lg text-white">{{category.dialect}}</text> 
+  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{dialects}}" wx:key="dialect" bindtap="tabSelect">
+    <text class="cuIcon-tag lg text-white">{{item}}</text> 
 
   </view>
 </scroll-view>
@@ -65,17 +65,20 @@
 
 <!-- start of slang card -->
 <view class="body">
-<!-- first loop for main-card -->
-  <view class="show-card" wx:for="{{ColorList}}" wx:key wx:for="{{slangs}}" wx:for-item="slang" wx:key="xxx">
-    <view data-id="{{slang.id}}" bindtap="toSlangShow" class="bg-{{searched?'orange':'cyan'}} radius shadow-blur light" id="background" >
-      <view class="h1"><text>{{slang.name}}</text>
-        <view data-id="{{slang.id}}" id="show-card-avatar" class="cu-avatar round lg" style="background-image:url('{{slang.user.avatar_url}}');">
-        </view>
-        <p>{{slang.tag}}</p>
-      </view>
-      <view class="p"><text></text></view> 
-<!-- second lopp for definition -->
 
+<!-- first loop for main-card -->
+  <view class="show-card" wx:for="{{slangs}}" wx:for-item="slang" wx:key="xxx">
+
+  <view data-id="{{slang.id}}" bindtap="toSlangShow" class="bg-{{searched?'orange':'cyan'}} radius shadow-blur light" id="background" >
+
+  <view class="cu-list menu-avatar" id="list-background">
+        <view class="cu-item" id="{{searched?'list-background-searched':'list-background'}}">
+          <view class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
+          <view class="content flex-sub">
+            <view class="h1">{{slang.name}}</view>
+          </view>
+        </view>
+      </view>
         <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="1000" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">   
         <block wx:for="{{slang.definitions}}" wx:for-item="definition" wx:key="xxx">
           <swiper-item>
@@ -90,13 +93,20 @@
 
                   </view>
                 </view>
-
               </view>
             </view>
           </swiper-item>   
           </block> 
         </swiper>         
-
+          <view id="tag-block">
+            <block wx:for="{{slang.dialects}}" wx:key="dialect">
+              <view id="tags" class="cu-tag bg-red padding-sm light"><text class="cuIcon-tag"></text>{{item}}</view>
+            </block>
+            <block wx:for="{{slang.tags}}" wx:key="tag">
+              <view id="tags" class="cu-tag bg-pink padding-sm  light"><text class="cuIcon-tag"></text>{{item}}</view>
+            </block>
+          </view>
+          <!-- </block> -->
       </view>
     </view>
   </view>

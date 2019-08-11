@@ -12,18 +12,25 @@
             <input type="text" bindinput="slangName" name="slangName" maxlength="30" placeholder="e.g 扎心了老铁" />
           </view>
     
-        <!--slang input-->
-
+        <!--dialect input-->
+        <view class="section__title">Is it a Dialect? <button id="reset" bindtap='disabledClick' class="cu-btn sm bg-red round "><text class="cuIcon-refresh"></text>  Reset</button></view>
+          <block wx:for="{{dialects}}" wx:key="dialect">
+            <button id="dialect" class="cu-btn bg-cyan df round padding-sm" data-dialect="{{item}}" bindtap="dialectSelect">
+            <text class="cuIcon-tag"></text>{{item}}</button>
+          </block>
+          
      
-        <!--category input-->
-        <view class="section__title">Catagory and location tags</view>
+        <!--tag input-->
+        <view class="section__title">Custom tags!</view>
           <view class="input">
-            <input type="text" bindinput="definitionTag" name="definitionTag" maxlength="60" placeholder="#chinese #东北话 #流行语" />
+            <input type="text" bindchange="slangTag" name="slangTag" maxlength="10" value="{{tagHolder}}" />
           </view>
+          <block wx:for="{{tags}}" wx:key="tag">
+            <button id="tag" class="cu-btn round bg-purple df padding-sm" data-tag="{{item}}" bindtap="cancelTag">
+            <text class="cuIcon-tag"></text>{{item}} <text class="cuIcon-close"></text></button>
+          </block>
 
          <!--category input-->
-
-  
 
           <!--definition input-->
         <view class="section__title">Definition</view>
@@ -39,7 +46,7 @@
 		<view class="grid col-4 grid-square flex-sub">
 			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
 				<image src='{{imgList[index]}}' mode='aspectFill'></image>
-				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+				<view class="cu-tag bg-orange" catchtap="DelImg" data-index="{{index}}">
 					<text class="cuIcon-close"></text>
 				</view>
 			</view>

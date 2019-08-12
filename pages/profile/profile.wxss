@@ -1,7 +1,8 @@
 /* pages/addDefinition/addDefinition.wxss */
 .blue {
   background:linear-gradient(110deg, #0081ff, #1cbbb4);
-  height:110vh;
+ height:100%;
+
 
 }
 .head {
@@ -15,6 +16,7 @@ border-radius: 20px;
 background-color: white;
 margin-top: 40px;
 margin:40rpx;
+height:900rpx;
 }
 
 .title{
@@ -68,3 +70,6 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
 
+.edit-btn {
+  float:right;
+}

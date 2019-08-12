@@ -8,7 +8,7 @@
 
 <!-- <view class="body"> -->
   <view class="show-card">
-      <view class="background radius shadow-blur light" >
+      <view class="background radius light" >
       
      <view class="card-content">
       <view class="h1"><text> {{slang.name}} </text>
@@ -58,10 +58,10 @@
 
   <view id="tag-block">
     <block wx:for="{{slang.dialects}}" wx:key="dialect">
-      <view class="cu-tag bg-purple round"><text class="cuIcon-tag"> </text>{{item}}</view>
+      <view class="cu-tag bg-purple light round"><view class="cuIcon-tag"></view>{{item}}</view>
     </block>
     <block wx:for="{{slang.tags}}" wx:key="tag">
-      <view class="cu-tag bg-pink round "><text class="cuIcon-tag"> </text>{{item}}</view>
+      <view class="cu-tag bg-pink light round "><text class="cuIcon-tag"></text>{{item}}</view>
     </block>
 
       <view class="padding" style="margin-top:40rpx">
@@ -70,11 +70,10 @@
     </view>
     </view>
 
-
-    
   </view>
     <!-- share button -->
-      <button open-type="share" id="share" class="cu-btn lg bg-pink"><text id="save-slang" class="cuIcon-share"> Share</text></button>
+      <button open-type="share" id="share" class="cu-btn lg bg-white"><text id="save-slang" class="cuIcon-share"> Share</text></button>
+
       <!-- share button -->
   </view>
   </view>

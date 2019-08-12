@@ -2,15 +2,15 @@
 .container{
   position: relative;
 }
-text {
-  color:white;
-}
+
+
 
 .background{
 flex:70%;
 width: 300rpx;
 height: 100%;
 background: linear-gradient(45deg, #0081ff, #1cbbb4);
+border-radius: 15rpx;
 }
 
 #share {
@@ -19,15 +19,14 @@ background: linear-gradient(45deg, #0081ff, #1cbbb4);
 }
 
 #tag-block {
-  text-align: center;
   margin-top: 15px;
-  padding-left: 24rpx;
+  padding-left: 30rpx;
   padding-right: 15rpx;
 
 }
 
 #show-card,
- .h1{
+ .h1{                                                   
     word-wrap: break-word;
     font-family: Microsoft JhengHei;
     font-weight: bold;
@@ -38,6 +37,9 @@ background: linear-gradient(45deg, #0081ff, #1cbbb4);
     text-align: left;
 }
 
+.h1 text {
+  color:white;
+}
 .card-content {
  margin-top: 30rpx;
 

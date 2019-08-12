@@ -9,24 +9,28 @@ text {
 .background{
 flex:70%;
 width: 300rpx;
-height: 1100rpx;
+height: 100%;
 background: linear-gradient(45deg, #0081ff, #1cbbb4);
 }
 
 #share {
-  float: right;
+  width: 100%;
+
 }
 
 #tag-block {
+  text-align: center;
+  margin-top: 15px;
   padding-left: 24rpx;
-  padding: 10rpx;
+  padding-right: 15rpx;
+
 }
 
 #show-card,
  .h1{
+    word-wrap: break-word;
     font-family: Microsoft JhengHei;
     font-weight: bold;
-    /* color:rgb(88,184,179); */
     font-size: 45rpx !important;
     flex-wrap: wrap;
     padding: 30rpx;
@@ -34,21 +38,15 @@ background: linear-gradient(45deg, #0081ff, #1cbbb4);
     text-align: left;
 }
 
+.card-content {
+ margin-top: 30rpx;
+
+}
+
 #show-card-avatar {
   float: right;
   padding: 40rpx;
   top: -30rpx; 
-}
-
-.feeds{
-  padding:30rpx;
-}
-
-.recommended {
-margin-bottom:30rpx;
-height: 43px;
-background: #F0F2F4;
-border-radius: 20px;
 }
 
 .swiper-item {
@@ -63,7 +61,7 @@ border-radius: 20px;
 }
 
 .add-definition {
-  margin-top: 30rpx;
+  margin-top: 60rpx;
   margin-left: 140rpx;
   font-size: 50rpx;
 }
@@ -79,6 +77,9 @@ border-radius: 20px;
 }
 
 #save-slang {
-  padding-left: 15rpx;
   font: 15rpx;
+}
+
+.cu-tag{
+  margin:10rpx;
 }

@@ -2,7 +2,10 @@ const app = getApp()
 
 Page({
   data: {
+    // CustomBar: app.globalData.CustomBar,
+    TabCur: 0,
     userInfo: app.globalData.userInfo,
+    tabNav: ['My slangs', 'My definitions', 'My stickers'],
     slangs: [{
       name: 'sdfsd',
       definitions: {
@@ -51,6 +54,13 @@ Page({
   cardSwiper(e) {
     this.setData({
       cardCur: e.detail.current
+    })
+  },
+  tabSelect(e) {
+    console.log(e);
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
     })
   }
 })

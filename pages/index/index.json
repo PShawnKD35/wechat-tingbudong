@@ -3,5 +3,7 @@
       "van-search": "/dist1/search/index",
       "van-tab": "/dist2/tab/index",
       "van-tabs": "/dist2/tabs/index"      
-  }
+  },
+
+  "enablePullDownRefresh": true
 }

@@ -1,63 +1,50 @@
-<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">听不懂</view></cu-custom>
+	<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}">
+    <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+      <view slot="content">听不懂</view>
+    </cu-custom>
 
-<view wx:if="{{isHide}}">
-    <view wx:if="{{canIUse}}" >
-         <image class='header'src='https://lc-l8bhbw53.cn-n1.lcfile.com/689521c0f769729749b7/AEE31F2B-3A93-403A-BD1B-B6C33B43D240.gif'mode="widthFix"></image>
-     
-
-    <view class="title slogan" style="position: absolute; top: 40%; left: 52%; transform: translate(-50%, -50%); height:500rpx;">
-    <text>{{text}}</text>
-    </view>
-
- 
-
-        <view class="flex flex-direction" style="margin: 70rpx" >
-        <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" class="cu-btn bg-gradual-blue margin-tb-sm lg" id="log-in">解锁听不懂</button>
+      <view class="top">
+        <view class="search-bar">
+          <van-search value="{{ value }}" shape ="round" background="transparent" placeholder="Search by tag or slang" use-action-slot bind:search="onSearch" />
         </view>
-        
-    </view>
-    <view wx:else>请升级微信版本</view>
-</view>
+      </view>			
+      <scroll-view scroll-x class="bg-gradual-blue nav" scroll-with-animation scroll-left>
+        <view class="cu-item {{index==TabCur?'text-green cur':''}}" data-region="{{regions.first}}"bindtap="showModal" data-target="viewModal">
+          <text class="cuIcon-location lg text-white">Region</text> 
 
-<view wx:else>
-<!-- top search bar & brand-logo -->
-<view class="top">
-  <view class="search-bar">
-    <van-search value="{{ value }}" shape ="round" background="transparent" placeholder="Search by tag or slang" use-action-slot bind:search="onSearch" />
-  </view>
-</view>
-<!--tag swiper -->
-<scroll-view scroll-x class="bg-gradual-blue nav" scroll-with-animation scroll-left>
-  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{categories}}" wx:for-item="category" wx:key bindtap="tabSelect">
-    <text class="cuIcon-tag lg text-white">{{category.dialect}}</text> 
+        </view>
+        <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{dialects}}" wx:key="dialect" data-dialect="{{dialects}}" bindtap="tabSelect">
+          <text class="cuIcon-tag lg text-white">{{item}}</text> 
 
-  </view>
-</scroll-view>
-  <!--tag swiper -->
+        </view>
+      </scroll-view>
+
+
 
   <!-- Slider  -->
+  <view>
   <view class='slider'>
     <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
   <!-- first swiper-item -->
     <swiper-item>
-      <view class="popular-card" style="position: relative;" mode="aspectFill">
-      <image class="gif" src='https://lc-l8bhbw53.cn-n1.lcfile.com/4a60053c964dc9ec2968/DAE3C7EC-3DC1-4FB8-B329-37B2E4639909.gif'></image>
-      <view style="background: linear-gradient(black,red)">
-      <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">今天还听不懂吗？</text>
-      </view>
-      </view>
+        <view class="popular-card" style="position: relative;" mode="aspectFill">
+        <image class="gif" src='https://lc-l8bhbw53.cn-n1.lcfile.com/4a60053c964dc9ec2968/DAE3C7EC-3DC1-4FB8-B329-37B2E4639909.gif'></image>
+          <view style="background: linear-gradient(black,red)">
+            <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">今天还听不懂吗？</text>
+          </view>
+        </view>
     </swiper-item>      
   <!-- first swiper-item -->
   <!-- second swiper-item -->
     <swiper-item>
-      <view class="popular-card" mode="aspectFill">
-      <image class="gif" src='https://media.giphy.com/media/l378kCHSmb5z0UNQ4/giphy.gif'></image>
+    <view class="popular-card" mode="aspectFill">
+        <image class="gif" src='https://media.giphy.com/media/l378kCHSmb5z0UNQ4/giphy.gif'></image>
       <view style="background: linear-gradient(black,red)">
-      <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">我们教你</text>
+        <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">我们教你</text>
       </view>
 
-      </view>
-    </swiper-item>      
+    </view>
+  </swiper-item>      
   <!-- second swiper-item -->
   </swiper>
 </view>
@@ -65,17 +52,20 @@
 
 <!-- start of slang card -->
 <view class="body">
-<!-- first loop for main-card -->
-  <view class="show-card" wx:for="{{ColorList}}" wx:key wx:for="{{slangs}}" wx:for-item="slang" wx:key="xxx">
-    <view data-id="{{slang.id}}" bindtap="toSlangShow" class="bg-{{searched?'orange':'cyan'}} radius shadow-blur light" id="background" >
-      <view class="h1"><text>{{slang.name}}</text>
-        <view data-id="{{slang.id}}" id="show-card-avatar" class="cu-avatar round lg" style="background-image:url('{{slang.user.avatar_url}}');">
-        </view>
-        <p>{{slang.tag}}</p>
-      </view>
-      <view class="p"><text></text></view> 
-<!-- second lopp for definition -->
 
+<!-- first loop for main-card -->
+  <view class="show-card" wx:for="{{slangs}}" wx:for-item="slang" wx:key="xxx">
+
+  <view data-id="{{slang.id}}" bindtap="toSlangShow" class="bg-{{searched?'orange':'cyan'}} radius shadow-blur light" id="background" >
+
+  <view class="cu-list menu-avatar" id="list-background">
+        <view class="cu-item" id="{{searched?'list-background-searched':'list-background'}}">
+          <view class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
+          <view class="content flex-sub">
+            <view class="h1">{{slang.name}}</view>
+          </view>
+        </view>
+      </view>
         <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="1000" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">   
         <block wx:for="{{slang.definitions}}" wx:for-item="definition" wx:key="xxx">
           <swiper-item>
@@ -90,16 +80,36 @@
 
                   </view>
                 </view>
-
               </view>
             </view>
           </swiper-item>   
           </block> 
         </swiper>         
-
+          <view id="tag-block">
+            <block wx:for="{{slang.dialects}}" wx:key="dialect">
+              <view id="tags" class="cu-tag round bg-red padding-sm light"><text class="cuIcon-tag"></text>{{item}}</view>
+            </block>
+            <block wx:for="{{slang.tags}}" wx:key="tag">
+              <view id="tags" class="cu-tag round bg-pink padding-sm  light"><text class="cuIcon-tag"></text>{{item}}</view>
+            </block>
+          </view>
+          <!-- </block> -->
       </view>
     </view>
   </view>
-<!-- end of slang card -->
-
 </view>
+<!-- end of slang card -->
+</scroll-view>
+		<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
+			<text class="cuIcon-pullright"></text>
+		</view>
+		<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
+			<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+				<view class="cu-item arrow" wx:for="{{regions}}" wx:key="region">
+					<view id='regions' class="content">
+						<!-- <text class="cuIcon-tag text-grey"></text> -->
+						<text class="text-grey">{{item}}</text>
+					</view>
+				</view>
+			</view>
+		</scroll-view>

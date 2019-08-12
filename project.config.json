@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 3,
 			"list": [
 				{
 					"id": 1,
@@ -72,9 +72,9 @@
 					"scene": null
 				},
 				{
-					"id": 4,
+					"id": 3,
 					"name": "Edit definition",
-					"pathName": "pages/editDefinition/editDefinition",
+					"pathName": "pages/editDef/editDef",
 					"query": "",
 					"scene": null
 				},
@@ -107,11 +107,19 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 9,
 					"name": "pages/dialect/dialect",
 					"pathName": "pages/dialect/dialect",
+					"query": "",
 					"scene": null
-				}
+        },
+        {
+          "id": 9,
+          "name": "landing",
+          "pathName": "pages/landing/landing",
+          "query": "",
+          "scene": null
+        }
 			]
 		}
 	}

@@ -1,4 +1,6 @@
-<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">听不懂</view></cu-custom>
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+  <view slot="content">听不懂</view>
+</cu-custom>
 
  <!--copying from pages/addservice-->
  <view class="blue">
@@ -11,12 +13,20 @@
   <view class="userinfo">
     <view class="section-title">听不懂居民</view>
     <view class="userNickname">{{userInfo.nickName}}</view>
+    <view class="cu-tag radiu sm line-purple">{{userInfo.country}}</view>
+      <text class="cuIcon-edit text-grey"></text>
+    <!-- <view class="cu-tag radiu sm line-purple">{{userInfo.province}}</view> -->
   </view>
  </view>
-      
+   <text class="activity cuIcon-profilefill lg text-gray">我的日常动态</text>
+
+  <scroll-view scroll-x class="bg-white nav text-center" id="profileTabs">
+  <view class="cu-item {{index==TabCur?'text-blue cur':''}}" wx:for="{{tabNav}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+    {{tabNav[index]}}
+  </view>
+</scroll-view>
   <!-- start of slang card -->
-  <text class="activity cuIcon-profilefill lg text-gray">我的日常动态</text>
-  
+  <block wx:if="{{TabCur==0}}">
   <swiper class="card-swiper square-dot}}" indicator-dots="true" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
   <block wx:for="{{slangs}}" wx:for-item="slang" wx:key="xxx">   
 <!-- first loop for main-card -->
@@ -24,13 +34,15 @@
       <view class="h1"><text>冒菜</text></view>
       <view class="p"><text>我很爱吃冒菜</text></view> 
 <!-- second lopp for definition -->
-        </swiper-item>
+    </swiper-item>
 
       
     </block>
   </swiper>
-<!-- end of slang card -->
-<swiper class="card-swiper square-dot}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="1000" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">   
+</block>
+
+<!-- <!-- end of slang card -->
+<!-- <swiper class="card-swiper square-dot}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="1000" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">   
         <block wx:for="{{slang.definitions}}" wx:for-item="definition" wx:key="xxx">
           <swiper-item>
             <view class="cu-card dynamic">
@@ -51,7 +63,7 @@
             </view>
           </swiper-item>   
           </block> 
-        </swiper>  
+        </swiper>   --> 
     </view>
   </view>
 

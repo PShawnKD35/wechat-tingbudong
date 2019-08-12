@@ -5,24 +5,67 @@ Page({
   data: {
     name: '',
     content: '',
-    tag: '',
+    dialect_name: '',
+    tag_name: '',
     sticker_url: [],
     slang_id: '',
-    imgList: []
+    imgList: [],
+    disabled: false,
+    dialects: [],
+    tags: []
   },
 
-  onLoad: function (options) {
+  onLoad: function () {
+    this.setData({
+      dialects: app.globalData.dialects
+    })
+  },
+
+  dialectSelect: function (e) {
+    let selected = e.currentTarget.dataset.dialect
+    let dialects = []
+    dialects.push(selected)
+    this.setData({
+      dialects: dialects,
+      dialect_name: selected,
+      tagHolder: ''
+    })
+  },
+
+  cancelTag: function (e) {
+    let selected = e.currentTarget.dataset.tag
+    let tags = this.data.tags
+    let filteredTags = tags.filter(function(value, index, arr){
+      return value != selected;
+    });
+    this.setData({
+      tags: filteredTags,
+    })
+  },
+
+  slangTag(e) {
+    let selected = e.detail.value.trim()
+    let tags = this.data.tags
+    // tags.forEach((tag)=>{
+    //   if(tag != selected)
+    //     tags.push(selected)
+    // })
+    tags.push(selected)
+    this.setData({
+      tags: tags,
+      tagHolder: ''
+    })
+  },
+
+  disabledClick: function (e) {
+    this.setData({
+      dialects: app.globalData.dialects
+    })
   },
 
   slangName(e) {
     this.setData({
       name: e.detail.value
-    })
-  },
-
-  definitionTag(e) {
-    this.setData({
-      tag: e.detail.value
     })
   },
 
@@ -35,50 +78,69 @@ Page({
   submitNewSlang(e) {
     let page = this
     let sticker_url = page.data.sticker_url
-    console.log("userid")
-    console.log(app.globalData.header)
-    console.log(page.data.name)
     page.data.imgList.forEach(function(img){
       new AV.File('file-name', {
         blob: {
           uri: img,
         },
-        // please set upload file valid domain name
-        // check how to push file.url
       }).save().then(
         file => {
           sticker_url.push(file.url())
           console.log(sticker_url)
-          console.log('successfully uploaded')
+          console.log('successfully uploaded stickers')
         }
       ).catch(console.error);
     });
+    // posting slang
     wx.request({
       url: `${app.globalData.url}slangs`,
       method: 'POST',
       header: app.globalData.header,
-      data: {name: page.data.name},
+      data: { name: page.data.name,
+              sticker_url: page.data.imgList[0],
+              },
       success: function (res) {
+        console.log("Response from slang request:")
+        console.log(res)
         page.data.slang_id = res.data.slang_id
-        console.log(page.data.slang_id)
+        // posting tags
+        console.log("dialect nameeeeeeeeeeeeee" + page.data.dialect_name)
         wx.request({
-          url: `${app.globalData.url}definitions`,
+          url: `${app.globalData.url}tags`,
           method: 'POST',
           header: app.globalData.header,
           data: {
-            content: page.data.content,
-            slang_id: page.data.slang_id,
-            sticker_url: page.data.imgList
+            tag: {
+              dialect_name: page.data.dialect_name,
+              tag_name: page.data.tags.toString(),
+              slang_id: page.data.slang_id
+            },
           },
           success: function (res) {
+            console.log("Response from tag request:")
             console.log(res)
-            wx.navigateTo({
-              url: `/pages/show/show?id=${page.data.slang_id}`,
+            console.log(page.data.slang_id)
+            // posting definition
+            wx.request({
+              url: `${app.globalData.url}definitions`,
+              method: 'POST',
+              header: app.globalData.header,
+              data: {
+                content: page.data.content,
+                slang_id: page.data.slang_id,
+              },
+              success: function (res) {
+                console.log("Response from definition request:")
+                console.log(res)
+                wx.reLaunch({
+                  url: `/pages/show/show?id=${page.data.slang_id}`,
+                })
+                wx.showToast({
+                  title: `Slang Added🥳`,
+                  icon: 'none'
+                });
+              }
             })
-            wx.showToast({
-              title: `Slang Added🥳`,
-              icon: 'none'
-            });
           }
         })
       }

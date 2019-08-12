@@ -9,6 +9,8 @@
 <!-- <view class="body"> -->
   <view class="show-card">
       <view class="background radius shadow-blur light" >
+      <!-- share button -->
+      <button open-type="share" id="share" class="cu-btn lg bg-blue"><text id="save-slang" class="cuIcon-share"> Share it!</text></button>
       <view class="h1"><text> {{slang.name}} </text>
       
         <view id="show-card-avatar" class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
@@ -47,13 +49,28 @@
         </scroll-view> -->
  
   <view bindtap="addDefinition" data-id="{{slang.id}}" data-name="{{slang.name}}" class="add-definition cuIcon-roundaddfill xl text-white"><text>创建我的定义</text></view>
-  <view class="grid col-3 grid-square">
+  <!-- stickers -->
+  <!-- <view class="grid col-3 grid-square">
       <view class="bg-img" wx:for="{{slang.sticker_url}}" wx:key="{{index}}" style="background-image:url({{sticker_url[index]}};"></view>
-    </view>
-  
-  
+    </view> -->
 
+    <!-- tagsssssssss -->
+  <view id="tag-block">
+    <block wx:for="{{slang.dialects}}" wx:key="dialect">
+      <view class="cu-tag bg-purple margin-sm padding"><text class="cuIcon-tag"> </text>{{item}}</view>
+    </block>
+    <block wx:for="{{slang.tags}}" wx:key="tag">
+      <view class="cu-tag bg-pink margin-sm padding"><text class="cuIcon-tag"> </text>{{item}}</view>
+    </block>
+      <view class="padding">
+    <view class="grid col-4 grid-square">
+      <view class="bg-img" wx:for="{{4}}" wx:key style="background-image:url({{slang.sticker_url}});"></view>
+    </view>
   </view>
+  </view>
+  </view>
+
+
 </view>
 </view>
 

@@ -1,10 +1,12 @@
-/* pages/dialect/dialect.wxss */
-
-.blue {
-  background:linear-gradient(110deg, #0081ff, #1cbbb4);
-  height:100%;
-  z-index: -1;
-
+#show-card,
+ .h1{
+    font-family: Microsoft JhengHei;
+    font-weight: bold;
+    /* color:rgb(88,184,179); */
+    font-size: 45rpx !important;
+    padding: 10rpx;
+    padding-bottom: 0rpx;
+    text-align: left;
 }
 
 #list-background {
@@ -16,24 +18,53 @@
 }
 
 
-.header image {
-  margin:20rpx;
-  width: 95vw;
-  height: 300rpx;
-  border-radius: 40rpx;
-}
-
 #tag-block {
   padding-left: 15rpx;
 }
 
+.content {
+text-align: center;
+}
+.content text {
+  color:grey;
+  font-family: PingFang HK;
+  font-size:30rpx;
+}
 .title {
   font-family: PingFang HK;
 font-weight: 500;
 font-size: 90rpx;
 line-height: 123rpx;
 color: white;
+}
 
+#definition-swiper {
+  height: 250px;
+}
+
+
+.slogan{
+  margin: 0 auto;  
+  writing-mode: vertical-lr;/*从左向右 从右向左是 writing-mode: vertical-rl;*/ 
+}
+
+.slogan text {
+  display: block;
+  letter-spacing: 20rpx;
+  color:white;
+}
+
+/* .slogan text:nth-child(2) {
+  margin-top: 60rpx;
+}
+  */
+.header {
+    width: 100vw;
+}
+
+.image {
+  width:200rpx;
+  height:100rpx;
 }
 
 /* actual index */
@@ -76,4 +107,5 @@ color: white;
     font-size:50px;
     font-family:'youth';
 }
+
 

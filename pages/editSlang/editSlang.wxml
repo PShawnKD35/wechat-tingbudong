@@ -7,22 +7,24 @@
       
       <view class="form-group">
      
-        <!--tag area input-->
-        <view class="section__title">Select Dialect Tags</view>
-          <view class="input">
-            <input type="text" name="slangTag" maxlength="60" placeholder="" bindinput="dialectTag" value="{{dialectTag}}"/>
-  </view>
-        <scroll-view scroll-x class="nav" scroll-with-animation scroll-left>
-          <block wx:for="{{categories}}" wx:for-item="category" wx:key="category">
-            <button class="cu-btn round bg-cyan df margin-sm shadow" data-dialect="{{category.dialect}}" bindtap="dialectSelect">
-            <text class="cuIcon-tag"></text>{{category.dialect}}</button>
+        <!--dialect input-->
+        <view class="section__title">Is it a Dialect? <button id="reset" bindtap='disabledClick' class="cu-btn sm bg-red round "><text class="cuIcon-refresh"></text>  Reset</button></view>
+          <block wx:for="{{dialects}}" wx:key="dialect">
+            <button id="dialect" class="cu-btn bg-cyan df round padding-sm" data-dialect="{{item}}" bindtap="dialectSelect">
+            <text class="cuIcon-tag"></text>{{item}}</button>
           </block>
-        </scroll-view>
-        <!--tag input -->
-        <view class="section__title">Add New Tags</view>
+          
+     
+        <!--tag input-->
+        <view class="section__title">Custom tags!</view>
           <view class="input">
-            <input type="text" bindinput="slangTag" name="slangTag" maxlength="60" placeholder="" />
-        </view>
+            <input type="text" bindchange="slangTag" name="slangTag" maxlength="10" value="{{tagHolder}}" />
+          </view>
+          <block wx:for="{{tags}}" wx:key="tag">
+            <button id="tag" class="cu-btn round bg-purple df padding-sm" data-tag="{{item}}" bindtap="cancelTag">
+            <text class="cuIcon-tag"></text>{{item}} <text class="cuIcon-close"></text></button>
+          </block>
+
 
         <!--uploadImage input-->
 <view class="section__title">上传一个表情 </view>

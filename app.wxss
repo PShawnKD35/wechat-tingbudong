@@ -12,10 +12,14 @@
   color:white;
 }
 
+#tags {
+  margin-top: 9rpx;
+}
+
 #background{
 flex:70%;
 width: 300rpx;
-height: 800rpx;
+height: 700rpx;
 /* background: rgb(216,240,240); */
 border-radius: 10rpx;
 }
@@ -27,10 +31,6 @@ border-radius: 10rpx;
   border-radius: 20px;
 }
 
-#show-card-avatar {
-  float: right;
-  padding: 40rpx;
-}
 
 #definition-contributor {
   font-size: 20rpx;
@@ -43,18 +43,6 @@ border-radius: 10rpx;
   padding: 30rpx;
   color: black !important;
   
-}
-
-#show-card,
- .h1{
-font-family: Microsoft JhengHei;
-font-weight: bold;
-/* color:rgb(88,184,179); */
-font-size: 60rpx;
-line-height: 84rpx;
-margin: 20rpx;
-padding: 20rpx;
-padding-bottom: 0rpx;
 }
 
 #show-card,
@@ -90,6 +78,72 @@ border-radius: 20px;
 }
 
 .swiper-item {
-  padding:100rpx;
+  padding: 50rpx;
+}
+
+
+ .blue {
+  background:linear-gradient(110deg, #0081ff, #1cbbb4);
+  height: 100px;
+}
+
+#dialect {
+  margin-right: 10rpx;
+  margin-bottom: 5rpx;
+  margin-left: 5rpx;
+}
+
+#tag {
+  margin-right: 10rpx;
+  margin: 5rpx;
+  margin-top: 10rpx; 
+}
+
+#reset {
+  font-style: italic;
+}
+
+.white {
+border-radius: 20px;
+height: 100vh;
+background-color: white;
+margin-top: 40px;
+}
+
+.title{
+font-size: 26px;
+text-align: center;
+color:white;
+z-index: 1; 
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+} 
+
+.section__title{
+  margin-top:20rpx;
+  margin-left:10px;
+   font-size: 18px;
+  color:#0081ff;
+  padding:10px;
+
+}
+
+.form-group {
+  padding:20px;
+}
+
+
+.input {
+  padding:12px;
+  border-radius: 20px;
+  border: 1px solid #0081ff;
+}
+
+.uploadImg{
+  display: flex;
+  justify-content: space-between;
+ 
+}
+.uploadImg button {
+  margin-top:30rpx;
 }
 

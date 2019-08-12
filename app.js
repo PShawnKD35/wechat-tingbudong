@@ -56,6 +56,7 @@ App({
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
+          
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
@@ -68,6 +69,12 @@ App({
               }
             }
           })
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        }
+        else {
+          wx.hideLoading()
         }
       }
     })
@@ -81,7 +88,8 @@ App({
     url: `http://localhost:3000/api/v1/`,
     // url: `https://tingbudong.wogengapp.cn/api/v1/`,
     header: '',
+    regions: [{ name: '中文'}, { name: 'English' }],
     dialects: ['官话', '广东话', '东北话', '台语', '四川话', '湖南话', '客家话', '闽南话'],
     ColorList: [{ name: 'red' }, { name: 'orange' }, { name: 'blue' }, { name: 'green' }, { name: 'olive' }, { name: 'yellow' }, { name: 'cyan' }, { name: 'purple' }, { name: 'mauve' }, { name: 'pink' }, { name: 'brown' }, { name: 'grey' }]
-  }
+  },
 })

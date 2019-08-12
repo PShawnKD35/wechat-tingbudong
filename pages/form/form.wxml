@@ -9,7 +9,7 @@
        <!--slang input-->
         <view class="section__title">A word or a sentence</view>
           <view class="input">
-            <input type="text" bindinput="slangName" name="slangName" maxlength="30" placeholder="e.g 扎心了老铁" />
+            <input type="text" bindinput="slangName" name="slangName" maxlength="30" placeholder="" />
           </view>
     
         <!--dialect input-->
@@ -35,7 +35,7 @@
           <!--definition input-->
         <view class="section__title">Definition</view>
           <view class="input">
-            <textarea bindinput="definitionContent" name="definitionContent" placeholder="扎心了！老铁 是一句网络流行语，“老铁”是东北的方言，意思是好朋友，而这句话完整的意思可能为某件事情很让你触动，引起了你比较感动或者是悲伤的情感因素的变化，被称之为“扎心了。" />
+            <textarea bindinput="definitionContent" name="definitionContent" placeholder="" />
           </view>
     
         <!--definition input-->

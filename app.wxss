@@ -42,6 +42,7 @@ border-radius: 10rpx;
 #definition-text {
   padding: 30rpx;
   color: black !important;
+  text-align: justify;
   
 }
 

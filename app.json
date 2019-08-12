@@ -9,7 +9,8 @@
     "pages/editSlang/editSlang",
     "pages/tags/tags",
     "pages/editDef/editDef",
-    "pages/dialect/dialect"
+    "pages/dialect/dialect",
+    "pages/collection/collection"
   ],
   
   "window": {
@@ -34,6 +35,12 @@
         "text": "Create",
         "iconPath": "/images/pencil-2.png",
         "selectedIconPath": "/images/pencil.png"
+      },
+      {
+        "pagePath": "pages/collection/collection",
+        "text": "My Collection",
+        "iconPath": "/images/add-2.png",
+        "selectedIconPath": "/images/add.png"
       },
       {
         "pagePath": "pages/profile/profile",

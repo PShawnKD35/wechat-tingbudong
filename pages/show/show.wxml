@@ -8,9 +8,9 @@
 
 <!-- <view class="body"> -->
   <view class="show-card">
-      <view class="background radius shadow-blur light" >
-      <!-- share button -->
-      <button open-type="share" id="share" class="cu-btn lg bg-blue"><text id="save-slang" class="cuIcon-share"> Share it!</text></button>
+      <view class="background radius light" >
+      
+     <view class="card-content">
       <view class="h1"><text> {{slang.name}} </text>
       
         <view id="show-card-avatar" class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
@@ -55,18 +55,26 @@
     </view> -->
 
     <!-- tagsssssssss -->
+
   <view id="tag-block">
     <block wx:for="{{slang.dialects}}" wx:key="dialect">
-      <view class="cu-tag bg-purple margin-sm padding"><text class="cuIcon-tag"> </text>{{item}}</view>
+      <view class="cu-tag bg-purple light round"><view class="cuIcon-tag"></view>{{item}}</view>
     </block>
     <block wx:for="{{slang.tags}}" wx:key="tag">
-      <view class="cu-tag bg-pink margin-sm padding"><text class="cuIcon-tag"> </text>{{item}}</view>
+      <view class="cu-tag bg-pink light round "><text class="cuIcon-tag"></text>{{item}}</view>
     </block>
-      <view class="padding">
+
+      <view class="padding" style="margin-top:40rpx">
     <view class="grid col-4 grid-square">
       <view class="bg-img" wx:for="{{4}}" wx:key style="background-image:url({{slang.sticker_url}});"></view>
     </view>
+    </view>
+
   </view>
+    <!-- share button -->
+      <button open-type="share" id="share" class="cu-btn lg bg-white"><text id="save-slang" class="cuIcon-share"> Share</text></button>
+
+      <!-- share button -->
   </view>
   </view>
 

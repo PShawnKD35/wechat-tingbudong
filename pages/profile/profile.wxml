@@ -11,11 +11,10 @@
  <view class="info">
   <view id="avatar" class="cu-avatar round xl" style="background-image:url({{userInfo.avatarUrl}});"></view>
   <view class="userinfo">
-    <view class="section-title">听不懂居民</view>
+    <view class="section-title">听不懂居民 <text class="edit-btn cuIcon-edit text-grey"></text></view>
     <view class="userNickname">{{userInfo.nickName}}</view>
     <view class="cu-tag radiu sm line-purple">{{userInfo.country}}</view>
-      <text class="cuIcon-edit text-grey"></text>
-    <!-- <view class="cu-tag radiu sm line-purple">{{userInfo.province}}</view> -->
+
   </view>
  </view>
    <text class="activity cuIcon-profilefill lg text-gray">我的日常动态</text>

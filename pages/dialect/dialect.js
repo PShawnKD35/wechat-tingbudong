@@ -18,7 +18,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    wx.hideLoading()
   },
 
   /**
@@ -41,9 +41,7 @@ Page({
       method: 'GET',
       success: res => {
         console.log("****************GET FOR SLANGS************")
-        this.setData({
-          slangs: res.data.slangs
-        })
+        this.tagsSpliter(res.data.slangs)
         console.log(this.data.slangs)
         // console.log(new Date(res.data.slangs.first["created_at"]))
       }
@@ -51,23 +49,19 @@ Page({
 
   },
 
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
+  tagsSpliter(slangs) {
+    let splitedSlangs = slangs
+    splitedSlangs.forEach(function (slang) {
+      if (slang.tags[0] != undefined) {
+        let tmptags = slang.tags
+        slang.tags = tmptags[0].split(',')
+      }
+    })
+    this.setData({
+      slangs: splitedSlangs
+    })
   },
 
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
   onPullDownRefresh: function () {
 
   },

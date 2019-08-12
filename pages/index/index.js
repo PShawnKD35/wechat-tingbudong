@@ -10,9 +10,16 @@ Page({
     dialects: [],
     favored: false,
     searched: false,
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    Custom: app.globalData.Custom,
+    TabCur: 1,
+    scrollLeft: 0,
+    regions: ['China', 'Hong Kong', 'Taiwan', 'Macau']
   },
 
   onLoad: function (options) {
+    wx.hideLoading()
     wx.showShareMenu({
       withShareTicket: true
     }),
@@ -99,6 +106,23 @@ Page({
   cardSwiper(e) {
     this.setData({
       cardCur: e.detail.current
+    })
+  },
+  showModal(e) {
+  this.setData({
+    modalName: e.currentTarget.dataset.target
+  })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
+  tabSelect(e) {
+    console.log(e);
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
     })
   }
 })

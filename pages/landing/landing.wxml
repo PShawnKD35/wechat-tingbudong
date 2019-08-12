@@ -8,10 +8,13 @@
     <text>{{text}}</text>
     </view>
 
- 
-
         <view class="flex flex-direction" style="margin: 70rpx" >
-        <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" class="cu-btn bg-gradual-blue margin-tb-sm lg" id="log-in">解锁听不懂</button>
+        <block wx:if="{{!isLoad}}">
+        <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" class="cu-btn bg-gradual-blue cu-load loading margin-tb-sm lg" disabled id="log-in">解锁听不懂</button>
+        </block>
+        <block wx:if="{{isLoad}}">
+        <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" class="cu-btn bg-gradual-blue cu-load margin-tb-sm lg" id="log-in">解锁听不懂</button>
+        </block>
         </view>
         
     </view>

@@ -1,24 +1,15 @@
-	<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}">
     <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
       <view slot="content">听不懂</view>
     </cu-custom>
 
       <view class="top">
         <view class="search-bar">
-          <van-search value="{{ value }}" shape ="round" background="transparent" placeholder="Search by tag or slang" use-action-slot bind:search="onSearch" />
+          <van-search value="{{ value }}" shape ="round" background="transparent" placeholder="Search by Slang" use-action-slot bind:search="onSearch" />
+        </view>
+        <view id="tag-bar">
+          <text bindtap="showModal" data-target="ChooseModal" class="cuIcon-tag text-white"></text>
         </view>
       </view>			
-      <scroll-view scroll-x class="bg-gradual-blue nav" scroll-with-animation scroll-left>
-        <view class="cu-item {{index==TabCur?'text-green cur':''}}" data-region="{{regions.first}}"bindtap="showModal" data-target="viewModal">
-          <text class="cuIcon-location lg text-white">Region</text> 
-
-        </view>
-        <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{dialects}}" wx:key="dialect" data-dialect="{{dialects}}" bindtap="tabSelect">
-          <text class="cuIcon-tag lg text-white">{{item}}</text> 
-
-        </view>
-      </scroll-view>
-
 
 
   <!-- Slider  -->
@@ -98,18 +89,20 @@
     </view>
   </view>
 </view>
-<!-- end of slang card -->
-</scroll-view>
-		<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
-			<text class="cuIcon-pullright"></text>
-		</view>
-		<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
-			<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
-				<view class="cu-item arrow" wx:for="{{regions}}" wx:key="region">
-					<view id='regions' class="content">
-						<!-- <text class="cuIcon-tag text-grey"></text> -->
-						<text class="text-grey">{{item}}</text>
-					</view>
-				</view>
-			</view>
-		</scroll-view>
+
+<view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <view class="cu-bar bg-white">
+      <view class="action text-blue" bindtap="hideModal">Cancel</view>
+      <view class="action text-blue" bindtap="hideModal">Okay</view>
+    </view>
+    <view class="grid col-3 padding-sm">
+      <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
+        <button class="cu-btn cyan lg block {{item.checked?'bg-cyan':'line-cyan'}}" bindtap="ChooseCheckbox" data-value="{{item.value}}"> {{item.name}}
+          <view class="cu-tag sm round {{item.checked?'bg-white text-cyan':'bg-cyan'}}" wx:if="{{item.hot}}">HOT</view>
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
+<!--  -->

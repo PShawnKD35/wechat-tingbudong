@@ -2,9 +2,7 @@ const app = getApp()
 
 Page({
   data: {
-    // isHide is the user home page
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    // isHide: getApp().globalData.isHide,
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
@@ -15,7 +13,6 @@ Page({
   },
 
   onLoad: function (options) {
-    wx.hideLoading()
     wx.showShareMenu({
       withShareTicket: true
     }),
@@ -59,12 +56,16 @@ Page({
           this.setData({
             userInfo: res.userInfo,
           })
+          wx.hideLoading()
         }
       })
       wx.switchTab({
         url: `/pages/index/index`,
       })
     }
+  },
+
+  onShow: function() {
   },
 
   onShareAppMessage: function () {
@@ -82,6 +83,7 @@ Page({
   },
 
   bindGetUserInfo: function (e) {
+    wx.hideLoading()
     let page = this;
     wx.getUserInfo({
       success: function (res) {

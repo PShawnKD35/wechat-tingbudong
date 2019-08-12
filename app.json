@@ -22,6 +22,7 @@
     "borderStyle": "white",
     "selectedColor": "#0081ff",
     "color": "#white",
+    "position": "bottom",
     "list": [
       {
         "pagePath": "pages/index/index",

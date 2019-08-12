@@ -3,28 +3,52 @@ const app = getApp()
 Page({
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isHide: app.globalData.isHide,
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
-    dialects: [],
+    tagShow: [],
     favored: false,
     searched: false,
-    StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    Custom: app.globalData.Custom,
     TabCur: 1,
     scrollLeft: 0,
-    regions: ['China', 'Hong Kong', 'Taiwan', 'Macau']
+    tags: [],
+    // checkbox: [{
+    //   name: '官话',
+    //   checked: false,
+    //   hot: false,
+    // }, {
+    //   // value: ,
+    //   name: '官话',
+    //   checked: true,
+    //   hot: false,
+    // }, {
+    //   value: 2,
+    //   name: '',
+    //   checked: true,
+    //   hot: true,
+    // }, {
+    //   value: 3,
+    //   name: '',
+    //   checked: false,
+    //   hot: true,
+    // }, {
+    //   value: 4,
+    //   name: '80元',
+    //   checked: false,
+    //   hot: false,
+    // }, {
+    //   value: 5,
+    //   name: '',
+    //   checked: false,
+    //   hot: false,
+    // }]
   },
 
   onLoad: function (options) {
     wx.hideLoading()
     wx.showShareMenu({
       withShareTicket: true
-    }),
-    this.setData({
-      dialects: app.globalData.dialects
     }),
     console.log("***************Index on Load********************")
     var that = this;
@@ -39,8 +63,33 @@ Page({
         })
       }
     })
+    var that = this;
+    wx.request({
+      url: `${app.globalData.url}` + 'tags',
+      header: app.globalData.header,
+      method: 'GET',
+      success: res => {
+        console.log("Getting tagssssssssssssssss")
+        console.log(res)
+        that.checkBoxTagsTransformer(res.data)
+      }
+    })
     this.setData({
       searched: false,
+    })
+  },
+
+  checkBoxTagsTransformer(tags){
+    let tagStorage = []
+    tags.forEach((tag)=>{
+      tagStorage.push({
+        name: tag,
+        checked: false,
+        hot: false
+      })
+    })
+    this.setData({
+      tags: tagStorage
     })
   },
 
@@ -94,6 +143,8 @@ Page({
     });
 
   },
+
+  // tagSearch: function
 // to show
   toSlangShow: function(event) {
     console.log(event)
@@ -108,21 +159,30 @@ Page({
       cardCur: e.detail.current
     })
   },
+  
   showModal(e) {
-  this.setData({
-    modalName: e.currentTarget.dataset.target
-  })
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
   },
+
   hideModal(e) {
     this.setData({
       modalName: null
     })
   },
-  tabSelect(e) {
-    console.log(e);
+
+  ChooseCheckbox(e) {
+    let items = this.data.checkbox;
+    let values = e.currentTarget.dataset.value;
+    for (let i = 0, lenI = items.length; i < lenI; ++i) {
+      if (items[i].value == values) {
+        items[i].checked = !items[i].checked;
+        break
+      }
+    }
     this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+      checkbox: items
     })
   }
 })

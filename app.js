@@ -4,10 +4,6 @@ const config = require('./key')
 App({
   onLaunch: function () {
     let page = this
-    // setTimeout(function () {
-    //   wx.hideTabBar()
-    // }, 500),
-    console.log(123, page.globalData)
     wx.getSystemInfo({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight;

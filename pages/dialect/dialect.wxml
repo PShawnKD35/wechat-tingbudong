@@ -1,62 +1,14 @@
 <!--pages/dialect/dialect.wxml-->
 <view class="container">
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">听不懂</view></cu-custom>
-
-<!--background and header-->
 <view class="blue">
   <view class="header">
   <image src="https://media2.giphy.com/media/SI7JdaPix700qX6qCm/giphy.gif?cid=790b76112b73cbd45885bfb89fbb4f5d8d13283f306bf2c7&rid=giphy.gif" mode="aspectFill" style="background: linear-gradient(grey,grey)"></image>
-  <text class="title" style="position: absolute; top: 21%; left: 50%; transform: translate(-50%, -50%);">#广东话</text>
+  <text class="title" style="position: absolute; top: 21%; left: 50%; transform: translate(-50%, -50%);">{{dialect}}</text>
   </view>
-
-<!--background and header-->
-
-<!-- start of slang card -->
-<view class="body">
-<!-- first loop for main-card -->
-  <view class="show-card" wx:for="{{ColorList}}" wx:key wx:for="{{slangs}}" wx:for-item="slang" wx:key="xxx">
-    <view data-id="{{slang.id}}" bindtap="toSlangShow" class="bg-{{searched?'orange':'cyan'}} radius shadow-blur light" id="background" >
-  <view class="cu-list menu-avatar" id="list-background">
-        <view class="cu-item" id="{{searched?'list-background-searched':'list-background'}}">
-          <view class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
-          <view class="content flex-sub">
-            <view class="h1">{{slang.name}}</view>
-          </view>
-        </view>
-      </view>
-<!-- second lopp for definition -->
-
-        <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="1000" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">   
-        <block wx:for="{{slang.definitions}}" wx:for-item="definition" wx:key="xxx">
-          <swiper-item>
-            <view class="cu-card dynamic">
-              <view class="cu-item shadow">
-              <view class="cu-list menu-avatar">
-                <view class="text-content" id="definition-text">{{definition.content}}</view>
-                      <view class="content flex-sub">
-                      <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user}} {{definition.created_at}}
-                  
-                      </view>
-
-                  </view>
-                </view>
-
-              </view>
-            </view>
-          </swiper-item>   
-          </block> 
-        </swiper>         
-        <view id="tag-block">
-            <block wx:for="{{slang.tags}}" wx:key="tag">
-              <view class="cu-tag bg-pink padding-sm  light"><text class="cuIcon-tag"></text>{{item}}</view>
-            </block>
-        </view>
-      </view>
-    </view>
+  <view class="body">
+      <slang-card slangs="{{slangs}}"></slang-card>
   </view>
-<!-- end of slang card -->
-
-
 </view>
 </view>
 

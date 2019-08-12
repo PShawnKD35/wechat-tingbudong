@@ -1,93 +1,40 @@
-    <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
-      <view slot="content">听不懂</view>
-    </cu-custom>
-
-      <view class="top">
-        <view class="search-bar">
-          <van-search value="{{ value }}" shape ="round" background="transparent" placeholder="Search by Slang" use-action-slot bind:search="onSearch" />
-        </view>
-        <view id="tag-bar">
-          <text bindtap="showModal" data-target="ChooseModal" class="cuIcon-tag text-white"></text>
-        </view>
-      </view>			
-
-
-  <!-- Slider  -->
-  <view>
-  <view class='slider'>
-    <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-  <!-- first swiper-item -->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+  <view slot="content">听不懂</view>
+</cu-custom>
+<!-------------------------------------Top------------------------------------->
+<view class="top">
+  <view class="search-bar">
+    <van-search value="{{ value }}" shape ="round" background="transparent" placeholder="Search Tingbudong" use-action-slot bind:search="onSearch" />
+  </view>
+  <view id="tag-bar">
+    <text bindtap="showModal" data-target="ChooseModal" class="cuIcon-tag text-white"></text>
+  </view>
+</view>			
+<!-------------------------------------Top------------------------------------->
+<!----------------------------------Banner------------------------------------->
+<view class='slider'>
+  <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
     <swiper-item>
-        <view class="popular-card" style="position: relative;" mode="aspectFill">
+      <view class="popular-card" style="position: relative;" mode="aspectFill">
         <image class="gif" src='https://lc-l8bhbw53.cn-n1.lcfile.com/4a60053c964dc9ec2968/DAE3C7EC-3DC1-4FB8-B329-37B2E4639909.gif'></image>
-          <view style="background: linear-gradient(black,red)">
-            <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">今天还听不懂吗？</text>
-          </view>
+        <view style="background: linear-gradient(black,red)">
+          <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">今天还听不懂吗？</text>
         </view>
+      </view>
     </swiper-item>      
-  <!-- first swiper-item -->
-  <!-- second swiper-item -->
     <swiper-item>
     <view class="popular-card" mode="aspectFill">
-        <image class="gif" src='https://media.giphy.com/media/l378kCHSmb5z0UNQ4/giphy.gif'></image>
+      <image class="gif" src='https://media.giphy.com/media/l378kCHSmb5z0UNQ4/giphy.gif'></image>
       <view style="background: linear-gradient(black,red)">
         <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">我们教你</text>
       </view>
-
     </view>
   </swiper-item>      
-  <!-- second swiper-item -->
   </swiper>
 </view>
-
-
-<!-- start of slang card -->
+<!------------------------------ start of slang card -------------------------->
 <view class="body">
-
-<!-- first loop for main-card -->
-  <view class="show-card" wx:for="{{slangs}}" wx:for-item="slang" wx:key="xxx">
-
-  <view data-id="{{slang.id}}" bindtap="toSlangShow" class="bg-{{searched?'orange':'cyan'}} radius shadow-blur light" id="background" >
-
-  <view class="cu-list menu-avatar" id="list-background">
-        <view class="cu-item" id="{{searched?'list-background-searched':'list-background'}}">
-          <view class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
-          <view class="content flex-sub">
-            <view class="h1">{{slang.name}}</view>
-          </view>
-        </view>
-      </view>
-        <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="1000" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">   
-        <block wx:for="{{slang.definitions}}" wx:for-item="definition" wx:key="xxx">
-          <swiper-item>
-            <view class="cu-card dynamic">
-              <view class="cu-item shadow">
-              <view class="cu-list menu-avatar">
-                <view class="text-content" id="definition-text">{{definition.content}}</view>
-                      <view class="content flex-sub">
-                      <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user}} {{definition.created_at}}
-                  
-                      </view>
-
-                  </view>
-                </view>
-              </view>
-            </view>
-          </swiper-item>   
-          </block> 
-        </swiper>         
-          <view id="tag-block">
-            <block wx:for="{{slang.dialects}}" wx:key="dialect">
-              <view id="tags" class="cu-tag round bg-red padding-sm light"><text class="cuIcon-tag"></text>{{item}}</view>
-            </block>
-            <block wx:for="{{slang.tags}}" wx:key="tag">
-              <view id="tags" class="cu-tag round bg-pink padding-sm  light"><text class="cuIcon-tag"></text>{{item}}</view>
-            </block>
-          </view>
-          <!-- </block> -->
-      </view>
-    </view>
-  </view>
+  <slang-card slangs="{{slangs}}"></slang-card>
 </view>
 
 <view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
@@ -98,7 +45,7 @@
     </view>
     <view class="grid col-3 padding-sm">
       <view wx:for="{{tags}}" class="padding-xs" wx:key="tag">
-        <button class="cu-btn cyan lg block {{item.checked?'bg-cyan':'line-cyan'}}" bindtap="ChooseCheckbox" data-value="{{item.value}}"> {{item.name}}
+        <button class="cu-btn cyan lg block {{item.checked?'bg-cyan':'line-cyan'}}" bindtap="chooseTag" data-selected="{{item.name}}" data-value="{{item.value}}"> {{item.name}}
           <view class="cu-tag sm round {{item.checked?'bg-white text-cyan':'bg-cyan'}}" wx:if="{{item.hot}}">HOT</view>
         </button>
       </view>

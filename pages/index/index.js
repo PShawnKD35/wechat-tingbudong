@@ -12,10 +12,12 @@ Page({
     TabCur: 1,
     scrollLeft: 0,
     tags: [],
+    searchTags: [],
+    value: ''
   },
-
+///////////////// On load /////////////////
   onLoad: function (options) {
-    wx.hideLoading()
+    // wx.hideLoading()
     wx.showShareMenu({
       withShareTicket: true
     }),
@@ -39,14 +41,16 @@ Page({
       method: 'GET',
       success: res => {
         console.log("Getting tagssssssssssssssss")
+        console.log(res.data)
         that.insertChecker(res.data)
       }
     })
     this.setData({
       searched: false,
     })
+    this.selectComponent("#slang-card")
   },
-
+///////////////// Insert keys to tags /////////////////
   insertChecker(tags){
     let temptags = tags
     let i = 0
@@ -60,7 +64,7 @@ Page({
       tags: temptags
     })
   },
-
+///////////////// formating tags from string to array /////////////////
   tagsSpliter(slangs) {
     let splitedSlangs = slangs
     splitedSlangs.forEach( function(slang){
@@ -73,7 +77,7 @@ Page({
       slangs: splitedSlangs
     })
   },
-// share app
+///////////////// enable share app /////////////////
   onShareAppMessage: function () {
     return {
       title: `Tingbudong? 不用怕！`,
@@ -87,7 +91,7 @@ Page({
         }
       })
   },
-// search
+///////////////// search slang /////////////////
   onSearch: function(e) {
     console.log("SEARCHHHHHHHHINGGGGGGGGGG")
     console.log(e.detail)
@@ -111,9 +115,7 @@ Page({
     });
 
   },
-
-  // tagSearch: function
-// to show
+///////////////// to show page /////////////////
   toSlangShow: function(event) {
     console.log(event)
     let id = event.currentTarget.dataset.id
@@ -121,36 +123,77 @@ Page({
       url: `/pages/show/show?id=${id}`,
     })
   },
-  // cardSwiper
+///////////////// cardSwiper /////////////////
   cardSwiper(e) {
     this.setData({
       cardCur: e.detail.current
     })
   },
-  
+///////////////// modal: tag selector /////////////////
   showModal(e) {
     this.setData({
       modalName: e.currentTarget.dataset.target
     })
   },
-
+  /////////////////////// setting search tags values ////////////////////////////
   hideModal(e) {
+    let tags = this.data.tags;
+    let searchTags = []
     this.setData({
       modalName: null
     })
-  },
-
-  ChooseCheckbox(e) {
-    let items = this.data.tags;
-    let values = e.currentTarget.dataset.value;
-    for (let i = 0, lenI = items.length; i < lenI; ++i) {
-      if (items[i].value == values) {
-        items[i].checked = !items[i].checked;
-        break
+    tags.forEach((tag)=>{
+      if(tag.checked){
+        searchTags.push(tag.name)
       }
-    }
+    })
     this.setData({
-      tags: items
+      searchTags: searchTags,
+      value: searchTags
+    })
+    this.searchTags(searchTags)
+  },
+//////////////////////////// searching tags function /////////////////////////////
+  searchTags(tags){
+    let searchTags = tags.toString()
+    let page = this
+    let dialects = app.globalData.dialects
+    console.log('this is the TAG Searcher!!!!!!!!!!!!!!!!!')
+    console.log(tags.toString())
+    wx.request({
+      url: `${app.globalData.url}slangs`,
+      method: 'GET',
+      header: app.globalData.header,
+      data: {
+        tag: searchTags
+      },
+      success: function(res){
+        page.tagsSpliter(res.data.slangs)
+        page.setData({
+          searched: true
+        })
+      }
+    })
+    tags.forEach((tag) => {
+      if (dialects.includes(tag)) {
+        wx.redirectTo({
+          url: `/pages/dialect/dialect?dialect=${tag}&tags=${searchTags}`,
+        })
+      }
+    })
+  },
+/////////////////////////// chooseing tags: function //////////////////////////////
+  chooseTag(e) {
+    console.log(e)
+    let tags = this.data.tags;
+    let selectedTag = e.currentTarget.dataset.selected;
+    tags.forEach((tag)=> {
+      if (tag.name == selectedTag){
+        tag.checked = !tag.checked
+      }
+    })
+    this.setData({
+      tags: tags,
     })
   }
 })

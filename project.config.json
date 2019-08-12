@@ -112,14 +112,14 @@
 					"pathName": "pages/dialect/dialect",
 					"query": "",
 					"scene": null
-        },
-        {
-          "id": 9,
-          "name": "landing",
-          "pathName": "pages/landing/landing",
-          "query": "",
-          "scene": null
-        }
+				},
+				{
+					"id": 9,
+					"name": "landing",
+					"pathName": "pages/landing/landing",
+					"query": "",
+					"scene": null
+				}
 			]
 		}
 	}

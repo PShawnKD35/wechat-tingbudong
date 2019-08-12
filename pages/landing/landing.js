@@ -41,6 +41,7 @@ Page({
     } else if (this.data.canIUse) {
       console.log("elseeeeeeeeeeee if")
       app.userInfoReadyCallback = res => {
+        wx.hideLoading()
         this.setData({
           userInfo: res.userInfo,
         })
@@ -56,7 +57,6 @@ Page({
           this.setData({
             userInfo: res.userInfo,
           })
-          wx.hideLoading()
         }
       })
       wx.switchTab({

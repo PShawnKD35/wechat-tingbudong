@@ -97,7 +97,7 @@
       <view class="action text-blue" bindtap="hideModal">Okay</view>
     </view>
     <view class="grid col-3 padding-sm">
-      <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
+      <view wx:for="{{tags}}" class="padding-xs" wx:key="tag">
         <button class="cu-btn cyan lg block {{item.checked?'bg-cyan':'line-cyan'}}" bindtap="ChooseCheckbox" data-value="{{item.value}}"> {{item.name}}
           <view class="cu-tag sm round {{item.checked?'bg-white text-cyan':'bg-cyan'}}" wx:if="{{item.hot}}">HOT</view>
         </button>

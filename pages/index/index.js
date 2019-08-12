@@ -6,43 +6,12 @@ Page({
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
-    tagShow: [],
     favored: false,
     searched: false,
     CustomBar: app.globalData.CustomBar,
     TabCur: 1,
     scrollLeft: 0,
     tags: [],
-    // checkbox: [{
-    //   name: '官话',
-    //   checked: false,
-    //   hot: false,
-    // }, {
-    //   // value: ,
-    //   name: '官话',
-    //   checked: true,
-    //   hot: false,
-    // }, {
-    //   value: 2,
-    //   name: '',
-    //   checked: true,
-    //   hot: true,
-    // }, {
-    //   value: 3,
-    //   name: '',
-    //   checked: false,
-    //   hot: true,
-    // }, {
-    //   value: 4,
-    //   name: '80元',
-    //   checked: false,
-    //   hot: false,
-    // }, {
-    //   value: 5,
-    //   name: '',
-    //   checked: false,
-    //   hot: false,
-    // }]
   },
 
   onLoad: function (options) {
@@ -70,8 +39,7 @@ Page({
       method: 'GET',
       success: res => {
         console.log("Getting tagssssssssssssssss")
-        console.log(res)
-        that.checkBoxTagsTransformer(res.data)
+        that.insertChecker(res.data)
       }
     })
     this.setData({
@@ -79,17 +47,17 @@ Page({
     })
   },
 
-  checkBoxTagsTransformer(tags){
-    let tagStorage = []
-    tags.forEach((tag)=>{
-      tagStorage.push({
-        name: tag,
-        checked: false,
-        hot: false
-      })
+  insertChecker(tags){
+    let temptags = tags
+    let i = 0
+    temptags.forEach((tag)=>{
+      tag['value'] = i
+      tag['checked'] = false
+      i++
     })
-    this.setData({
-      tags: tagStorage
+
+    this.setData ({
+      tags: temptags
     })
   },
 
@@ -173,7 +141,7 @@ Page({
   },
 
   ChooseCheckbox(e) {
-    let items = this.data.checkbox;
+    let items = this.data.tags;
     let values = e.currentTarget.dataset.value;
     for (let i = 0, lenI = items.length; i < lenI; ++i) {
       if (items[i].value == values) {
@@ -182,7 +150,7 @@ Page({
       }
     }
     this.setData({
-      checkbox: items
+      tags: items
     })
   }
 })

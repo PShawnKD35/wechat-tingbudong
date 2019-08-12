@@ -2,9 +2,7 @@ const app = getApp()
 
 Page({
   data: {
-    // isHide is the user home page
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    // isHide: getApp().globalData.isHide,
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
@@ -15,7 +13,6 @@ Page({
   },
 
   onLoad: function (options) {
-    wx.hideLoading()
     wx.showShareMenu({
       withShareTicket: true
     }),
@@ -44,6 +41,7 @@ Page({
     } else if (this.data.canIUse) {
       console.log("elseeeeeeeeeeee if")
       app.userInfoReadyCallback = res => {
+        wx.hideLoading()
         this.setData({
           userInfo: res.userInfo,
         })
@@ -67,6 +65,9 @@ Page({
     }
   },
 
+  onShow: function() {
+  },
+
   onShareAppMessage: function () {
     return {
       title: `Tingbudong? 不用怕！`,
@@ -82,6 +83,7 @@ Page({
   },
 
   bindGetUserInfo: function (e) {
+    wx.hideLoading()
     let page = this;
     wx.getUserInfo({
       success: function (res) {

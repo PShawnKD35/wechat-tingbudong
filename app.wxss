@@ -1,11 +1,29 @@
 @import "colorui/main.wxss";
 @import "colorui/icon.wxss";
 /* top-search-bar */
- .top {
-  position: sticky;
-  background: linear-gradient(60deg,#0081ff ,#1cbbb4);  
+.top image {
+  width: 100rpx;
+  height: 108rpx;
+  flex-grow: 0;
+  font-size: 10rpx;
 }
 
+#tag-bar {
+  width: 100rpx;
+  justify-content: space-around;
+  font-size: 70rpx;
+}
+
+.search-bar {
+  flex-grow: 1;
+}
+ 
+ .top {
+  position: sticky;
+  display:flex;
+  justify-content: space-around;
+  background: linear-gradient(60deg,#0081ff ,#1cbbb4);  
+}
 /* slang card */
 
 .text {
@@ -42,7 +60,7 @@ border-radius: 10rpx;
 #definition-text {
   padding: 30rpx;
   color: black !important;
-  
+  text-align: justify;
 }
 
 #show-card,

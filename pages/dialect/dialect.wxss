@@ -14,7 +14,7 @@
   background: #f9e6d4;
 }
 
-.header image {
+.head image {
   margin:20rpx;
   width: 95vw;
   height: 300rpx;

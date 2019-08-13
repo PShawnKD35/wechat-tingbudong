@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 10,
 			"list": [
 				{
 					"id": 1,
@@ -120,8 +120,13 @@
 					"query": "",
 					"scene": null
 				},
-
-
+				{
+					"id": 10,
+					"name": "pages/components/navbar",
+					"pathName": "pages/components/navbar",
+					"query": "",
+					"scene": null
+				}
 			]
 		}
 	}

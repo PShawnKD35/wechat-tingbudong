@@ -88,13 +88,13 @@ Page({
       ).catch(console.error);
     });
     // posting slang
-    console.log(page.data.imgList.toString())
+    console.log(page.data.sticker_url.toString())
     wx.request({
       url: `${app.globalData.url}slangs`,
       method: 'POST',
       header: app.globalData.header,
       data: { name: page.data.name,
-              sticker_url: page.data.imgList.toString(),
+               sticker_url: page.data.sticker_url.toString(),
               },
       success: function (res) {
         console.log("Response from slang request:")

@@ -15,7 +15,7 @@ Page({
     searchTags: [],
     value: ''
   },
-///////////////// On load /////////////////
+////////////////////////////////// On load ///////////////////////////////////
   onLoad: function (options) {
     // wx.hideLoading()
     wx.showShareMenu({

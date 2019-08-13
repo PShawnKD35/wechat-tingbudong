@@ -104,7 +104,9 @@ Page({
         console.log(res)
         page.data.slang_id = res.data.slang_id
         // posting tags
-        console.log("dialect nameeeeeeeeeeeeee" + page.data.dialect_name)
+        // console.log("dialect nameeeeeeeeeeeeee" + page.data.dialect_name)
+        console.log("this is the tag posteddddddddddddddddddddddddddd")
+        console.log(page.data.tags.toString())
         wx.request({
           url: `${app.globalData.url}tags`,
           method: 'POST',
@@ -119,7 +121,7 @@ Page({
           success: function (res) {
             console.log("Response from tag request:")
             console.log(res)
-            console.log(page.data.slang_id)
+            // console.log(page.data.slang_id)
             // posting definition
             wx.request({
               url: `${app.globalData.url}definitions`,

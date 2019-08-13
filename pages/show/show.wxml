@@ -1,18 +1,12 @@
 <view class="container">
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">听不懂</view></cu-custom>
 
-<!-- start of body tag -->
 <view class="body">
-
-<!-- start of slang card -->
-
 <!-- <view class="body"> -->
   <view class="show-card">
-      <view class="background radius light" >
-      
-     <view class="card-content">
-      <view class="h1"><text> {{slang.name}} </text>
-      
+    <view class="background radius light" >
+      <view class="card-content">
+        <view class="h1"><text> {{slang.name}} </text>
         <view id="show-card-avatar" class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
         <text data-id="{{slang.id}}" data-name="{{slang.name}}" id= "edit-slang" class="cuIcon-edit sm text-white" bindtap="editSlang"></text>
         <text id="save-slang" bindtap="saveSlang" class="cuIcon-{{favored?'favorfill':'favor'}}"></text>
@@ -59,18 +53,14 @@
     </view>
 
   </view>
-    <!-- share button -->
+<!---------------------------------- share button ----------------------------------->
       <button open-type="share" id="share" class="cu-btn lg bg-white"><text id="save-slang" class="cuIcon-share"> Share</text></button>
+<!---------------------------------- share button ----------------------------------->
 
-      <!-- share button -->
   </view>
   </view>
-
-
 </view>
 </view>
-
-
 
 <!-- end of slang card -->
 <!-- start of slang card -->

@@ -68,24 +68,22 @@ Page({
 
   editSlang(e) {
     let page = this
-    page.data.dialectTag.forEach((dialect) => {
-      console.log("*************Adding Tag****************")
-      wx.request({
-        url: `${app.globalData.url}tags`,
-        method: 'POST',
-        header: app.globalData.header,
-        data: {
-          tag: {
-            dialect_name: page.data.dialect_name,
-            tag_name: page.data.tags.toString(),
-            slang_id: page.data.slang_id
-          },
+    console.log("*************Adding Tag****************")
+    wx.request({
+      url: `${app.globalData.url}tags`,
+      method: 'POST',
+      header: app.globalData.header,
+      data: {
+        tag: {
+          dialect_name: page.data.dialect_name,
+          tag_name: page.data.tags.toString(),
+          slang_id: page.data.slang_id
         },
-        success: function (res){
-          console.log(res)
-        }
-      })
-    }),
+      },
+      success: function (res){
+        console.log(res)
+      }
+    })
     wx.request({
       url: `${app.globalData.url}slangs/${page.data.slang_id}`,
       method: 'PUT',

@@ -4,7 +4,7 @@
 <view class="blue">
   <view class="header">
   <image src="https://media2.giphy.com/media/SI7JdaPix700qX6qCm/giphy.gif?cid=790b76112b73cbd45885bfb89fbb4f5d8d13283f306bf2c7&rid=giphy.gif" mode="aspectFill" style="background: linear-gradient(grey,grey)"></image>
-  <text class="title" style="position: absolute; top: 21%; left: 50%; transform: translate(-50%, -50%);">{{dialect}}</text>
+  <text class="title" style="position: absolute; top: 21%; left: 50%; transform: translate(-50%, -50%);">#{{dialect}}</text>
   </view>
   <view class="body">
       <slang-card slangs="{{slangs}}"></slang-card>

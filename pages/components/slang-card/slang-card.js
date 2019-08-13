@@ -7,7 +7,7 @@ Component({
   properties: {
     'searched':{
       type: Boolean,
-      value: false
+      value: ''
     },
     'slangs':{
       type: null,

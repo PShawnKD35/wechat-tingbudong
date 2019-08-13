@@ -13,8 +13,10 @@ Page({
       url: `${app.globalData.url}slangs/${options.id}`,
       method: 'GET',
       header: app.globalData.header,
-      success(res) {
-        page.tagsSpliter(res.data.slang)
+      success(res) { 
+        page.setData({
+          slang: res.data.slang
+        })    
       }
     })
   },
@@ -42,17 +44,6 @@ Page({
     let name = e.currentTarget.dataset.name
     wx.navigateTo({
       url: `/pages/editSlang/editSlang?id=${id}&name=${name}`,
-    })
-  },
-
-  tagsSpliter(slang) {
-    let splitedSlang = slang
-    if (slang.tags[0] != undefined) {
-      let tmptags = slang.tags
-      slang.tags = tmptags[0].split(',')
-    }
-    this.setData({
-      slang: splitedSlang
     })
   },
 

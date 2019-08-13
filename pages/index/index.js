@@ -30,7 +30,7 @@ Page({
       success: res => {
         console.log(res)
         that.setData({
-          slangs: that.tagsSpliter(res.data.slangs)
+          slangs: res.data.slangs
         })
       }
     })
@@ -64,19 +64,6 @@ Page({
       tags: temptags
     })
   },
-///////////////// formating tags from string to array /////////////////
-  tagsSpliter(slangs) {
-    let splitedSlangs = slangs
-    splitedSlangs.forEach( function(slang){
-      if (slang.tags[0] != undefined){
-        let tmptags = slang.tags
-        slang.tags = tmptags[0].split(',')
-      }
-    })
-    this.setData({
-      slangs: splitedSlangs
-    })
-  },
 ///////////////// enable share app /////////////////
   onShareAppMessage: function () {
     return {
@@ -102,9 +89,9 @@ Page({
       header: app.globalData.header,
       data: { name: e.detail },
       success: function(res) {
-        page.tagsSpliter(res.data.slangs)        
         page.setData({
-         searched: true
+         searched: true,
+         slangs: res.data.slangs
         })
         if (e.detail == '') {
           page.setData({
@@ -114,14 +101,6 @@ Page({
       }
     });
 
-  },
-///////////////// to show page /////////////////
-  toSlangShow: function(event) {
-    console.log(event)
-    let id = event.currentTarget.dataset.id
-    wx.navigateTo({
-      url: `/pages/show/show?id=${id}`,
-    })
   },
 ///////////////// cardSwiper /////////////////
   cardSwiper(e) {
@@ -168,6 +147,7 @@ Page({
         tag: searchTags
       },
       success: function(res){
+        console.log(res)
         page.tagsSpliter(res.data.slangs)
         page.setData({
           searched: true

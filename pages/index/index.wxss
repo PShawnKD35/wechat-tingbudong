@@ -16,7 +16,6 @@
   background: #f9e6d4;
 }
 
-
 #tag-block {
   padding-left: 15rpx;
 }
@@ -40,7 +39,6 @@ color: white;
 #definition-swiper {
   height: 250px;
 }
-
 
 .header {
     width: 100vw;
@@ -76,7 +74,6 @@ color: white;
   height: 120rpx;
 }
 
-
 .van-icon {
     position:relative;
     display:inline-block;
@@ -91,4 +88,5 @@ color: white;
     font-size:50px;
     font-family:'youth';
 }
+
 

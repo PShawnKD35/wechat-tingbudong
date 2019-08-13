@@ -60,12 +60,11 @@
       <view class="cu-tag bg-pink light round" bindtap="goTotag" data-tag="{{item}}"><text class="cuIcon-tag"></text>{{item}}</view>
     </block>
 <!---------------------------------------------------------------------------------->
-  <!-- <view class="padding" style="margin-top:40rpx">
+  <view class="padding" style="margin-top:40rpx">
     <view class="grid col-4 grid-square">
-      <view class="bg-img" wx:for="{{4}}" wx:key style="background-image:url({{slang.sticker_url}});"></view>
+     <view class="bg-img" wx:for="{{sticker_url}}" wx:key style="background-image:url({{item}});"></view>
     </view>
-    </view> -->
-
+    </view>
   </view>
 <!---------------------------------- share button ----------------------------------->
       <button open-type="share" id="share" class="cu-btn lg bg-white"><text class="cuIcon-share">Share</text></button>
@@ -76,19 +75,14 @@
 </view>
 </view>
 
-<!-- end of slang card -->
-<!-- start of slang card -->
-  <!-- <view class="show-card">
-    <view class="background">
-      <view class="h1"><text>相关词条</text></view>  
-      <view class="p"><text>Zhā xīn le! Lǎo tiě</text></view>
-    <view class="feeds">
-      <view class="recommended"></view>
-      <view class="recommended"></view>
+  <view class="tower-swiper" bindtouchmove="towerMove" bindtouchstart="towerStart" bindtouchend="towerEnd">
+    <view class="tower-item {{item.zIndex==1?'none':''}}" wx:for="{{swiperList}}" wx:key style="--index:{{item.zIndex}};--left:{{item.mLeft}}">
+      <view class="swiper-item">
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+      </view>
     </view>
-  </view>  
-</view>  -->
-<!-- end of slang card -->
+  </view>
 </view>
 
 

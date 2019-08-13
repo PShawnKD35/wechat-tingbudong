@@ -1,3 +1,4 @@
+<view class="container bg-gradual-blue">
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
   <view slot="content">听不懂</view>
 </cu-custom>
@@ -34,7 +35,7 @@
 </view>
 <!------------------------------ start of slang card -------------------------->
 <view class="body">
-  <slang-card slangs="{{slangs}}"></slang-card>
+  <slang-card searched="{{searched}}" slangs="{{slangs}}"></slang-card>
 </view>
 
 <view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
@@ -53,3 +54,4 @@
   </view>
 </view>
 <!--  -->
+</view>

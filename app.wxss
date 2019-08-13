@@ -74,7 +74,7 @@ padding-left: 20rpx;
 /* show */
 #edit{
   float: right;
-  padding: 30rpx;
+  padding: 10rpx;
 } 
 
 #like{

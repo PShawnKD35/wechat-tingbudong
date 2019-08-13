@@ -38,8 +38,8 @@
 flex:70%;
 width: 300rpx;
 height: 700rpx;
-/* background: rgb(216,240,240); */
 border-radius: 10rpx;
+/* opacity: 0.6; */
 }
 
 .show-card{
@@ -48,7 +48,6 @@ border-radius: 10rpx;
   display: flex;
   border-radius: 20px;
 }
-
 
 #definition-contributor {
   font-size: 20rpx;
@@ -66,11 +65,12 @@ border-radius: 10rpx;
 #show-card,
  .p {
 font-size: 30rpx;
-/* color: rgb(88,184,179); */
 margin-left: 20rpx;
 padding-left: 20rpx;
 } 
 
+
+/* show */
 #edit{
   float: right;
   padding: 30rpx;
@@ -87,7 +87,6 @@ padding-left: 20rpx;
 .swiper-item {
   padding: 50rpx;
 }
-
 
  .blue {
   background:linear-gradient(110deg, #0081ff, #1cbbb4);

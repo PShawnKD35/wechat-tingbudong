@@ -95,6 +95,13 @@ Page({
       })
   },
 
+  goTotag(e) {
+    let tags = e.currentTarget.dataset.tag
+    wx.navigateTo({
+      url: `/pages/dialect/dialect?tags=${tags}&show=show`,
+    })
+  },
+
   saveSlang(e) {
     console.log(e)
     const favored = !this.data.favored

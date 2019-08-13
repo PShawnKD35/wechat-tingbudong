@@ -10,9 +10,14 @@ Page({
     favored: false,
     searched: false,
     preSortedTagsSlangs: [],
+    isLoad: app.globalData.isLoad
   },
 
   onLoad: function (options) {
+    console.log("landing loading!!!!!!!!!!!!!!!!")
+    this.setData({
+      isLoad: app.globalData.isLoad
+    })
     wx.showShareMenu({
       withShareTicket: true
     }),
@@ -41,8 +46,9 @@ Page({
     } else if (this.data.canIUse) {
       console.log("elseeeeeeeeeeee if")
       app.userInfoReadyCallback = res => {
-        wx.hideLoading()
+        // wx.hideLoading()
         this.setData({
+          isLoad: true,
           userInfo: res.userInfo,
         })
         wx.switchTab({
@@ -65,9 +71,6 @@ Page({
     }
   },
 
-  onShow: function() {
-  },
-
   onShareAppMessage: function () {
     return {
       title: `Tingbudong? 不用怕！`,
@@ -83,7 +86,8 @@ Page({
   },
 
   bindGetUserInfo: function (e) {
-    wx.hideLoading()
+    // wx.hideLoading()
+    
     let page = this;
     wx.getUserInfo({
       success: function (res) {

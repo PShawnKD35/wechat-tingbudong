@@ -4,10 +4,6 @@ const config = require('./key')
 App({
   onLaunch: function () {
     let page = this
-    // setTimeout(function () {
-    //   wx.hideTabBar()
-    // }, 500),
-    console.log(123, page.globalData)
     wx.getSystemInfo({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight;
@@ -21,9 +17,9 @@ App({
       appKey: config.appKey,
     });
     console.log("******************Starting the login Process*****************")
-    wx.showLoading({
-      title: 'Loading',
-    }),
+    // wx.showLoading({
+    //   title: 'Loading',
+    // }),
     wx.login({
       success: res => {
         console.log("**********************Getting User's Code**********************")
@@ -74,17 +70,23 @@ App({
           })
         }
         else {
-          wx.hideLoading()
+          // wx.hideLoading()
+          console.log("im in get setting's elseeeeeeeeeeeee")
+          wx.redirectTo({
+            url: 'landing',
+          })
+          this.globalData.isLoad = true
+          console.log(this.globalData.isLoad)
         }
       }
     })
   },
 
   globalData: {
+    isLoad: false,
     userInfo: null,
     userId: '',
     header: {},
-    isHide: true,
     url: `http://localhost:3000/api/v1/`,
     // url: `https://tingbudong.wogengapp.cn/api/v1/`,
     header: '',

@@ -41,29 +41,17 @@
     
   </swiper>  
   
-          <!-- <scroll-view scroll-x class="nav" scroll-with-animation scroll-left>
-          <block wx:for="{{tags}}" wx:for-item="category" wx:key="category">
-            <button class="cu-btn round bg-cyan df margin-sm shadow" data-dialect="{{category.dialect}}" bindtap="dialectSelect">
-            <text class="cuIcon-tag"></text>ds</button>
-          </block>
-        </scroll-view> -->
- 
   <view bindtap="addDefinition" data-id="{{slang.id}}" data-name="{{slang.name}}" class="add-definition cuIcon-roundaddfill xl text-white"><text>创建我的定义</text></view>
-  <!-- stickers -->
-  <!-- <view class="grid col-3 grid-square">
-      <view class="bg-img" wx:for="{{slang.sticker_url}}" wx:key="{{index}}" style="background-image:url({{sticker_url[index]}};"></view>
-    </view> -->
-
-    <!-- tagsssssssss -->
-
+<!---------------------------------- Dialect tags ---------------------------------->
   <view id="tag-block">
     <block wx:for="{{slang.dialects}}" wx:key="dialect">
-      <view class="cu-tag bg-purple light round"><view class="cuIcon-tag"></view>{{item}}</view>
+      <view class="cu-tag bg-purple light round" bindtap="goTotag" data-tag="{{item}}"><view class="cuIcon-tag"></view>{{item}}</view>
     </block>
+<!------------------------------------- Tags --------------------------------------->
     <block wx:for="{{slang.tags}}" wx:key="tag">
-      <view class="cu-tag bg-pink light round "><text class="cuIcon-tag"></text>{{item}}</view>
+      <view class="cu-tag bg-pink light round" bindtap="goTotag" data-tag="{{item}}"><text class="cuIcon-tag"></text>{{item}}</view>
     </block>
-
+<!---------------------------------------------------------------------------------->
       <view class="padding" style="margin-top:40rpx">
     <view class="grid col-4 grid-square">
       <view class="bg-img" wx:for="{{4}}" wx:key style="background-image:url({{slang.sticker_url}});"></view>

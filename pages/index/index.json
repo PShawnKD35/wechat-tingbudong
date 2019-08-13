@@ -2,7 +2,8 @@
   "usingComponents": {
       "van-search": "/dist1/search/index",
       "van-tab": "/dist2/tab/index",
-      "van-tabs": "/dist2/tabs/index"      
+      "van-tabs": "/dist2/tabs/index",
+      "slang-card": "/pages/components/slang-card/slang-card"
   },
 
   "enablePullDownRefresh": true

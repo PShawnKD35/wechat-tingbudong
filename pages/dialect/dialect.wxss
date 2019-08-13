@@ -4,7 +4,6 @@
   background:linear-gradient(110deg, #0081ff, #1cbbb4);
   height:100%;
   z-index: -1;
-
 }
 
 #list-background {
@@ -14,7 +13,6 @@
 #list-background-searched {
   background: #f9e6d4;
 }
-
 
 .header image {
   margin:20rpx;
@@ -36,44 +34,4 @@ color: white;
 
 }
 
-/* actual index */
-.popular-card {
-  height: 400rpx;
-  margin: 5rpx;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-}
-.gif {
-  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
-}
-
-#log-in {
-  height:100rpx;
-}
-
-#banner {
-  font-size: 70rpx;
-  font-family: helvetica;
-  font-style: bold;
-  justify-content: space-around
-}
-
-#button-swiper {
-  height: 120rpx;
-}
-
-
-.van-icon {
-    position:relative;
-    display:inline-block;
-    font:normal normal normal 14px/1 vant-icon;
-    font-size:inherit;
-    text-rendering:auto;
-}
-.van-icon-upgrade::before {
-    content:"\F058";
-}
-.test {
-    font-size:50px;
-    font-family:'youth';
-}
 

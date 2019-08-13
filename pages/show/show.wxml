@@ -1,16 +1,25 @@
 <view class="container">
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">听不懂</view></cu-custom>
 
-<view class="body">
+<view class="body" style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/giphy.gif)">
+
+<view class="title"><text>“ {{slang.name}} ”</text></view>
+<view class="trash"> </view>
+
+
 <!-- <view class="body"> -->
   <view class="show-card">
     <view class="background radius light" >
       <view class="card-content">
-        <view class="h1"><text> {{slang.name}} </text>
+
         <view id="show-card-avatar" class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
-        <text data-id="{{slang.id}}" data-name="{{slang.name}}" id= "edit-slang" class="cuIcon-edit sm text-white" bindtap="editSlang"></text>
+        <!-- edit & collect -->
+        <view class="top-nav">
+        <text data-id="{{slang.id}}" data-name="{{slang.name}}" id= "edit-slang" class="cuIcon-edit sm text-grey" bindtap="editSlang"></text>
         <text id="save-slang" bindtap="saveSlang" class="cuIcon-{{favored?'favorfill':'favor'}}"></text>
-      </view>
+        </view>
+      <!-- /edit & collect -->
+      <!-- </view> -->
       <view class="p"><text></text></view> 
         <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="1000" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff"> 
         <block wx:for="{{slang.definitions}}" wx:for-item="definition" wx:key="xxx">  
@@ -18,7 +27,12 @@
             <view class="cu-card dynamic">
               <view class="cu-item shadow">
               <view class="cu-list menu-avatar">
+              <!-- edit definition -->
                  <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id= "edit" class="cuIcon-edit lg text-grey" bindtap="editDefinition"></text>
+              <!-- /edit definition -->
+              <!-- delete definition -->
+      <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id= "edit" class="cuIcon-deletefill lg text-grey"></text>
+              <!-- /delete definition -->
                 <view class="text-content" id="definition-text">
                 {{definition.content}}</view>
                 <view class="content flex-sub">
@@ -35,7 +49,7 @@
     
   </swiper>  
   
-  <view bindtap="addDefinition" data-id="{{slang.id}}" data-name="{{slang.name}}" class="add-definition cuIcon-roundaddfill xl text-white"><text>创建我的定义</text></view>
+  <view bindtap="addDefinition" data-id="{{slang.id}}" data-name="{{slang.name}}" class="add-definition cuIcon-roundaddfill xl text-grey"><text>创建我的定义</text></view>
 <!---------------------------------- Dialect tags ---------------------------------->
   <view id="tag-block">
     <block wx:for="{{slang.dialects}}" wx:key="dialect">
@@ -46,15 +60,15 @@
       <view class="cu-tag bg-pink light round" bindtap="goTotag" data-tag="{{item}}"><text class="cuIcon-tag"></text>{{item}}</view>
     </block>
 <!---------------------------------------------------------------------------------->
-      <view class="padding" style="margin-top:40rpx">
+  <!-- <view class="padding" style="margin-top:40rpx">
     <view class="grid col-4 grid-square">
       <view class="bg-img" wx:for="{{4}}" wx:key style="background-image:url({{slang.sticker_url}});"></view>
     </view>
-    </view>
+    </view> -->
 
   </view>
 <!---------------------------------- share button ----------------------------------->
-      <button open-type="share" id="share" class="cu-btn lg bg-white"><text id="save-slang" class="cuIcon-share"> Share</text></button>
+      <button open-type="share" id="share" class="cu-btn lg bg-white"><text class="cuIcon-share">Share</text></button>
 <!---------------------------------- share button ----------------------------------->
 
   </view>

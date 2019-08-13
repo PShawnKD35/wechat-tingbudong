@@ -10,6 +10,7 @@
       <slang-card slangs="{{slangs}}"></slang-card>
   </view>
 </view>
+<navbar/>
 </view>
 
 

@@ -71,10 +71,9 @@ Page({
     })
   },
 
-  submitNewSlang(e) {
-    let page = this
+  uploadToLean(){
     let sticker_url = page.data.sticker_url
-    page.data.imgList.forEach(function(img){
+    page.data.imgList.forEach(function (img) {
       new AV.File('file-name', {
         blob: {
           uri: img,
@@ -87,7 +86,12 @@ Page({
         }
       ).catch(console.error);
     });
+  },
+
+  submitNewSlang(e) {
+    let page = this
     // posting slang
+    console.log("this is checkingggggggggggggggggg stickerrrrrrrrrrrrrrrrr")
     console.log(page.data.sticker_url.toString())
     wx.request({
       url: `${app.globalData.url}slangs`,
@@ -97,11 +101,7 @@ Page({
                sticker_url: page.data.sticker_url.toString(),
               },
       success: function (res) {
-        console.log("Response from slang request:")
-        console.log(res)
         page.data.slang_id = res.data.slang_id
-        console.log("this is the tag posteddddddddddddddddddddddddddd")
-        console.log(page.data.tags.toString())
         wx.request({
           url: `${app.globalData.url}tags`,
           method: 'POST',
@@ -114,10 +114,6 @@ Page({
             },
           },
           success: function (res) {
-            console.log("Response from tag request:")
-            console.log(res)
-            // console.log(page.data.slang_id)
-            // posting definition
             wx.request({
               url: `${app.globalData.url}definitions`,
               method: 'POST',
@@ -127,8 +123,6 @@ Page({
                 slang_id: page.data.slang_id,
               },
               success: function (res) {
-                console.log("Response from definition request:")
-                console.log(res)
                 wx.reLaunch({
                   url: `/pages/show/show?id=${page.data.slang_id}`,
                 })

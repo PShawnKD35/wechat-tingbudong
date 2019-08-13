@@ -91,7 +91,7 @@ padding-left: 20rpx;
 
  .blue {
   background:linear-gradient(110deg, #0081ff, #1cbbb4);
-  height: 100px;
+  height: 125vh;
 }
 
 #dialect {
@@ -112,7 +112,7 @@ padding-left: 20rpx;
 
 .white {
 border-radius: 20px;
-height: 100vh;
+height: 110vh;
 background-color: white;
 margin-top: 40px;
 }

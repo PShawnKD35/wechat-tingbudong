@@ -1,5 +1,8 @@
 // pages/components/navbar.js
 Component({
+  options: {
+    styleIsolation: 'apply-shared'
+  },
   /**
    * Component properties
    */

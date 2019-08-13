@@ -1,9 +1,6 @@
 {
   "usingComponents": {
-    
-    "slang-card": "/pages/components/slang-card/slang-card"
-
-    "navbar": "/pages/components/navbar"
-
+    "slang-card": "/pages/components/slang-card/slang-card",
+    "navbar": "/pages/components/navbar/navbar"
   }
 }

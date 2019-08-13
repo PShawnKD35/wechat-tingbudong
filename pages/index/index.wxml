@@ -25,7 +25,7 @@
     </swiper-item>      
     <swiper-item>
     <view class="popular-card" mode="aspectFill">
-      <image class="gif" src='https://media.giphy.com/media/l378kCHSmb5z0UNQ4/giphy.gif'></image>
+      <image class="gif" src='https://lc-l8bhbw53.cn-n1.lcfile.com/4a60053c964dc9ec2968/DAE3C7EC-3DC1-4FB8-B329-37B2E4639909.gif'></image>
       <view style="background: linear-gradient(black,red)">
         <text class="title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">我们教你</text>
       </view>

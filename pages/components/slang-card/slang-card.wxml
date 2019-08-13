@@ -2,7 +2,7 @@
     <view data-id="{{slang.id}}" bindtap="toSlangShow" class="bg-{{searched?'orange':'cyan'}} radius shadow-blur light" id="background" >
       <view class="cu-list menu-avatar" id="list-background">
         <view class="cu-item" id="{{searched?'list-background-searched':'list-background'}}">
-          <!-- <view class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view> -->
+          <view class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
         <view class="content flex-sub">
           <view class="h1">{{slang.name}}</view>
         </view>

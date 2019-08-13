@@ -46,10 +46,6 @@ Page({
   slangTag(e) {
     let selected = e.detail.value.trim()
     let tags = this.data.tags
-    // tags.forEach((tag)=>{
-    //   if(tag != selected)
-    //     tags.push(selected)
-    // })
     tags.push(selected)
     this.setData({
       tags: tags,
@@ -92,12 +88,13 @@ Page({
       ).catch(console.error);
     });
     // posting slang
+    console.log(page.data.imgList.toString())
     wx.request({
       url: `${app.globalData.url}slangs`,
       method: 'POST',
       header: app.globalData.header,
       data: { name: page.data.name,
-              sticker_url: page.data.imgList[0],
+              sticker_url: page.data.imgList.toString(),
               },
       success: function (res) {
         console.log("Response from slang request:")

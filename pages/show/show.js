@@ -16,7 +16,8 @@ Page({
       success(res) { 
         page.setData({
           slang: res.data.slang
-        })    
+        })   
+        console.log(res.data.slang.sticker_url.split(',')) 
       }
     })
   },
@@ -34,9 +35,14 @@ Page({
       header: app.globalData.header,
       data: {like: {definition_id: definition_id}},
       success: function (res) {
-        console.log(res)
+        console.log(res.data.sticker_url)
       }
     })
+  },
+// sticker seperated
+  stickerSplitter(urls) {
+    let sticker_url = urls
+    sticker_
   },
 // require slang-id
   editSlang: function (e) {

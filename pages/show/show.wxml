@@ -48,7 +48,7 @@
 <!---------------------------------------------------------------------------------->
       <view class="padding" style="margin-top:40rpx">
     <view class="grid col-4 grid-square">
-      <view class="bg-img" wx:for="{{4}}" wx:key style="background-image:url({{slang.sticker_url}});"></view>
+      <!-- <view class="bg-img" wx:for="{{sticker_url}}" wx:key style="background-image:url({{item}});"></view> -->
     </view>
     </view>
 

@@ -1,10 +1,8 @@
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">听不懂</view></cu-custom>
-
  <!--copying from pages/addslang-->
  <view class="blue">
   <view class="title">Enter your slang</view>
      <view class="white">
-      
       <view class="form-group">
        <!--slang input-->
         <view class="section__title">A word or a sentence</view>

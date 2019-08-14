@@ -1,5 +1,6 @@
 const app = getApp()
 const AV = require('../../utils/av-weapp-min.js');
+const utilApi = require('../../utils/util.js');
 
 Page({
   data: {
@@ -67,43 +68,50 @@ Page({
 
 
   editSlang(e) {
-    let page = this
-    console.log("*************Adding Tag****************")
-    wx.request({
-      url: `${app.globalData.url}tags`,
-      method: 'POST',
-      header: app.globalData.header,
-      data: {
-        tag: {
-          dialect_name: page.data.dialect_name,
-          tag_name: page.data.tags.toString(),
-          slang_id: page.data.slang_id
-        },
-      },
-      success: function (res){
-        console.log(res)
-      }
+    wx.showLoading({
+      title: 'Updating Slang🤩',
     })
-    wx.request({
-      url: `${app.globalData.url}slangs/${page.data.slang_id}`,
-      method: 'PUT',
-      header: app.globalData.header,
-      data: {
-        content: page.data.content,
-        slang_id: page.data.slang_id,
-        sticker_url: page.data.imgList
-      },
-      success: function (res) {
-        wx.navigateTo({
-          url: `/pages/show/show?id=${page.data.slang_id}`,
-        })
-        wx.showToast({
-          title: `New stuffs Added🥳`,
-          icon: 'none'
-        });
-      }
+    utilApi.uploadPromise(this.data.imgList).then(sticker_url=>{
+      let page = this
+      console.log("*************Adding Tag****************")
+      wx.request({
+        url: `${app.globalData.url}tags`,
+        method: 'POST',
+        header: app.globalData.header,
+        data: {
+          tag: {
+            dialect_name: page.data.dialect_name,
+            tag_name: page.data.tags.toString(),
+            slang_id: page.data.slang_id
+          },
+        },
+        success: function (res){
+          console.log(res)
+        }
+      })
+      wx.request({
+        url: `${app.globalData.url}slangs/${page.data.slang_id}`,
+        method: 'PUT',
+        header: app.globalData.header,
+        data: {
+          content: page.data.content,
+          slang_id: page.data.slang_id,
+          sticker_url: sticker_url.toString()
+        },
+        success: function (res) {
+          wx.navigateTo({
+            url: `/pages/show/show?id=${page.data.slang_id}`,
+          })
+          wx.hideLoading()
+          wx.showToast({
+            title: `New stuffs Added🥳`,
+            icon: 'none'
+          });
+        }
+      })
     })
   },
+
 
   ChooseImage() {
     wx.chooseImage({

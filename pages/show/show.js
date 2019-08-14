@@ -3,18 +3,15 @@ const utilApi = require('../../utils/util.js');
 
 Page({
   data: {
-    favorited: false,
     liked: false,
-    likedNum: 0,
     slang: {},
     swiperList: [],
-
     cardCur: 0,
     userId: ''
-
   },
   
   onLoad: function (options) {
+    console.log("we are in show onload")
     let page = this       
     wx.request({
       url: `${app.globalData.url}slangs/${options.id}`,
@@ -22,34 +19,42 @@ Page({
       header: app.globalData.header,
       success(res) { 
         page.setData({
-
-          slang: res.data.slang,
-          userId: app.globalData.userId
+          userId: app.globalData.userId,
+          slang: res.data.slang
         })
-        page.setData({
-          favorited: page.data.slang.favorited
-        })
-      }
-      // page.swiperListFormatter(page.data.slang.sticker_url)
+        console.log("this is sticker   " + page.data.slang.sticker_url)
+        if(page.data.slang.sticker_url != null){
+          page.swiperListFormatter(page.data.slang.sticker_url.toString().split(','))
+        }
+      } 
     })
   },
-// definition id required
-// param missing
+
   giveItaLike: function (e) {
-    console.log(e.currentTarget.dataset.id)    
-    const liked = !this.data.liked
-    this.setData({ liked: liked })
-// neeeeed to make it dynamic
+    let page = this
+    console.log(e.currentTarget.dataset) 
+    if (e.currentTarget.dataset.likeid == ""){
     let definition_id = e.currentTarget.dataset.id
-    wx.request({
-      url: `${app.globalData.url}likes`,
-      method: 'POST',
-      header: app.globalData.header,
-      data: {like: {definition_id: definition_id}},
-      success: function (res) {
-        console.log(res)
-      }
-    })
+      wx.request({
+        url: `${app.globalData.url}likes`,
+        method: 'POST',
+        header: app.globalData.header,
+        data: {like: {definition_id: definition_id}},
+        success: function (res) {
+          page.onLoad(page.options)
+        }
+      })
+    }
+    else {
+      wx.request({
+        url: `${app.globalData.url}likes/${e.currentTarget.dataset.likeid}`,
+        method: 'DELETE',
+        header: app.globalData.header,
+        success: res => {
+          page.onLoad(page.options)
+        }
+      })
+    }
   },
 // require slang-id
   editSlang: function (e) {
@@ -94,7 +99,7 @@ Page({
       wx.updateShareMenu({
         withShareTicket: true,
         success(res) { 
-          console.log(res)
+          // console.log(res)
         }
       })
   },
@@ -106,13 +111,10 @@ Page({
     })
   },
 
-
   saveSlang(e) {
     console.log(e)
     let page = this
-    const favorited = !page.data.favorited
-    page.setData({ favorited: favorited })
-    if (this.data.favorited == true){
+    if (this.data.favorited == false){
       wx.request({
         url: `${app.globalData.url}favorites`,
         method: 'POST',
@@ -120,18 +122,13 @@ Page({
         data: {
             slang_id: page.data.slang.id
         },
-        success: (res)=>{
+        success: (res) =>{
           console.log(res)
+          page.onLoad(page.options)
         }
       })
-      // utilApi.apiCall('favorites', 'POST', { slang_id: this.data.slang.id }).then(res=>{
-      //   console.log(res).catch(fail => {
-      //     console.log(fail)
-      //   })
-      // })
     }
     else {
-      console.log(app.globalData.header)
       wx.request({
         url: `${app.globalData.url}favorites`,
         method: 'DELETE',
@@ -141,15 +138,14 @@ Page({
         },
         success: (res) => {
           console.log(res)
+          page.onLoad(page.options)
         }
       })
     }
-
   },
-
-
   ///////////////// Insert keys to tags /////////////////
   swiperListFormatter(sticker_url) {
+    console.log("swiperlisttttttttttttttttttt")
     let urls = sticker_url
     let i = 0
     let swiperList = []
@@ -165,7 +161,21 @@ Page({
         swiperList: swiperList
       });
     };
+    this.towerSwiper('swiperList');
   },
+
+  deleteSlang(e) {
+    let slangId = e.currentTarget.id
+    wx.request({
+      url: `${app.globalData.url}slangId`,
+      method: 'DELETE',
+      header: app.globalData.header,
+      success: res => {
+        console.log(res)
+      }
+    })
+  },
+
   // towerSwiper
   // 初始化towerSwiper
   towerSwiper(name) {

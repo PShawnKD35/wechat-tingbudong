@@ -1,12 +1,13 @@
-<view class="container">
+<view class="container" style="max-height: 100vh; height: 100vh;">
   <cu-custom bgColor="bg-gradual-blue" isCustom="true">
     <view slot="content">听不懂</view>
   </cu-custom>
-<!-- <scroll-view></scroll-view> -->
-<block wx:for="{{slangs}}" wx:for-item="slang">
+
+<scroll-view scroll-x style="white-space: nowrap; height: 100%">
+
 <!-- blockkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
-<view class="body" 
-style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/giphy.gif)">
+<view wx:for="{{slangs}}" wx:for-item="slang" id="slang-{{index}}" class="body" 
+style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/giphy.gif); width: 100vw; height: 100%; display: inline-block;">
   <view class="title">
     <text>“ {{slang.name}} ”</text>
   </view>
@@ -87,7 +88,8 @@ style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/gi
 
 </view>
 </view>
-    </block>
-<!-- blockkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
 
+<!-- blockkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
+</scroll-view>
+<!-- </view> -->
 </view>

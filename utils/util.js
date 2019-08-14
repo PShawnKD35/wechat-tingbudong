@@ -54,6 +54,7 @@ const uploadPromise = imgList => {
 
       console.log("Ending upload for sticker")
   })
+  
 }
 
 // module.exports = { uploadPromise: uploadPromise}

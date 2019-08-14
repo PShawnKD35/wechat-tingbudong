@@ -1248,7 +1248,7 @@ button.icon.lg {
 }
 
 .cu-list.menu-avatar {
-	overflow: hidden;
+	overflow: auto;
 }
 
 .cu-list.menu-avatar>.cu-item {
@@ -2477,7 +2477,7 @@ swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active {
 }
 
 .card-swiper {
-	height: 420rpx !important;
+	height: 380rpx !important;
 }
 
 .card-swiper swiper-item {

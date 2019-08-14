@@ -8,7 +8,7 @@
     <van-search value="{{ value }}" shape ="round" background="transparent" placeholder="Search Tingbudong" use-action-slot bind:search="onSearch" />
   </view>
   <view id="tag-bar">
-    <text bindtap="showModal" data-target="ChooseModal" class="cuIcon-tag text-white"></text>
+    <text bindtap="showModal" data-target="ChooseModal" class=" cuIcon-tag text-white"></text>
   </view>
 </view>			
 <!-------------------------------------Top------------------------------------->

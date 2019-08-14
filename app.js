@@ -80,6 +80,7 @@ App({
     header: {},
     // url: `http://localhost:3000/api/v1/`,
     url: `https://tingbudong.wogengapp.cn/api/v1/`,
+
     regions: [{ name: '中文'}, { name: 'English' }],
     dialects: ['官话', '广东话', '东北话', '台语', '四川话', '湖南话', '客家话', '闽南话'],
     ColorList: [{ name: 'red' }, { name: 'orange' }, { name: 'blue' }, { name: 'green' }, { name: 'olive' }, { name: 'yellow' }, { name: 'cyan' }, { name: 'purple' }, { name: 'mauve' }, { name: 'pink' }, { name: 'brown' }, { name: 'grey' }]

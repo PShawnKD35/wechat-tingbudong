@@ -8,8 +8,10 @@ Page({
     likedNum: 0,
     slang: {},
     swiperList: [],
+
     cardCur: 0,
     userId: ''
+
   },
   
   onLoad: function (options) {
@@ -20,6 +22,7 @@ Page({
       header: app.globalData.header,
       success(res) { 
         page.setData({
+
           slang: res.data.slang,
           userId: app.globalData.userId
         })
@@ -141,6 +144,7 @@ Page({
         }
       })
     }
+
   },
 
 

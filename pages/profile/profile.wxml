@@ -27,37 +27,37 @@
   <!--------------------------------First Tab------------------------------------>
 <block wx:if="{{TabCur==0}}">
   <swiper class="card-swiper square-dot" indicator-dots="true" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+
   <block wx:for="{{slangs}}" wx:for-item="slang" wx:key="xxx">   
     <swiper-item data-id="{{slang.id}}" bindtap="toSlangShow" class="background radius shadow-blur" >
-      <view class="h1"><text>{{slang.name}}</text></view>
-      <view class="p"><text>{{slang.created_at}}</text></view> 
+      <view class="slang-h1"><text>“{{slang.name}}”</text></view>
+      <view class="slang-date"><text>created at {{slang.created_at}}</text></view> 
     </swiper-item>
     </block>
   </swiper>
 </block>
   <!--------------------------------Second Tab------------------------------------>
 <block wx:if="{{TabCur==1}}">
+
   <swiper class="card-swiper square-dot" indicator-dots="true" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+
   <block wx:for="{{definitions}}" wx:for-item="definition" wx:key="xxx">   
     <swiper-item data-id="{{definition.slang_id}}" bindtap="toSlangShow" class="background radius shadow-blur" >
-      <view class="h1"><text>{{definition.slang.name}}</text></view>
-      <view class="p"><text>{{definition.content}}</text></view> 
-      <view class="p"><text>{{definition.created_at}}</text></view> 
+      <view class="slang-h1"><text>“{{definition.slang.name}}”</text></view>
+      <view class="slang-p"><text>{{definition.content}}</text></view> 
+      <view class="slang-date"><text>created at {{definition.created_at}}</text></view> 
     </swiper-item>
     </block>
   </swiper>
 </block>
   <!--------------------------------Third Tab------------------------------------>
+
 <!-- <block wx:if="{{TabCur==2}}">
   <swiper class="card-swiper square-dot" indicator-dots="true" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
   <block wx:for="{{definitions}}" wx:for-item="definition" wx:key="xxx">   
     <swiper-item data-id="{{definition.slang_id}}" bindtap="toSlangShow" class="background radius shadow-blur" >
       <view class="h1"><text>{{definition.slang.name}}</text></view>
-      <view class="p"><text>{{definition.content}}</text></view> 
-      <view class="p"><text>{{definition.created_at}}</text></view> 
-    </swiper-item>
-    </block>
-  </swiper>
+
 </block> -->
   <!--------------------------------Third Tab------------------------------------>
 

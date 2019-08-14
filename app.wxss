@@ -12,6 +12,7 @@
   width: 100rpx;
   justify-content: space-around;
   font-size: 70rpx;
+  margin-top: 19rpx;
 }
 
 .search-bar {

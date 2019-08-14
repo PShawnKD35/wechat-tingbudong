@@ -73,3 +73,25 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 .edit-btn {
   float:right;
 }
+
+.slang-h1{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 45rpx;
+  padding: 20rpx;
+  text-align: left;
+  text-decoration: #1cbbb4;
+
+}
+
+.slang-p{
+  color:grey;
+  padding:20rpx;
+  margin-right: 25rpx;
+}
+
+.slang-date {
+text-align:right;
+color:grey;
+margin-right: 60rpx;
+}
+

@@ -16,7 +16,7 @@ Page({
         page.setData({
           slangs: res.data.slangs
         })
-      console.log(res)
+      console.log(res.data)
       } 
     })
   },

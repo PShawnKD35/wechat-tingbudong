@@ -71,36 +71,13 @@ Page({
       content: e.detail.value
     })
   },
-  // uploadToLean(imgList){
-  //   console.log("Starting upload for sticker")
-  //   let sticker_url = []
-  //   console.log(imgList)
-  //   imgList.forEach(function (img) {
-  //     new AV.File('file-name', {
-  //       blob: {
-  //         uri: img,
-  //       },
-  //     }).save().then(
-  //       file => {
-  //         sticker_url.push(file.url())
-  //         console.log(sticker_url)
-  //         console.log('successfully uploaded stickers')
-  //       }
-  //     ).catch(console.error);
-  //   });
-  //   console.log(sticker_url)
-  //   this.setData({
-  //     sticker_url: sticker_url
-  //   })
-  //   console.log("Ending upload for sticker")
-  // },
 
   postSlang(e) {
+    console.log("posting new slang")
+    if (this.data.imgList.length != 0 ) {
     utilApi.uploadPromise(this.data.imgList).then(sticker_url=>{
       let page = this
-      // posting slang
-      console.log("this is checkingggggggggggggggggg stickerrrrrrrrrrrrrrrrr")
-      console.log(page.data.sticker_url.toString())
+      console.log("posting new slang")
       wx.request({
         url: `${app.globalData.url}slangs`,
         method: 'POST',
@@ -145,6 +122,54 @@ Page({
         }
       })
     })
+    }
+    else {
+      let page = this
+      console.log("posting new slang")
+      wx.request({
+        url: `${app.globalData.url}slangs`,
+        method: 'POST',
+        header: app.globalData.header,
+        data: {
+          name: page.data.name,
+        },
+        success: function (res) {
+          page.data.slang_id = res.data.slang_id
+          wx.request({
+            url: `${app.globalData.url}tags`,
+            method: 'POST',
+            header: app.globalData.header,
+            data: {
+              tag: {
+                dialect_name: page.data.dialect_name,
+                tag_name: page.data.tags.toString(),
+                slang_id: page.data.slang_id
+              },
+            },
+            success: function (res) {
+              wx.request({
+                url: `${app.globalData.url}definitions`,
+                method: 'POST',
+                header: app.globalData.header,
+                data: {
+                  content: page.data.content,
+                  slang_id: page.data.slang_id,
+                },
+                success: function (res) {
+                  wx.reLaunch({
+                    url: `/pages/show/show?id=${page.data.slang_id}`,
+                  })
+                  wx.showToast({
+                    title: `Slang Added🥳`,
+                    icon: 'none'
+                  });
+                }
+              })
+            }
+          })
+        }
+      })
+    }
   },
 
   ChooseImage() {

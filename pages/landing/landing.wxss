@@ -54,10 +54,6 @@ color: white;
   color:white;
 }
 
-/* .slogan text:nth-child(2) {
-  margin-top: 60rpx;
-}
-  */
 .header {
     width: 100vw;
 }

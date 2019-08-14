@@ -71,7 +71,6 @@ Page({
       content: e.detail.value
     })
   },
-
   // uploadToLean(imgList){
   //   console.log("Starting upload for sticker")
   //   let sticker_url = []

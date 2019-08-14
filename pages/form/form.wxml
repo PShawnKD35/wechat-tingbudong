@@ -2,7 +2,8 @@
  <!--copying from pages/addslang-->
  <view class="blue">
   <view class="title">Enter your slang</view>
-     <view class="white">
+
+    <view class="white">
       <view class="form-group">
        <!--slang input-->
         <view class="section__title">A word or a sentence</view>
@@ -52,10 +53,9 @@
 				<text class="cuIcon-cameraadd"></text>
 			</view>
 		</view>
-	</view>
 
       <!--uploadImage input-->
-    
+
 
       <!--button input-->
 
@@ -64,9 +64,14 @@
      </view>
         
     <!--button input-->
-    </view>
+      </view>
+         <view class="padding flex flex-direction" >
+      <button bindtap="submitNewSlang" formType="submit" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Enter</button>
+      </view>
+      </view>
   </view>
 
 </view>
+ 
 
 

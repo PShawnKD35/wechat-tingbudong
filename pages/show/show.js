@@ -8,8 +8,10 @@ Page({
     likedNum: 0,
     slang: {},
     swiperList: [],
+
     cardCur: 0,
     userId: ''
+
   },
   
   onLoad: function (options) {
@@ -20,8 +22,10 @@ Page({
       header: app.globalData.header,
       success(res) { 
         page.setData({
+
           slang: res.data.slang,
           userId: app.globalData.userId
+
         })   
         page.swiperListFormatter(res.data.slang.sticker_url.split(','))
       }
@@ -112,6 +116,7 @@ Page({
     let data = {slang_id: page.data.slang.id}
     const favored = !this.data.favored
     this.setData({ favored: favored })
+
     if (this.data.favored == true){
       wx.request({
         url: `${app.globalData.url}favorites`,
@@ -143,6 +148,7 @@ Page({
         }
       })
     }
+
   },
 
 

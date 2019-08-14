@@ -11,14 +11,21 @@
 
 #list-background {
   background: #d8f0f0 !important;
+  height: 75rpx;
+
+
 }
 
 #list-background-searched {
   background: #f9e6d4;
+  height: 75rpx;
+
 }
 
 #tag-block {
-  padding-left: 15rpx;
+  padding-left: 20px;
+  position: absolute;
+  bottom: 30rpx;
 }
 
 .content {
@@ -31,28 +38,31 @@ text-align: center;
   font-size:30rpx;
 }
 
+.slider{
+  margin-bottom: 70rpx;
+
+}
+
 
 #definition-text {
-  padding: 30rpx;
+  margin-right: 20rpx;
+  padding: 15rpx;
   margin-bottom: 30rpx;
   color: black !important;
   text-align: justify;
   background: white !important;
   display: -webkit-box;
   overflow: hidden;
-  /* text-overflow: ellipsis; */
   word-wrap: break-word;
   white-space: normal !important;
-  /* -webkit-line-clamp: 3; */
   -webkit-box-orient: vertical;
 }
 
 #definition-contributor {
-  font-size: 20rpx;
-  padding-left: 30rpx;
-  padding-top: 10rpx;
-  padding-bottom: 20rpx;
-  text-align: left;
+  color:grey;
+  margin-top: 15rpx;
+  margin-right: 30px;
+  float: right;
 }
 
 .title {
@@ -66,6 +76,11 @@ color: white;
 #definition-swiper {
   height: 200px;
 }
+
+swiper-item{
+  margin:30rpx;
+}
+
 
 /* index */
 
@@ -82,6 +97,7 @@ color: white;
   height: 400rpx;
   margin: 5rpx;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+
 }
 .gif {
   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
@@ -119,5 +135,60 @@ color: white;
 }
 
 
+/* show-card */
+
+.card-swiper swiper-item {
+  left:0;
+}
+
+.card{
+ position:relative;
+  display: flex;
+  width:85%;
+  margin: 0 auto;
+  border-radius: 40rpx;
+  
+
+}
+
+#background {
+  background-color:white;
+  margin-bottom: 50rpx;
+  height: 750rpx;
+  border-style: solid;
+  border-width: 10rpx;
+  /* border-image: conic-gradient(orange, #1cbbb4, #ec008c, orange) 0.7; */
+  border-color:pink;
+  border-radius: 30rpx;
+
+}
+
+.content {
+ margin-top:20rpx;
+ color: white;
+ text-align: center;
+ font-size:30rpx;
+}
+
+.words {
+  font-size: 60rpx;
+  color:black;
+  margin-top: 40rpx;
 
 
+}
+
+
+.contributor {
+  display: flex;
+  justify-content: center;
+}
+
+#show-card-avatar {
+width: 80rpx;
+height: 80rpx;
+border-radius: 5000rpx;
+font-variant: small-caps;
+background-size: cover;
+
+}

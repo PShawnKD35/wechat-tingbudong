@@ -49,6 +49,21 @@ Page({
     })
     this.selectComponent("#slang-card")
   },
+  toSlangShow: function (event) {
+    console.log(event)
+    let id = event.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/show/show?id=${id}`,
+    })
+    this.triggerEvent("action");
+  },
+  ///////////////// cardSwiper /////////////////
+  cardSwiper(e) {
+    this.setData({
+      cardCur: e.detail.current
+    })
+    this.triggerEvent("action");
+  },
 ///////////////// Insert keys to tags /////////////////
   insertChecker(tags){
     let temptags = tags

@@ -23,11 +23,37 @@
 .content {
 text-align: center;
 }
+
 .content text {
   color:grey;
   font-family: PingFang HK;
   font-size:30rpx;
 }
+
+
+#definition-text {
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+  color: black !important;
+  text-align: justify;
+  background: white !important;
+  display: -webkit-box;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+  word-wrap: break-word;
+  white-space: normal !important;
+  /* -webkit-line-clamp: 3; */
+  -webkit-box-orient: vertical;
+}
+
+#definition-contributor {
+  font-size: 20rpx;
+  padding-left: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 20rpx;
+  text-align: left;
+}
+
 .title {
   font-family: PingFang HK;
 font-weight: 500;
@@ -37,8 +63,10 @@ color: white;
 }
 
 #definition-swiper {
-  height: 250px;
+  height: 200px;
 }
+
+/* index */
 
 .header {
     width: 100vw;
@@ -49,7 +77,6 @@ color: white;
   height:100rpx;
 }
 
-/* actual index */
 .popular-card {
   height: 400rpx;
   margin: 5rpx;
@@ -59,6 +86,7 @@ color: white;
   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
 }
 
+/* landing */
 #log-in {
   height:100rpx;
 }

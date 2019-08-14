@@ -1,4 +1,6 @@
 const app = getApp()
+const utilApi = require('../../utils/util.js');
+
 Page({
   data: {
     favored: false,
@@ -6,18 +8,24 @@ Page({
     likedNum: 0,
     slang: {},
     swiperList: [],
-    cardCur: 0
+
+    cardCur: 0,
+    userId: ''
+
   },
   
   onLoad: function (options) {
-    let page = this        
+    let page = this       
     wx.request({
       url: `${app.globalData.url}slangs/${options.id}`,
       method: 'GET',
       header: app.globalData.header,
       success(res) { 
         page.setData({
-          slang: res.data.slang
+
+          slang: res.data.slang,
+          userId: app.globalData.userId
+
         })   
         page.swiperListFormatter(res.data.slang.sticker_url.split(','))
       }
@@ -104,8 +112,43 @@ Page({
 
   saveSlang(e) {
     console.log(e)
+    let page = this
+    let data = {slang_id: page.data.slang.id}
     const favored = !this.data.favored
     this.setData({ favored: favored })
+
+    if (this.data.favored == true){
+      wx.request({
+        url: `${app.globalData.url}favorites`,
+        method: 'POST',
+        header: app.globalData.header,
+        data: {
+            slang_id: page.data.slang.id
+        },
+        success: (res)=>{
+          console.log(res)
+        }
+      })
+      // utilApi.apiCall('favorites', 'POST', { slang_id: this.data.slang.id }).then(res=>{
+      //   console.log(res).catch(fail => {
+      //     console.log(fail)
+      //   })
+      // })
+    }
+    else {
+      wx.request({
+        url: `${app.globalData.url}favorites`,
+        method: 'DELETE',
+        header: app.globalData.header,
+        data: {
+          slang_id: page.data.slang.id
+        },
+        success: (res) => {
+          console.log(res)
+        }
+      })
+    }
+
   },
 
 

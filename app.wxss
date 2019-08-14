@@ -57,10 +57,22 @@ border-radius: 10rpx;
   text-align: left;
 }
 
+.cu-card.dynamic {
+	/* display: block; */
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
 #definition-text {
   padding: 30rpx;
   color: black !important;
   text-align: justify;
+  background: white !important;
 }
 
 #show-card,
@@ -69,7 +81,6 @@ font-size: 30rpx;
 margin-left: 20rpx;
 padding-left: 20rpx;
 } 
-
 
 /* show */
 #edit{

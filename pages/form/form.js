@@ -1,5 +1,6 @@
 const app = getApp()
 const AV = require('../../utils/av-weapp-min.js');
+const utilApi = require('../../utils/util.js');
 
 Page({
   data: {
@@ -70,77 +71,79 @@ Page({
       content: e.detail.value
     })
   },
+  // uploadToLean(imgList){
+  //   console.log("Starting upload for sticker")
+  //   let sticker_url = []
+  //   console.log(imgList)
+  //   imgList.forEach(function (img) {
+  //     new AV.File('file-name', {
+  //       blob: {
+  //         uri: img,
+  //       },
+  //     }).save().then(
+  //       file => {
+  //         sticker_url.push(file.url())
+  //         console.log(sticker_url)
+  //         console.log('successfully uploaded stickers')
+  //       }
+  //     ).catch(console.error);
+  //   });
+  //   console.log(sticker_url)
+  //   this.setData({
+  //     sticker_url: sticker_url
+  //   })
+  //   console.log("Ending upload for sticker")
+  // },
 
-  submitNewSlang(e) {
-    let page = this
-    let sticker_url = page.data.sticker_url
-    page.data.imgList.forEach(function(img){
-      new AV.File('file-name', {
-        blob: {
-          uri: img,
-        },
-      }).save().then(
-        file => {
-          sticker_url.push(file.url())
-          console.log(sticker_url)
-          console.log('successfully uploaded stickers')
-        }
-      ).catch(console.error);
-    });
-    // posting slang
-    console.log(page.data.sticker_url.toString())
-    wx.request({
-      url: `${app.globalData.url}slangs`,
-      method: 'POST',
-      header: app.globalData.header,
-      data: { name: page.data.name,
-               sticker_url: page.data.sticker_url.toString(),
+  postSlang(e) {
+    utilApi.uploadPromise(this.data.imgList).then(sticker_url=>{
+      let page = this
+      // posting slang
+      console.log("this is checkingggggggggggggggggg stickerrrrrrrrrrrrrrrrr")
+      console.log(page.data.sticker_url.toString())
+      wx.request({
+        url: `${app.globalData.url}slangs`,
+        method: 'POST',
+        header: app.globalData.header,
+        data: { name: page.data.name,
+          sticker_url: sticker_url.toString(),
+                },
+        success: function (res) {
+          page.data.slang_id = res.data.slang_id
+          wx.request({
+            url: `${app.globalData.url}tags`,
+            method: 'POST',
+            header: app.globalData.header,
+            data: {
+              tag: {
+                dialect_name: page.data.dialect_name,
+                tag_name: page.data.tags.toString(),
+                slang_id: page.data.slang_id
               },
-      success: function (res) {
-        console.log("Response from slang request:")
-        console.log(res)
-        page.data.slang_id = res.data.slang_id
-        console.log("this is the tag posteddddddddddddddddddddddddddd")
-        console.log(page.data.tags.toString())
-        wx.request({
-          url: `${app.globalData.url}tags`,
-          method: 'POST',
-          header: app.globalData.header,
-          data: {
-            tag: {
-              dialect_name: page.data.dialect_name,
-              tag_name: page.data.tags.toString(),
-              slang_id: page.data.slang_id
             },
-          },
-          success: function (res) {
-            console.log("Response from tag request:")
-            console.log(res)
-            // console.log(page.data.slang_id)
-            // posting definition
-            wx.request({
-              url: `${app.globalData.url}definitions`,
-              method: 'POST',
-              header: app.globalData.header,
-              data: {
-                content: page.data.content,
-                slang_id: page.data.slang_id,
-              },
-              success: function (res) {
-                console.log("Response from definition request:")
-                console.log(res)
-                wx.reLaunch({
-                  url: `/pages/show/show?id=${page.data.slang_id}`,
-                })
-                wx.showToast({
-                  title: `Slang Added🥳`,
-                  icon: 'none'
-                });
-              }
-            })
-          }
-        })
-      }
+            success: function (res) {
+              wx.request({
+                url: `${app.globalData.url}definitions`,
+                method: 'POST',
+                header: app.globalData.header,
+                data: {
+                  content: page.data.content,
+                  slang_id: page.data.slang_id,
+                },
+                success: function (res) {
+                  wx.reLaunch({
+                    url: `/pages/show/show?id=${page.data.slang_id}`,
+                  })
+                  wx.showToast({
+                    title: `Slang Added🥳`,
+                    icon: 'none'
+                  });
+                }
+              })
+            }
+          })
+        }
+      })
     })
   },
 

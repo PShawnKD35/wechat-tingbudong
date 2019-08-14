@@ -15,7 +15,7 @@ Page({
     searchTags: [],
     value: ''
   },
-///////////////// On load /////////////////
+////////////////////////////////// On load ///////////////////////////////////
   onLoad: function (options) {
     // wx.hideLoading()
     wx.showShareMenu({
@@ -148,9 +148,9 @@ Page({
       },
       success: function(res){
         console.log(res)
-        page.tagsSpliter(res.data.slangs)
         page.setData({
-          searched: true
+          searched: true,
+          slangs: res.data.slangs
         })
       }
     })

@@ -1,8 +1,8 @@
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">听不懂</view></cu-custom>
-
  <!--copying from pages/addslang-->
  <view class="blue">
   <view class="title">Enter your slang</view>
+
     <view class="white">
       
       <view class="form-group">
@@ -54,16 +54,8 @@
 				<text class="cuIcon-cameraadd"></text>
 			</view>
 		</view>
-	
 
       <!--uploadImage input-->
-    
-
-      <!--button input-->
-
-  
-      
-        
     <!--button input-->
       </view>
          <view class="padding flex flex-direction" >

@@ -39,6 +39,8 @@ flex:70%;
 width: 300rpx;
 height: 700rpx;
 border-radius: 10rpx;
+/* background: #caebff; */
+/* opacity: 0.6; */
 }
 
 .show-card{
@@ -47,7 +49,6 @@ border-radius: 10rpx;
   display: flex;
   border-radius: 20px;
 }
-
 
 #definition-contributor {
   font-size: 20rpx;
@@ -69,6 +70,8 @@ margin-left: 20rpx;
 padding-left: 20rpx;
 } 
 
+
+/* show */
 #edit{
   float: right;
   padding: 10rpx;
@@ -85,7 +88,6 @@ padding-left: 20rpx;
 .swiper-item {
   padding: 50rpx;
 }
-
 
  .blue {
   background:linear-gradient(110deg, #0081ff, #1cbbb4);

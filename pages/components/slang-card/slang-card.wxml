@@ -1,5 +1,5 @@
 <view class="show-card" wx:for="{{slangs}}" wx:for-item="slang" wx:key="xxx">
-    <view data-id="{{slang.id}}" bindtap="toSlangShow" class="bg-{{searched?'orange':'cyan'}} radius shadow-blur light" id="background" >
+    <view data-id="{{slang.id}}" bindtap="toSlangShow" class="bg-{{searched?'orange':'cyan'}} radius shadow-blur light" id="background" style="width: 100%" >
       <view class="cu-list menu-avatar" id="list-background">
         <view class="cu-item" id="{{searched?'list-background-searched':'list-background'}}">
           <view class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>

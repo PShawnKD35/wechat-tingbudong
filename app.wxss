@@ -1,5 +1,5 @@
-@import "colorui/main.wxss";
-@import "colorui/icon.wxss";
+@import "/colorui/main.wxss";
+@import "/colorui/icon.wxss";
 /* top-search-bar */
 .top image {
   width: 100rpx;
@@ -35,13 +35,10 @@
   margin-top: 9rpx;
 }
 
-#background{
-flex:70%;
-width: 300rpx;
-height: 700rpx;
-border-radius: 10rpx;
-/* background: #caebff; */
-/* opacity: 0.6; */
+#background {
+  width: 100%;
+  height: 700rpx;
+  border-radius: 10rpx;
 }
 
 .show-card{

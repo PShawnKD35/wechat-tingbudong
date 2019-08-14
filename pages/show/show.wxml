@@ -17,7 +17,7 @@
         <!-- edit & collect -->
         <view class="top-nav">
         <text data-id="{{slang.id}}" data-name="{{slang.name}}" id= "edit-slang" class="cuIcon-edit sm text-grey" bindtap="editSlang"></text>
-        <text id="save-slang" data-id="{{slang.id}}" bindtap="saveSlang" class="cuIcon-{{favored?'favorfill':'favor'}} text-grey"></text>
+        <text id="save-slang" data-id="{{slang.id}}" bindtap="saveSlang" class="cuIcon-{{favorited?'favorfill':'favor'}} text-grey"></text>
         </view>
       <!-- /edit & collect -->
       <!-- </view> -->

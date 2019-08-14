@@ -1,4 +1,3 @@
-// pages/components/slang-card/slang-card.js
 Component({
   options: {
     styleIsolation: 'shared'

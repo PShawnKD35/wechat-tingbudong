@@ -1,22 +1,24 @@
 <view class="container">
-<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">听不懂</view></cu-custom>
+  <cu-custom bgColor="bg-gradual-blue" isCustom="true">
+    <view slot="content">听不懂</view>
+  </cu-custom>
 
-<view class="body" style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/giphy.gif)">
-
-<view class="title"><text>“ {{slang.name}} ”</text></view>
+<view class="body" 
+style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/giphy.gif)">
+  <view class="title">
+    <text>“ {{slang.name}} ”</text>
+  </view>
+  <text id="pinyin">{{slang.pinyin}}</text>
 <view class="trash"> </view>
-
-
 <!-- <view class="body"> -->
   <view class="show-card">
     <view class="background radius light" >
       <view class="card-content">
-
         <view id="show-card-avatar" class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
         <!-- edit & collect -->
         <view class="top-nav">
         <text data-id="{{slang.id}}" data-name="{{slang.name}}" id= "edit-slang" class="cuIcon-edit sm text-grey" bindtap="editSlang"></text>
-        <text id="save-slang" bindtap="saveSlang" class="cuIcon-{{favored?'favorfill':'favor'}}"></text>
+        <text id="save-slang" data-id="{{slang.id}}" bindtap="saveSlang" class="cuIcon-{{favored?'favorfill':'favor'}} text-grey"></text>
         </view>
       <!-- /edit & collect -->
       <!-- </view> -->
@@ -27,18 +29,28 @@
             <view class="cu-card dynamic">
               <view class="cu-item shadow">
               <view class="cu-list menu-avatar">
-              <!-- edit definition -->
-                 <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id= "edit" class="cuIcon-edit lg text-grey" bindtap="editDefinition"></text>
-              <!-- /edit definition -->
-              <!-- delete definition -->
-      <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id= "edit" class="cuIcon-deletefill lg text-grey"></text>
-              <!-- /delete definition -->
+<!------------------------------ edit definition ------------------------------>
+<block wx:if="{{userId == definition.user.id}}">
+
+  <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id="edit" class="cuIcon-edit lg text-grey" bindtap="editDefinition"></text>
+<!------------------------------ /edit definition ------------------------------>
+<!------------------------------ delete definition ------------------------------>
+  <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id="edit" class="cuIcon-deletefill lg text-grey"></text>
+</block>
+<!------------------------------ /delete definition ------------------------------>
                 <view class="text-content" id="definition-text">
                 {{definition.content}}</view>
                 <view class="content flex-sub">
                 <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user}} {{definition.created_at}}
-                      
-                <text data-id="{{definition.id}}" id="like" class="cuIcon-like lg text-{{liked?'red':'grey'}}" bindtap="giveItaLike" >{{definition.likes}}</text>
+<!-----------------------------------liked?-------------------------------------->
+<block wx:if="{{liked}}">
+  <text data-id="{{definition.id}}" id="like" class="cuIcon-likefill lg text-red" bindtap="giveItaLike" >{{definition.likes + 1}}</text>
+</block>
+<!-----------------------------------liked?-------------------------------------->
+<block wx:if="{{!liked}}">
+  <text data-id="{{definition.id}}" id="like" class="cuIcon-like lg text-grey" bindtap="giveItaLike" >{{definition.likes}}</text>
+</block>
+<!-----------------------------------liked?-------------------------------------->
                 </view>
               </view>
           </view>
@@ -74,16 +86,16 @@
   </view>
 </view>
 </view>
-
-  <view class="tower-swiper" bindtouchmove="towerMove" bindtouchstart="towerStart" bindtouchend="towerEnd">
+</view>
+  <!-- <view class="tower-swiper" bindtouchmove="towerMove" bindtouchstart="towerStart" bindtouchend="towerEnd">
     <view class="tower-item {{item.zIndex==1?'none':''}}" wx:for="{{swiperList}}" wx:key style="--index:{{item.zIndex}};--left:{{item.mLeft}}">
       <view class="swiper-item">
         <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
         <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
       </view>
     </view>
-  </view>
-</view>
+  </view> -->
+
 
 
 

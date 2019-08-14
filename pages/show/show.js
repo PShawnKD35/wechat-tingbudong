@@ -3,7 +3,6 @@ const utilApi = require('../../utils/util.js');
 
 Page({
   data: {
-    favorited: false,
     liked: false,
     slang: {},
     swiperList: [],
@@ -12,6 +11,7 @@ Page({
   },
   
   onLoad: function (options) {
+    console.log("we are in show onload")
     let page = this       
     wx.request({
       url: `${app.globalData.url}slangs/${options.id}`,
@@ -20,7 +20,6 @@ Page({
       success(res) { 
         page.setData({
           userId: app.globalData.userId,
-          favorited: page.data.slang.favorited,
           slang: res.data.slang
         })
         console.log("this is sticker   " + page.data.slang.sticker_url)
@@ -115,7 +114,7 @@ Page({
   saveSlang(e) {
     console.log(e)
     let page = this
-    if (this.data.favorited == true){
+    if (this.data.favorited == false){
       wx.request({
         url: `${app.globalData.url}favorites`,
         method: 'POST',
@@ -123,7 +122,8 @@ Page({
         data: {
             slang_id: page.data.slang.id
         },
-        success: (res)=>{
+        success: (res) =>{
+          console.log(res)
           page.onLoad(page.options)
         }
       })
@@ -137,6 +137,7 @@ Page({
           slang_id: page.data.slang.id
         },
         success: (res) => {
+          console.log(res)
           page.onLoad(page.options)
         }
       })

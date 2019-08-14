@@ -5,6 +5,7 @@
           <view class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
         <view class="content flex-sub">
           <view class="h1">{{slang.name}}</view>
+          <text>{{slang.pinyin}}</text>
         </view>
       </view>
     </view>
@@ -18,7 +19,7 @@
                   id="definition-text">{{definition.content}}
                 </view>
               <view class="content flex-sub">
-                <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user}} {{definition.created_at}}</view>
+                <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user.name}} {{definition.created_at}}</view>
               </view>
             </view>
           </view>

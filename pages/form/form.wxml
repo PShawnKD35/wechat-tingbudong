@@ -60,7 +60,7 @@
       <!--button input-->
 
      <view class="padding flex flex-direction" >
-        <button bindtap="submitNewSlang" formType="submit" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Enter</button>
+        <button bindtap="postSlang" formType="submit" lang="zh_CN" class="cu-btn bg-gradual-blue margin-tb-sm lg">Enter</button>
      </view>
         
     <!--button input-->

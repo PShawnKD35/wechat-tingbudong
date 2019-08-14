@@ -121,9 +121,9 @@
 					"scene": null
 				},
 				{
-					"id": 10,
-					"name": "pages/components/navbar",
-					"pathName": "pages/components/navbar",
+					"id": 11,
+					"name": "collection",
+					"pathName": "pages/collection/collection",
 					"query": "",
 					"scene": null
 				}

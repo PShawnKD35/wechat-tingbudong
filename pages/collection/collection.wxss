@@ -1,1 +1,117 @@
-/* pages/collection/collection.wxss */
+/* pages/show/show.wxss */
+.body {
+  height:100vh;
+  background: linear-gradient(45deg, #0081ff, #1cbbb4);
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.head {
+  margin:20rpx;
+  width: 95vw;
+  height: 100%;
+}
+
+.title {
+padding-top: 30px;
+font-family: PingFang HK;
+font-weight: 500;
+font-size: 80rpx;
+line-height: 123rpx;
+
+}
+
+
+.container{
+  position: relative;
+}
+
+.background{
+  opacity:0.8;
+flex:70%;
+width: 300rpx;
+height: 100%;
+background: white;
+border-radius: 15rpx;
+}
+
+#share {
+  width: 100%;
+  border-radius: 0px;
+  border-bottom-left-radius: 15rpx;
+  border-bottom-right-radius: 15rpx;
+
+}
+
+#tag-block {
+  margin-top: 15px;
+  padding-left: 30rpx;
+  text-align: left;
+
+
+}
+
+.h1 text {
+  color:grey;
+}
+.card-content {
+ margin-top: 30rpx;
+
+}
+
+#show-card-avatar {
+  float: right;
+  margin-right:30rpx;
+}
+
+.swiper-item {
+  padding:100rpx;
+  margin:30rpx;
+  box-shadow: 0px 0px 15px #e8e8e8;
+}
+
+
+.add-definition {
+  margin-top: 130rpx;
+  font-size: 50rpx;
+}
+
+.add-definition text {
+  font-size: 50rpx;
+  margin-left:10rpx;
+  color: grey;
+}
+
+.top-nav {
+float: left;
+margin-top:10rpx;
+margin-left:18rpx;
+}
+
+#edit-slang{
+  padding-left: 30rpx;
+  font-size: 60rpx;
+  margin-top:30rpx;
+
+}
+
+#save-slang {
+  font-size: 60rpx;
+}
+
+.cu-tag{
+  margin:10rpx;
+}
+
+.cu-card {
+ margin-left:30rpx;
+  margin-right:30rpx;
+  box-shadow: 0px 0px 15px #e8e8e8;
+}
+
+#pinyin {
+  color: white !important;
+  font-size: 50rpx;
+}

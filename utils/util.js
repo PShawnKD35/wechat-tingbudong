@@ -25,6 +25,9 @@ const uploadPromise = imgList => {
   return new Promise ((resolve, reject)=>{
       console.log("Starting upload for sticker")
       let sticker_url = []
+      let success = []
+      let comparison = imgList.map(i=>{return 1})
+
       console.log(imgList)
       imgList.forEach(function (img) {
         new AV.File('file-name', {
@@ -34,7 +37,11 @@ const uploadPromise = imgList => {
         }).save().then(
           file => {
             sticker_url.push(file.url())
+            success.push(1)
             console.log("this is sticker_url: " + sticker_url)
+            if (success.length == comparison.length){
+              resolve(sticker_url)
+            }
             console.log('successfully uploaded stickers')
           }
         ).catch(console.error);
@@ -44,7 +51,7 @@ const uploadPromise = imgList => {
       //   sticker_url: sticker_url
       // })
       // let sticker_url = oldsticker_url
-      resolve(sticker_url)
+
       console.log("Ending upload for sticker")
   })
 }

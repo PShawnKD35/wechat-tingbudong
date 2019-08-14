@@ -3,7 +3,7 @@ const utilApi = require('../../utils/util.js');
 
 Page({
   data: {
-    favored: false,
+    favorited: false,
     liked: false,
     likedNum: 0,
     slang: {},
@@ -22,9 +22,12 @@ Page({
         page.setData({
           slang: res.data.slang,
           userId: app.globalData.userId
-        })   
-        page.swiperListFormatter(res.data.slang.sticker_url.split(','))
+        })
+        page.setData({
+          favorited: page.data.slang.favorited
+        })
       }
+      // page.swiperListFormatter(page.data.slang.sticker_url)
     })
   },
 // definition id required
@@ -44,11 +47,6 @@ Page({
         console.log(res)
       }
     })
-  },
-// sticker seperated
-  stickerSplitter(urls) {
-    let sticker_url = urls
-    sticker_
   },
 // require slang-id
   editSlang: function (e) {
@@ -109,10 +107,9 @@ Page({
   saveSlang(e) {
     console.log(e)
     let page = this
-    let data = {slang_id: page.data.slang.id}
-    const favored = !this.data.favored
-    this.setData({ favored: favored })
-    if (this.data.favored == true){
+    const favorited = !page.data.favorited
+    page.setData({ favorited: favorited })
+    if (this.data.favorited == true){
       wx.request({
         url: `${app.globalData.url}favorites`,
         method: 'POST',
@@ -131,6 +128,7 @@ Page({
       // })
     }
     else {
+      console.log(app.globalData.header)
       wx.request({
         url: `${app.globalData.url}favorites`,
         method: 'DELETE',
@@ -151,16 +149,18 @@ Page({
     let urls = sticker_url
     let i = 0
     let swiperList = []
-    urls.forEach((url) => {
-      console.log(url)
-      swiperList.push({id: i,
-        type: 'images',
-        url: url})
-      i++
-    })
-    this.setData({
-      swiperList: swiperList
-    })
+    if (urls != null){ 
+      urls.forEach((url) => {
+        console.log(url)
+        swiperList.push({id: i,
+          type: 'images',
+          url: url})
+        i++
+      });
+      this.setData({
+        swiperList: swiperList
+      });
+    };
   },
   // towerSwiper
   // 初始化towerSwiper

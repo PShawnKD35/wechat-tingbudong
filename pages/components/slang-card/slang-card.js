@@ -1,7 +1,7 @@
 Component({
-  options: {
-    styleIsolation: 'shared'
-  },
+  // options: {
+  //   styleIsolation: 'shared'
+  // },
 
   properties: {
     'searched':{

@@ -6,7 +6,6 @@ Page({
     DotStyle: true,
     slangs: [],
     ColorList: app.globalData.ColorList,
-    favored: false,
     searched: false,
     CustomBar: app.globalData.CustomBar,
     TabCur: 1,

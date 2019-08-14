@@ -2,7 +2,7 @@
   <cu-custom bgColor="bg-gradual-blue" isCustom="true">
     <view slot="content">听不懂</view>
   </cu-custom>
-<scroll-view></scroll-view>
+<!-- <scroll-view></scroll-view> -->
 <block wx:for="{{slangs}}" wx:for-item="slang">
 <!-- blockkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
 <view class="body" 

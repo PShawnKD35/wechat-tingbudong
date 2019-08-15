@@ -72,6 +72,8 @@ const textFormatter = function (slangsRes, length){
         }
       })
     });
+    console.log("this is SlangsRes")
+    console.log(slangsRes)
   return slangsRes
 
 }
@@ -94,7 +96,6 @@ const apiCall = function (route){
   }
 
 const urlSplitter = function (slang) {
-  // if ()
   let stickerAry = slang.sticker_url.split(',')
   console.log(stickerAry)
   return stickerAry

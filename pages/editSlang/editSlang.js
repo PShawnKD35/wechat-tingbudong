@@ -49,10 +49,6 @@ Page({
   slangTag(e) {
     let selected = e.detail.value.trim()
     let tags = this.data.tags
-    // tags.forEach((tag)=>{
-    //   if(tag != selected)
-    //     tags.push(selected)
-    // })
     tags.push(selected)
     this.setData({
       tags: tags,
@@ -76,18 +72,19 @@ Page({
       utilApi.uploadPromise(this.data.imgList).then(sticker_url=>{
         let page = this
         console.log("*************Adding Tag****************")
+        console.log(page.data.dialect_name)
         wx.request({
           url: `${app.globalData.url}tags`,
           method: 'POST',
           header: app.globalData.header,
           data: {
             tag: {
-              dialect_name: page.data.dialect_name,
+              dialect_name: page.data.dialect_name.toString(),
               tag_name: page.data.tags.toString(),
               slang_id: page.data.slang_id
             },
           },
-          success: function (res){
+          success: res =>{
             console.log(res)
           }
         })
@@ -96,7 +93,6 @@ Page({
           method: 'PUT',
           header: app.globalData.header,
           data: {
-            content: page.data.content,
             slang_id: page.data.slang_id,
             sticker_url: sticker_url.toString()
           },

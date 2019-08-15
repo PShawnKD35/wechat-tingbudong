@@ -20,7 +20,7 @@ style="background-image: url(https://lc-l8bhbw53.cn-n1.lcfile.com/f94b1586a0ef63
         <view id="show-card-avatar" class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
         <!-- edit & collect -->
         <view class="top-nav">
-         <text id="save-slang" data-id="{{slang.id}}" bindtap="saveSlang" class="cuIcon-{{slang.favorited?'favorfill':'favor'}} text-grey"></text>
+         <text id="save-slang" data-favorited="{{slang.favorited}}" data-id="{{slang.id}}" bindtap="saveSlang" class="cuIcon-{{slang.favorited?'favorfill':'favor'}} text-grey"></text>
         </view>
       <!-- /edit & collect -->
       <!-- </view> -->

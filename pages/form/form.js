@@ -93,7 +93,7 @@ Page({
             header: app.globalData.header,
             data: {
               tag: {
-                dialect_name: page.data.dialect_name,
+                dialect_name: page.data.dialect_name.toString(),
                 tag_name: page.data.tags.toString(),
                 slang_id: page.data.slang_id
               },

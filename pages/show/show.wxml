@@ -30,7 +30,6 @@
 </block>
 </view>
 <!------------------------------ /delete slang ------------------------------>
-
       <!-- </view> -->
         <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="1000" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff"> 
         <block wx:for="{{slang.definitions}}" wx:for-item="definition" wx:key="xxx">  
@@ -44,7 +43,7 @@
   <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id="edit" class="cuIcon-edit lg text-grey" bindtap="editDefinition"></text>
 <!------------------------------ /edit definition ------------------------------>
 <!------------------------------ delete definition ------------------------------>
-  <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id="edit" class="cuIcon-deletefill lg text-grey"></text>
+  <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" bindtap="deleteDefinition" id="edit" class="cuIcon-deletefill lg text-grey"></text>
 </block>
 <!------------------------------ /delete definition ------------------------------>
         <view class="text-content" id="definition-text">
@@ -92,7 +91,6 @@
   </view>
 </view>
 </view>
-
 </view>
 </view>
 

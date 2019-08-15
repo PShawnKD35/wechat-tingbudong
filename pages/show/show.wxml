@@ -19,9 +19,7 @@
         <view id="show-card-avatar" class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
         <!-- edit & collect -->
         <view class="top-nav">
-
-
-        <text data-id="{{slang.id}}" data-name="{{slang.name}}" id= "edit-slang" class="cuIcon-edit sm text-grey" bindtap="editSlang"></text>
+        <text data-id="{{slang.id}}" data-name="{{slang.name}}" data-url="{{slang.sticker_url}}" id= "edit-slang" class="cuIcon-edit sm text-grey" bindtap="editSlang"></text>
         <text id="save-slang" data-id="{{slang.id}}" bindtap="saveSlang" class="cuIcon-{{slang.favorited?'favorfill':'favor'}} text-grey"></text>
       <!-- /edit & collect -->
 <!------------------------------ delete slang ------------------------------>
@@ -83,9 +81,23 @@
     </block>
   </view>
 <!---------------------------------- share button ----------------------------------->
-      <button open-type="share" id="share" class="cu-btn lg bg-white"><text class="cuIcon-share">Share</text></button>
+
 <!---------------------------------- share button ----------------------------------->
 
+<scroll-view scroll-x style="white-space: nowrap; height: 100%;">
+  <view 
+  wx:for="{{sticker_url}}" 
+  wx:for-item="sticker" 
+  wx:key="slang" 
+  id="slang-{{index}}" 
+  class="stickers"
+  style="width: 100vw; display: inline-block; vertical-align:top;">
+  <image src="{{sticker}}" style="mode: aspectFit; height: 180px; width: 220px; padding-right: 50px; padding-top:20px">
+  </image>
+  </view>
+</scroll-view>
+
+      <button open-type="share" id="share" class="cu-btn lg bg-white" style="padding-bottom: 15px"><text class="cuIcon-share">Share</text></button>
 
   </view>
   </view>

@@ -31,24 +31,33 @@ Page({
 
   submitEditDefinition(e) {
     let page = this
-    wx.request({
-      url: `${app.globalData.url}definitions/${page.data.definition_id}`,
-      method: 'PUT',
-      header: app.globalData.header,
-      data: {
-        content: page.data.content
-      },
-      success: function (res) {
-        console.log(res)
-        wx.navigateTo({
-          url: `/pages/show/show?id=${page.data.slangid}`,
-        })
-        wx.showToast({
-          title: `Edited Definition!🥳`,
-          icon: 'none'
-        });
-      }
-    })
-  }
-
+    if (page.data.content == ''){
+      wx.showToast({
+        title: 'Definition can\'t be blank',
+        icon: 'none',
+        duration: 2000,
+        mask: true,
+      })
+    }
+    else {
+      wx.request({
+        url: `${app.globalData.url}definitions/${page.data.definition_id}`,
+        method: 'PUT',
+        header: app.globalData.header,
+        data: {
+          content: page.data.content
+        },
+        success: function (res) {
+          console.log(res)
+          wx.navigateTo({
+            url: `/pages/show/show?id=${page.data.slangid}`,
+          })
+          wx.showToast({
+            title: `Edited Definition!🥳`,
+            icon: 'none'
+          });
+        }
+      })
+    }
+    }
 })

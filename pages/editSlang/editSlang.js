@@ -11,16 +11,20 @@ Page({
     dialects: [],
     tags: [],
     dialect_name: '',
-    tag_name: ''
+    tag_name: '',
+    url: ''
   },
 
   onLoad: function (options) {
+    console.log(options)
     const id = options.id;
     const name = options.name;
+    const url = options.url;
     this.setData({
       name: name,
       slang_id: id,
-      dialects: app.globalData.dialects
+      dialects: app.globalData.dialects,
+      url: url
     })
   },
   
@@ -71,6 +75,7 @@ Page({
     if (this.data.imgList.length != 0) {
       utilApi.uploadPromise(this.data.imgList).then(sticker_url=>{
         let page = this
+        let newSticker_url = sticker_url.toString().concat(',', page.data.url)
         console.log("*************Adding Tag****************")
         console.log(page.data.dialect_name)
         wx.request({
@@ -94,7 +99,7 @@ Page({
           header: app.globalData.header,
           data: {
             slang_id: page.data.slang_id,
-            sticker_url: sticker_url.toString()
+            sticker_url: newSticker_url
           },
           success: function (res) {
             wx.navigateTo({

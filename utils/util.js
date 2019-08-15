@@ -93,8 +93,16 @@ const apiCall = function (route){
     })
   }
 
+const urlSplitter = function (slang) {
+  // if ()
+  let stickerAry = slang.sticker_url.split(',')
+  console.log(stickerAry)
+  return stickerAry
+}
+
 module.exports = { 
   apiCall: apiCall,
   uploadPromise: uploadPromise,
-  textFormatter: textFormatter
+  textFormatter: textFormatter,
+  urlSplitter: urlSplitter
 }

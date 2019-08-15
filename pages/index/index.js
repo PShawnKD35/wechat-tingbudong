@@ -15,7 +15,7 @@ Page({
     searchTags: [],
     value: ''
   },
-////////////////////////////////// On load ///////////////////////////////////
+//////////////////////////// On load ////////////////////////////
   onLoad: function (options) {
     // wx.hideLoading()
     wx.showShareMenu({
@@ -25,7 +25,7 @@ Page({
     var that = this;
     utilApi.apiCall('slangs').then(res=>{
       this.setData({
-        slangs: utilApi.textFormatter(res.data.slangs, 30)
+        slangs: utilApi.textFormatter(res.data.slangs, 55)
         })
     });
     var that = this;

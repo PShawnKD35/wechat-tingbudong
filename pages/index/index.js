@@ -1,4 +1,5 @@
 const app = getApp()
+const utilApi = require('../../utils/util.js');
 
 Page({
   data: {
@@ -22,17 +23,11 @@ Page({
     }),
     console.log("***************Index on Load********************")
     var that = this;
-    wx.request({
-      url: `${app.globalData.url}` + 'slangs',
-      header: app.globalData.header,
-      method: 'GET',
-      success: res => {
-        console.log(res)
-        that.setData({
-          slangs: res.data.slangs
+    utilApi.apiCall('slangs').then(res=>{
+      this.setData({
+        slangs: utilApi.textFormatter(res.data.slangs, 30)
         })
-      }
-    })
+    });
     var that = this;
     wx.request({
       url: `${app.globalData.url}` + 'tags',

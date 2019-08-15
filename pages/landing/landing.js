@@ -39,6 +39,19 @@ Page({
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
+        isLoad: true
+      })
+      wx.request({
+        url: `${app.globalData.url}users/${user_id}`,
+        method: 'PUT',
+        header: app.globalData.header,
+        data: {
+          name: that.userInfo.nickName,
+          avatar_url: that.userInfo.avatarUrl
+        },
+        success: function (res) {
+          console.log("****************PUT FOR USERINFO************")
+        }
       })
       wx.switchTab({
         url: `/pages/index/index`,
@@ -46,7 +59,6 @@ Page({
     } else if (this.data.canIUse) {
       console.log("elseeeeeeeeeeee if")
       app.userInfoReadyCallback = res => {
-        // wx.hideLoading()
         this.setData({
           isLoad: true,
           userInfo: res.userInfo,
@@ -86,8 +98,6 @@ Page({
   },
 
   bindGetUserInfo: function (e) {
-    // wx.hideLoading()
-    
     let page = this;
     wx.getUserInfo({
       success: function (res) {
@@ -113,14 +123,12 @@ Page({
             url: '/pages/index/index',
           })
         } else {
-          //用户按了拒绝按钮
           wx.showModal({
             title: 'Warning',
             content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!',
             showCancel: false,
             confirmText: '返回授权',
             success: function (res) {
-              // 用户没有授权成功，不需要改变 isHide 的值
               if (res.confirm) {
                 console.log('用户点击了“返回授权”');
               }

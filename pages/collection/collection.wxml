@@ -91,9 +91,9 @@ style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/gi
 <view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL'?'show':''}}" bindtap="hideModal">
   <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
 
-    <view class="cu-list menu text-left"  wx:for="{{slangs}}" wx:for-item="slang"  wx:key="unique">
+    <view class="cu-list menu text-left" >
 
-      <view class="cu-item arrow">
+      <view class="cu-item arrow"  wx:for="{{slangsAll}}" wx:for-item="slang"  wx:key="unique">
         <view class="content">
           <view bindtap="goToslang" data-slangId="{{slang.id}}">  {{slang.name}}</view>
         </view>

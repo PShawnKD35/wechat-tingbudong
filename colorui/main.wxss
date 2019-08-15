@@ -53,7 +53,7 @@ page {
 	--blackShadow: rgba(26, 26, 26, 0.2);
 
 	background-color: var(--ghostWhite);
-	font-size: 28rpx;
+	font-size: 26rpx;
 	color: var(--black);
 	font-family: Helvetica Neue, Helvetica, sans-serif;
 }
@@ -680,6 +680,8 @@ radio.white[checked] .wx-radio-input {
 	margin-left: initial;
 	transform: translate(0rpx, 0rpx);
 	margin-right: initial;
+  margin: 8rpx;
+
 }
 
 .cu-btn::after {

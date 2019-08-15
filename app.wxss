@@ -59,12 +59,11 @@ padding-left: 20rpx;
   padding: 10rpx;
 } 
 
-#like{
-  float: right;
-  font-size: 25rpx;
-  padding-right: 30rpx;
-  padding-bottom: 30rpx;
-}
+/* #like{
+  position:absolute;
+  bottom:20%;
+  right:10%;
+} */
 
 
 .swiper-item {
@@ -113,6 +112,7 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 
 .input {
+  margin-bottom: 20rpx;
   padding:12px;
   border-radius: 20px;
   border: 1px solid #0081ff;

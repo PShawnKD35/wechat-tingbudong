@@ -77,9 +77,9 @@ color: white;
   height: 200px;
 }
 
-swiper-item{
+/* swiper-item{
   margin:30rpx;
-}
+} */
 
 
 /* index */

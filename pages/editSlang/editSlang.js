@@ -68,12 +68,52 @@ Page({
 
 
   editSlang(e) {
+    let page = this
     wx.showLoading({
       title: 'Updating Slang🤩',
     })
-    utilApi.uploadPromise(this.data.imgList).then(sticker_url=>{
-      let page = this
-      console.log("*************Adding Tag****************")
+    if (this.data.imgList.length != 0) {
+      utilApi.uploadPromise(this.data.imgList).then(sticker_url=>{
+        let page = this
+        console.log("*************Adding Tag****************")
+        wx.request({
+          url: `${app.globalData.url}tags`,
+          method: 'POST',
+          header: app.globalData.header,
+          data: {
+            tag: {
+              dialect_name: page.data.dialect_name,
+              tag_name: page.data.tags.toString(),
+              slang_id: page.data.slang_id
+            },
+          },
+          success: function (res){
+            console.log(res)
+          }
+        })
+        wx.request({
+          url: `${app.globalData.url}slangs/${page.data.slang_id}`,
+          method: 'PUT',
+          header: app.globalData.header,
+          data: {
+            content: page.data.content,
+            slang_id: page.data.slang_id,
+            sticker_url: sticker_url.toString()
+          },
+          success: function (res) {
+            wx.navigateTo({
+              url: `/pages/show/show?id=${page.data.slang_id}`,
+            })
+            wx.hideLoading()
+            wx.showToast({
+              title: `New stuffs Added🥳`,
+              icon: 'none'
+            });
+          }
+        })
+      })
+    }
+    else {
       wx.request({
         url: `${app.globalData.url}tags`,
         method: 'POST',
@@ -85,31 +125,18 @@ Page({
             slang_id: page.data.slang_id
           },
         },
-        success: function (res){
-          console.log(res)
-        }
-      })
-      wx.request({
-        url: `${app.globalData.url}slangs/${page.data.slang_id}`,
-        method: 'PUT',
-        header: app.globalData.header,
-        data: {
-          content: page.data.content,
-          slang_id: page.data.slang_id,
-          sticker_url: sticker_url.toString()
-        },
         success: function (res) {
           wx.navigateTo({
             url: `/pages/show/show?id=${page.data.slang_id}`,
           })
-          wx.hideLoading()
-          wx.showToast({
-            title: `New stuffs Added🥳`,
-            icon: 'none'
-          });
         }
       })
-    })
+      wx.hideLoading()
+      wx.showToast({
+        title: `New tags Added🥳`,
+        icon: 'none'
+      });
+    } 
   },
 
 

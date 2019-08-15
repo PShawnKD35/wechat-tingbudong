@@ -86,18 +86,23 @@ border-radius: 15rpx;
 
 #share {
   border-radius: 0px;
-  border-bottom-left-radius: 15rpx;
-  border-bottom-right-radius: 15rpx;
-
+  position:fixed;
+  bottom:0;
+  width:100%;
+}
+#share text{
+  margin: 0 auto;
 }
 
 #tag-block {
   margin-top: 15px;
   padding-left: 30rpx;
   text-align: left;
-
+  height:200rpx;
 
 }
+
+
 
 .h1 text {
   color:grey;

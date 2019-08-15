@@ -13,7 +13,7 @@
   <view class="userinfo">
     <view class="section-title">听不懂居民 
     <!-- butttttttttttttttttttttttttton -->
-    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" class="cu-btn sm cuIcon-edit text-grey"></button>
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" class="cu-btn smcuIcon-edit text-grey"></button>
     <!-- butttttttttttttttttttttttttton -->
       </view>
     <view class="userNickname">{{userInfo.nickName}}</view>

@@ -26,6 +26,13 @@ Page({
           userId: app.globalData.userId,
           slang: res.data.slang
         })
+        let sticker_url = []
+        if (slang.sticker_url != null) {
+          page.setData({
+            sticker_url: slang.sticker_url.split(',')
+          })
+          console.log(stick_url)
+        }
       } 
     })
   },
@@ -140,8 +147,24 @@ Page({
     }
   },
   
+  deleteDefinition(e){
+    let definitionId = e.currentTarget.dataset.id
+    let slangId = e.currentTarget.dataset.slangid
+    wx.request({
+      url: `${app.globalData.url}${definitionId}`,
+      method: 'DELETE',
+      header: app.globalData.header,
+      success: res=>{
+        console.log(res)
+      }
+    })
+  },
+
   deleteSlang(e) {
     let slangId = e.currentTarget.id
+    // wx.request({
+    //   url: `${app.globalData.url}`,
+    // })
     wx.request({
       url: `${app.globalData.url}slangId`,
       method: 'DELETE',

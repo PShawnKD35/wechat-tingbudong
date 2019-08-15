@@ -44,7 +44,7 @@
   <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id="edit" class="cuIcon-edit lg text-grey" bindtap="editDefinition"></text>
 <!------------------------------ /edit definition ------------------------------>
 <!------------------------------ delete definition ------------------------------>
-  <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id="edit" class="cuIcon-deletefill lg text-grey"></text>
+  <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" bindtap="deleteDefinition" id="edit" class="cuIcon-deletefill lg text-grey"></text>
 </block>
 <!------------------------------ /delete definition ------------------------------>
         <view class="text-content" id="definition-text">
@@ -92,7 +92,6 @@
   </view>
 </view>
 </view>
-
 </view>
 </view>
 

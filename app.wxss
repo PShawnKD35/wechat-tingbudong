@@ -59,11 +59,11 @@ padding-left: 20rpx;
   padding: 10rpx;
 } 
 
-/* #like{
-  position:absolute;
-  bottom:20%;
-  right:10%;
-} */
+#like{
+  float:right;
+  margin-right: 31rpx;
+
+}
 
 
 .swiper-item {

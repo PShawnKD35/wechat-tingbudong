@@ -1,0 +1,7 @@
+ .title {
+   padding-top:30rpx;
+ }
+
+ .blue{
+  background: linear-gradient(96deg,#0081ff ,#1cbbb4);  
+ }

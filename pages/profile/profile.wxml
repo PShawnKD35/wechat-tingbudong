@@ -11,7 +11,11 @@
  <view class="info">
   <view id="avatar" class="cu-avatar round xl" style="background-image:url({{userInfo.avatarUrl}});"></view>
   <view class="userinfo">
-    <view class="section-title">听不懂居民 <text class="edit-btn cuIcon-edit text-grey"></text></view>
+    <view class="section-title">听不懂居民 
+    <!-- butttttttttttttttttttttttttton -->
+    <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" class="cuIcon-edit text-grey"></button>
+    <!-- butttttttttttttttttttttttttton -->
+      </view>
     <view class="userNickname">{{userInfo.nickName}}</view>
     <view class="cu-tag radiu sm line-purple">{{userInfo.country}}</view>
 
@@ -24,7 +28,7 @@
     {{tabNav[index]}}
   </view>
 </scroll-view>
-  <!--------------------------------First Tab------------------------------------>
+  <!-----------------------First Tab------------------------->
 <block wx:if="{{TabCur==0}}">
   <swiper class="card-swiper square-dot" indicator-dots="true" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
 
@@ -42,7 +46,13 @@
   <swiper class="card-swiper square-dot" indicator-dots="true" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
 
   <block wx:for="{{definitions}}" wx:for-item="definition" wx:key="xxx">   
+<!-- <<<<<<< HEAD
     <swiper-item data-id="{{definition.slang_id}}" bindtap="toSlangShow" class="background radius shadow-blur" >
+      <view class="definition-h1"><text>“{{definition.slang.name}}”</text></view>
+      <view class="definition-p"><text>{{definition.content}}</text></view> 
+      <view class="definition-date"><text>created at {{definition.created_at}}</text></view> 
+======= -->
+    <swiper-item data-id="{{definition.id}}" bindtap="toSlangShow" class="background radius shadow-blur" >
       <view class="definition-h1"><text>“{{definition.slang.name}}”</text></view>
       <view class="definition-p"><text>{{definition.content}}</text></view> 
       <view class="definition-date"><text>created at {{definition.created_at}}</text></view> 

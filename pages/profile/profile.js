@@ -4,7 +4,7 @@ Page({
   data: {
     TabCur: 0,
     userInfo: {},
-    tabNav: ['My slangs', 'My definitions', 'My stickers'],
+    tabNav: ['My slangs', 'My definitions'],
     slangs: [],
     definitions: []
   },
@@ -48,5 +48,33 @@ Page({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id - 1) * 60
     })
-  }
+  },
+  bindGetUserInfo: function (e) {
+    console.log(e)
+    let page = this;
+    wx.getUserInfo({
+      success: function (res) {
+        let user_id = app.globalData.userId;
+        if (e.detail.userInfo) {
+          console.log("userinfo：");
+          console.log(e.detail.userInfo);
+          app.globalData.userInfo = e.detail.userInfo;
+          console.log(app.globalData.header);
+          wx.request({
+            url: `${app.globalData.url}users/${user_id}`,
+            method: 'PUT',
+            header: app.globalData.header,
+            data: {
+              name: app.globalData.userInfo.nickName,
+              avatar_url: app.globalData.userInfo.avatarUrl
+            },
+            success: function (res) {
+              console.log("****************PUT FOR USERINFO************")
+            }
+          })
+          page.onLoad()
+        } 
+      }
+    });
+  },
 })

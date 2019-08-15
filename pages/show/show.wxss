@@ -76,7 +76,7 @@ line-height: 123rpx;
 }
 
 .background{
-  opacity:0.8;
+opacity:0.9;
 flex:70%;
 width: 300rpx;
 height: 100%;
@@ -120,14 +120,18 @@ border-radius: 15rpx;
 
 }
 
+#definition-text {
+  margin-bottom:10rpx;
+  font-size: 29rpx;
+}
 
 .add-definition {
   margin-top: 130rpx;
-  font-size: 50rpx;
+  font-size: 45rpx;
 }
 
 .add-definition text {
-  font-size: 50rpx;
+  font-size: 45rpx;
   margin-left:10rpx;
   color: grey;
 }

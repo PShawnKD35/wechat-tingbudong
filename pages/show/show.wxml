@@ -49,7 +49,7 @@
 <!------------------------------ /delete definition ------------------------------>
         <view class="text-content" id="definition-text">
                 {{definition.content}}</view>
-      <view class="content flex-sub" style="position:absolute; bottom:40rpx">
+      <view class="content flex-sub">
         <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user.name}} {{definition.created_at}}
 <!-----------------------------------liked?-------------------------------------->
 <block wx:if="{{definition.user_like_id}}">

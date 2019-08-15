@@ -28,7 +28,6 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-family: PingFang HK;
   font-size: 18px;
   color:#0081ff;
-  margin-bottom: 30rpx;
 }
 
 
@@ -71,7 +70,23 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   float:right;
 }
 
-.slang-h1{
+.slang-h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 60rpx;
+  margin-top: 86rpx;
+  text-align: center;
+  text-decoration: #1cbbb4;
+  margin-left: -25rpx;
+
+}
+.slang-date {
+ margin-top:30rpx;
+ text-align:center;
+ color:grey;
+ margin-right: 60rpx;
+}
+
+.definition-h1{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 45rpx;
   padding: 20rpx;
@@ -80,13 +95,13 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
 
-.slang-p{
+.definition-p{
   color:grey;
   padding:20rpx;
   margin-right: 25rpx;
 }
 
-.slang-date {
+.definition-date {
 text-align:right;
 color:grey;
 margin-right: 60rpx;

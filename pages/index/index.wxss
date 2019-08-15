@@ -22,6 +22,7 @@ text-align: center;
 
 
 #definition-text {
+  font-size:30rpx;
   margin-right: 20rpx;
   padding: 15rpx;
   margin-bottom: 30rpx;

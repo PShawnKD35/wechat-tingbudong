@@ -2,14 +2,11 @@
 .blue {
   background:linear-gradient(110deg, #0081ff, #1cbbb4);
  height:100%;
-
-
 }
 .head {
   width: 100vw;
   height: 300rpx;
 }
-
 
 .white {
 border-radius: 20px;

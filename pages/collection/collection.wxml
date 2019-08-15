@@ -6,7 +6,7 @@
 <scroll-view scroll-x style="white-space: nowrap; height: 100%;">
 
 <!-- blockkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
-<view wx:for="{{slangs}}" wx:for-item="slang" id="slang-{{index}}" class="body" 
+<view wx:for="{{slangs}}" wx:for-item="slang" wx:key="slang" id="slang-{{index}}" class="body" 
 style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/giphy.gif); width: 100vw; height: 160%; display: inline-block; vertical-align:top;">
   <view class="title">
     <text>“ {{slang.name}} ”</text>
@@ -20,8 +20,7 @@ style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/gi
         <view id="show-card-avatar" class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
         <!-- edit & collect -->
         <view class="top-nav">
-        <text bindtap="showModal" data-target="DrawerModalL" class="cuIcon-edit sm text-grey {{index==TabCur?'text-green cur':''}}"  ></text>
-        <text id="save-slang" data-id="{{slang.id}}" bindtap="saveSlang" class="cuIcon-{{favored?'favorfill':'favor'}} text-grey"></text>
+         <text id="save-slang" data-id="{{slang.id}}" bindtap="saveSlang" class="cuIcon-{{slang.favorited?'favorfill':'favor'}} text-grey"></text>
         </view>
       <!-- /edit & collect -->
       <!-- </view> -->
@@ -81,8 +80,8 @@ style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/gi
 <!---------------------------------- share button ----------------------------------->
 </view>
   </view>
-
 </view>
+<view class="cu-btn round line-black" bindtap="showModal" data-target="DrawerModalL"> <text class="cuIcon-back"></text>All my Slangs </view>
 </view>
 
 <!-- blockkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
@@ -91,13 +90,24 @@ style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/gi
 
 <view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL'?'show':''}}" bindtap="hideModal">
   <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+
     <view class="cu-list menu text-left"  wx:for="{{slangs}}" wx:for-item="slang"  wx:key="unique">
+
       <view class="cu-item arrow">
         <view class="content">
-          <view>{{slang.name}}</view>
+          <view bindtap="goToslang" data-slangId="{{slang.id}}">  {{slang.name}}</view>
         </view>
       </view>
+
     </view>
+<view class="cu-list menu text-left">
+  <view bindtap="allCollection" class="cu-item arrow">
+    <view class="content">
+      <view class="cu-item" >All</view>
+    </view>
+  </view>
+</view>
+
   </view>
 </view>
 <!-- </view> -->

@@ -7,7 +7,7 @@
 
 <!-- blockkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
 <view wx:for="{{slangs}}" wx:for-item="slang" wx:key="slang" id="slang-{{index}}" class="body" 
-style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/giphy.gif); width: 100vw; height: 160%; display: inline-block; vertical-align:top;">
+style="background-image: url(https://lc-l8bhbw53.cn-n1.lcfile.com/f4efa69fcd1c93e9bb19/A9C0E4F4-9058-4029-8DAA-D805EFD31D06.gif); width: 100vw; height: 160%; display: inline-block; vertical-align:top;">
   <view class="title">
     <text>“ {{slang.name}} ”</text>
   </view>
@@ -40,8 +40,8 @@ style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/gi
   <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id="edit" class="cuIcon-deletefill lg text-grey"></text>
 </block>
 <!------------------------------ /delete definition ------------------------------>
-                <view class="text-content" id="definition-text">
-                {{definition.content}}</view>
+                <view class="text-content" id="definition-text"><text>{{definition.content}}
+                </text></view>
                 <view class="content flex-sub">
                 <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user.name}} {{definition.created_at}}
 <!-----------------------------------liked?-------------------------------------->

@@ -2,7 +2,7 @@
 
 .blue {
   background:linear-gradient(110deg, #0081ff, #1cbbb4);
-  height:100vh;
+  height:100%;
   z-index: -1;
 }
 

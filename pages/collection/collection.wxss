@@ -38,19 +38,16 @@ border-radius: 15rpx;
 }
 
 #share {
-  width: 100%;
-  border-radius: 0px;
   border-bottom-left-radius: 15rpx;
   border-bottom-right-radius: 15rpx;
 
 }
 
 #tag-block {
-  margin-top: 15px;
+   margin-top: 45px;
   padding-left: 30rpx;
   text-align: left;
-  display: flex;
-  flex-wrap: wrap;
+
 }
 
 .h1 text {
@@ -72,6 +69,15 @@ border-radius: 15rpx;
   box-shadow: 0px 0px 15px #e8e8e8;
 }
 
+#definition-text {
+  margin-bottom:10rpx;
+  font-size: 29rpx;
+
+}
+
+#defition-text text{
+  overflow-wrap:normal;
+}
 
 .add-definition {
   margin-top: 130rpx;
@@ -106,9 +112,12 @@ margin-left:18rpx;
 }
 
 .cu-card {
- margin-left:30rpx;
-  margin-right:30rpx;
-  box-shadow: 0px 0px 15px #e8e8e8;
+margin-left:30rpx;
+ margin-right:30rpx;
+ box-shadow: 0px 0px 15px #e8e8e8;
+ padding-top: 17px;
+ height: 280rpx;
+ padding-left: 20rpx;
 }
 
 #pinyin {
@@ -118,4 +127,11 @@ margin-left:18rpx;
 
 .scroll-view {
   top: -30px;
+}
+
+
+.cu-btn[class*="line"]{
+  background-color: white;
+  opacity: 0.8;
+  border-color:white;
 }

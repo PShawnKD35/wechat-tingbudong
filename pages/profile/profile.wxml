@@ -43,9 +43,9 @@
 
   <block wx:for="{{definitions}}" wx:for-item="definition" wx:key="xxx">   
     <swiper-item data-id="{{definition.slang_id}}" bindtap="toSlangShow" class="background radius shadow-blur" >
-      <view class="slang-h1"><text>“{{definition.slang.name}}”</text></view>
-      <view class="slang-p"><text>{{definition.content}}</text></view> 
-      <view class="slang-date"><text>created at {{definition.created_at}}</text></view> 
+      <view class="definition-h1"><text>“{{definition.slang.name}}”</text></view>
+      <view class="definition-p"><text>{{definition.content}}</text></view> 
+      <view class="definition-date"><text>created at {{definition.created_at}}</text></view> 
     </swiper-item>
     </block>
   </swiper>

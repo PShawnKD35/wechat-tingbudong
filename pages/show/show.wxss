@@ -1,7 +1,7 @@
 
 /* sticker */
 .body {
-  height:100vh;
+  height: 100%;
   background: linear-gradient(45deg, #0081ff, #1cbbb4);
   text-align: center;
   background-size: cover;
@@ -139,7 +139,6 @@ margin-left:18rpx;
 }
 
 #edit-slang{
-  padding-left: 30rpx;
   font-size: 60rpx;
   margin-top:30rpx;
 
@@ -155,8 +154,12 @@ margin-left:18rpx;
 
 .cu-card {
  margin-left:30rpx;
-  margin-right:30rpx;
-  box-shadow: 0px 0px 15px #e8e8e8;
+ margin-right:30rpx;
+ box-shadow: 0px 0px 15px #e8e8e8;
+ padding-top: 17px;
+ height: 280rpx;
+ padding-left: 20rpx;
+
 }
 
 #pinyin {

@@ -22,12 +22,12 @@
 
         <text data-id="{{slang.id}}" data-name="{{slang.name}}" id= "edit-slang" class="cuIcon-edit sm text-grey" bindtap="editSlang"></text>
         <text id="save-slang" data-id="{{slang.id}}" bindtap="saveSlang" class="cuIcon-{{slang.favorited?'favorfill':'favor'}} text-grey"></text>
-        </view>
       <!-- /edit & collect -->
 <!------------------------------ delete slang ------------------------------>
 <block wx:if="{{userId == slang.user.id}}">
   <text data-id="{{slang.id}}" id="edit-slang" class="cuIcon-deletefill lg text-grey" bindtap="deleteSlang"></text>
 </block>
+</view>
 <!------------------------------ /delete slang ------------------------------>
 
       <!-- </view> -->
@@ -47,10 +47,10 @@
   <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id="edit" class="cuIcon-deletefill lg text-grey"></text>
 </block>
 <!------------------------------ /delete definition ------------------------------>
-                <view class="text-content" id="definition-text">
+        <view class="text-content" id="definition-text">
                 {{definition.content}}</view>
-                <view class="content flex-sub">
-                <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user.name}} {{definition.created_at}}
+      <view class="content flex-sub" style="position:absolute; bottom:40rpx">
+        <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user.name}} {{definition.created_at}}
 <!-----------------------------------liked?-------------------------------------->
 <block wx:if="{{definition.user_like_id}}">
   <text data-id="{{definition.id}}" data-likeId="{{definition.user_like_id}}" id="like" class="cuIcon-likefill lg text-red" bindtap="giveItaLike" >{{definition.likes}}</text>

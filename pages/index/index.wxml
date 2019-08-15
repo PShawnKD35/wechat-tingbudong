@@ -60,14 +60,14 @@
       </block> 
     </swiper>         
   <!---------------------------------- Dialect tags ---------------------------------->
-    <!-- <view id="tag-block">
+    <view id="tag-block">
       <block wx:for="{{slang.dialects}}" wx:key="dialect">
         <view id="tags" class="cu-tag round bg-red padding-sm light"><text class="cuIcon-tag"></text>{{item}}</view>
       </block>
       <block wx:for="{{slang.tags}}" wx:key="tag">
     <view id="tags" class="cu-tag round bg-pink padding-sm  light"><text class="cuIcon-tag"></text>{{item}}</view>
       </block>
-    </view> -->
+    </view>
   <!------------------------ end of  Tags --------------------------------------->
   </view>
 </view>

@@ -18,7 +18,8 @@ Page({
       header: app.globalData.header,
       success: res => {
         page.setData({
-          slangs: res.data.slangs
+          slangs: res.data.slangs,
+          slangsAll :res.data.slangs
         })
       console.log(res.data)
       } 
@@ -58,12 +59,24 @@ Page({
   },
 
   allCollection(e){
-    console.log(e)
-    this.onLoad
+    this.setData({
+      slangs: this.data.slangsAll
+    })
+    this.hideModal()
   },
 
   goToslang(e){
-    console.log(e.data.slangId)
+    let slangid = e.currentTarget.dataset.slangid
+    let slangtmp = []
+    this.data.slangsAll.forEach((slang)=>{
+      if (slang.id == slangid) {
+        slangtmp.push(slang)
+      }
+      this.setData({
+        slangs: slangtmp
+      })
+      this.hideModal()
+    })
   },
 
   saveSlang(e) {

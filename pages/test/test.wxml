@@ -3,14 +3,15 @@
     <view slot="content">听不懂</view>
   </cu-custom>
 
-<scroll-view scroll-x style="white-space: nowrap; height: 100%;">
+<view class='container'>
+    <view class='card_wrap'>
 
 <!-- blockkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
-<view wx:for="{{slangs}}" wx:for-item="slang" id="slang-{{index}}" class="body" 
-style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/giphy.gif); width: 100vw; height: 160%; display: inline-block; vertical-align:top;">
-  <view class="title">
+<view wx:for="{{slangs}}"  bindtouchstart='touchstart' bindtouchend="touchend" animation="{{id === 0 ? animationData : ''}}" wx:for-item="slang" wx:key="unique" id="slang-{{index}}" class="body"  class="card_item"
+style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/giphy.gif),">
+  <view class="title" class="card-container">
     <text>“ {{slang.name}} ”</text>
-  </view>
+ 
   <text id="pinyin">{{slang.pinyin}}</text>
 <view class="trash"> </view>
 <!-- <view class="body"> -->
@@ -20,7 +21,7 @@ style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/gi
         <view id="show-card-avatar" class="cu-avatar round lg" style="background-image:url({{slang.user.avatar_url}});"></view>
         <!-- edit & collect -->
         <view class="top-nav">
-        <text bindtap="showModal" data-target="DrawerModalL" class="cuIcon-edit sm text-grey {{index==TabCur?'text-green cur':''}}"  ></text>
+        <text data-id="{{slang.id}}" data-name="{{slang.name}}" id= "edit-slang" class="cuIcon-edit sm text-grey" bindtap="editSlang"></text>
         <text id="save-slang" data-id="{{slang.id}}" bindtap="saveSlang" class="cuIcon-{{favored?'favorfill':'favor'}} text-grey"></text>
         </view>
       <!-- /edit & collect -->
@@ -44,7 +45,7 @@ style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/gi
                 <view class="text-content" id="definition-text">
                 {{definition.content}}</view>
                 <view class="content flex-sub">
-                <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user.name}} {{definition.created_at}}
+                <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user}} {{definition.created_at}}
 <!-----------------------------------liked?-------------------------------------->
 <block wx:if="{{liked}}">
   <text data-id="{{definition.id}}" id="like" class="cuIcon-likefill lg text-red" bindtap="giveItaLike" >{{definition.likes + 1}}</text>
@@ -74,32 +75,22 @@ style="background-image: url(https://media.giphy.com/media/kiBhux7Uhqv1witvPq/gi
       <view class="cu-tag bg-pink light round" bindtap="goTotag" data-tag="{{item}}"><text class="cuIcon-tag"></text>{{item}}</view>
     </block>
 <!---------------------------------------------------------------------------------->
-
+  <view class="padding" style="margin-top:40rpx">
+    <view class="grid col-4 grid-square">
+     <view class="bg-img" wx:for="{{sticker_url}}" wx:key style="background-image:url({{item}});"></view>
+    </view>
+    </view>
   </view>
 <!---------------------------------- share button ----------------------------------->
       <button open-type="share" id="share" class="cu-btn lg bg-white"><text class="cuIcon-share">Share</text></button>
 <!---------------------------------- share button ----------------------------------->
 </view>
   </view>
-
+ </view>
 </view>
 </view>
-
-<!-- blockkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
-
-</scroll-view>
-
-<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL'?'show':''}}" bindtap="hideModal">
-  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
-    <view class="cu-list menu text-left"  wx:for="{{slangs}}" wx:for-item="slang"  wx:key="unique">
-      <view class="cu-item arrow">
-        <view class="content">
-          <view>{{slang.name}}</view>
-        </view>
-      </view>
     </view>
-  </view>
 </view>
+<!-- blockkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
 <!-- </view> -->
 </view>
-

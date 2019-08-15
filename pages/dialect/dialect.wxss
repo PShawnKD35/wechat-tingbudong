@@ -33,3 +33,204 @@ line-height: 123rpx;
 color: white;
 
 }
+
+
+
+
+#tag-block {
+  padding-left: 20px;
+  bottom: 30rpx;
+}
+
+.content {
+text-align: center;
+}
+
+.content text {
+  color:grey;
+  font-family: PingFang HK;
+  font-size:30rpx;
+}
+
+.slider{
+  margin-bottom: 70rpx;
+
+}
+
+
+#definition-text {
+  margin-right: 20rpx;
+  padding: 15rpx;
+  margin-bottom: 30rpx;
+  color: black !important;
+  text-align: justify;
+  background: white !important;
+  display: -webkit-box;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-box-orient: vertical;
+}
+
+#definition-contributor {
+  color:grey;
+  margin-top: 15rpx;
+  margin-right: 30px;
+  float: right;
+}
+
+.title {
+  font-family: PingFang HK;
+font-weight: 500;
+font-size: 90rpx;
+line-height: 123rpx;
+color: white;
+}
+
+#definition-swiper {
+  height: 200px;
+}
+
+swiper-item{
+  margin:30rpx;
+}
+
+
+/* index */
+
+.header {
+    width: 100vw;
+}
+
+.image {
+  width:200rpx;
+  height:100rpx;
+}
+
+.popular-card {
+  height: 400rpx;
+  margin: 5rpx;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+
+}
+.gif {
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+}
+
+/* landing */
+#log-in {
+  height:100rpx;
+}
+
+#banner {
+  font-size: 70rpx;
+  font-family: helvetica;
+  font-style: bold;
+  justify-content: space-around
+}
+
+#button-swiper {
+  height: 120rpx;
+}
+
+.van-icon {
+    position:relative;
+    display:inline-block;
+    font:normal normal normal 14px/1 vant-icon;
+    font-size:inherit;
+    text-rendering:auto;
+}
+.van-icon-upgrade::before {
+    content:"\F058";
+}
+.test {
+    font-size:50px;
+    font-family:'youth';
+}
+
+
+/* show-card */
+
+.card-swiper swiper-item {
+  left:0;
+}
+
+.card{
+ position:relative;
+  display: flex;
+  width:85%;
+  margin: 0 auto;
+  border-radius: 40rpx;
+}
+
+#background {
+  background-color:white;
+  margin-bottom: 50rpx;
+  height: 50vh;
+  border-style: solid;
+  border-width: 10rpx;
+  border-color:  rgb(82, 77, 179, 0.7);
+  border-radius: 30rpx;
+  /* outline: 5px black; */
+  /* outline-offset: 0px; */
+}
+
+.content {
+ margin-top:20rpx;
+ color: white;
+ text-align: center;
+ font-size:30rpx;
+}
+
+.words {
+  font-size: 60rpx;
+  color:black;
+  margin-top: 40rpx;
+}
+
+
+#definition-text {
+  padding: 30rpx;
+  color: black !important;
+  text-align: justify;
+  background: white !important;
+}
+
+.contributor {
+  display: flex;
+  justify-content: center;
+}
+
+#show-card-avatar {
+width: 80rpx;
+height: 80rpx;
+border-radius: 5000rpx;
+font-variant: small-caps;
+background-size: cover;
+
+}
+
+.slang-card-swiper square-dot .wx-swiper-dot {
+	background-color: gray!important;
+	opacity: 0.4;
+	width: 10rpx;
+	height: 10rpx;
+	border-radius: 20rpx;
+	margin: 0 8rpx !important;
+}
+
+.swiper {
+  background: grey
+}
+
+
+.slang-card-swiper swiper-item.cur .swiper-item {
+	transform: none;
+	transition: all 0.2s ease-in 0s;
+}
+
+.slang-card-swiper {
+	transform: scale(0.9);
+	transition: all 0.2s ease-in 0s;
+	overflow: hidden;
+}

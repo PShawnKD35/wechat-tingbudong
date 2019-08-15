@@ -10,7 +10,8 @@
     "pages/tags/tags",
     "pages/editDef/editDef",
     "pages/dialect/dialect",
-    "pages/collection/collection"
+    "pages/collection/collection",
+    "pages/test/test"
   ],
   
   "window": {

@@ -1,30 +1,7 @@
-#show-card,
- .h1{
-    font-family: Microsoft JhengHei;
-    font-weight: bold;
-    font-size: 45rpx !important;
-    padding: 10rpx;
-    padding-bottom: 0rpx;
-    text-align: left;
-}
 
-
-#list-background {
-  background: #d8f0f0 !important;
-  height: 75rpx;
-
-
-}
-
-#list-background-searched {
-  background: #f9e6d4;
-  height: 75rpx;
-
-}
 
 #tag-block {
   padding-left: 20px;
-  position: absolute;
   bottom: 30rpx;
 }
 
@@ -147,20 +124,18 @@ color: white;
   width:85%;
   margin: 0 auto;
   border-radius: 40rpx;
-  
-
 }
 
 #background {
   background-color:white;
   margin-bottom: 50rpx;
-  height: 750rpx;
+  height: 50vh;
   border-style: solid;
   border-width: 10rpx;
-  /* border-image: conic-gradient(orange, #1cbbb4, #ec008c, orange) 0.7; */
-  border-color:pink;
+  border-color:  rgb(82, 77, 179, 0.7);
   border-radius: 30rpx;
-
+  /* outline: 5px black; */
+  /* outline-offset: 0px; */
 }
 
 .content {
@@ -179,6 +154,13 @@ color: white;
 }
 
 
+#definition-text {
+  padding: 30rpx;
+  color: black !important;
+  text-align: justify;
+  background: white !important;
+}
+
 .contributor {
   display: flex;
   justify-content: center;
@@ -191,4 +173,29 @@ border-radius: 5000rpx;
 font-variant: small-caps;
 background-size: cover;
 
+}
+
+.slang-card-swiper square-dot .wx-swiper-dot {
+	background-color: gray!important;
+	opacity: 0.4;
+	width: 10rpx;
+	height: 10rpx;
+	border-radius: 20rpx;
+	margin: 0 8rpx !important;
+}
+
+.swiper {
+  background: grey
+}
+
+
+.slang-card-swiper swiper-item.cur .swiper-item {
+	transform: none;
+	transition: all 0.2s ease-in 0s;
+}
+
+.slang-card-swiper {
+	transform: scale(0.9);
+	transition: all 0.2s ease-in 0s;
+	overflow: hidden;
 }

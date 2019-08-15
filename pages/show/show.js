@@ -11,18 +11,16 @@ Page({
   },
   
   onLoad: function (options) {
-    console.log("we are in show onload")
     let page = this       
     wx.request({
       url: `${app.globalData.url}slangs/${options.id}`,
       method: 'GET',
       header: app.globalData.header,
-      success(res) { 
+      success: res => { 
         page.setData({
           userId: app.globalData.userId,
           slang: res.data.slang
         })
-        console.log("this is sticker   " + page.data.slang.sticker_url)
         if(page.data.slang.sticker_url != null){
           page.swiperListFormatter(page.data.slang.sticker_url.toString().split(','))
         }
@@ -32,7 +30,6 @@ Page({
 
   giveItaLike: function (e) {
     let page = this
-    console.log(e.currentTarget.dataset) 
     if (e.currentTarget.dataset.likeid == ""){
     let definition_id = e.currentTarget.dataset.id
       wx.request({
@@ -66,7 +63,6 @@ Page({
   },
 
   editDefinition: function (e) {
-    console.log(e)
     let id = e.currentTarget.dataset.id
     let name = e.currentTarget.dataset.name
     let content = e.currentTarget.dataset.content
@@ -99,7 +95,6 @@ Page({
       wx.updateShareMenu({
         withShareTicket: true,
         success(res) { 
-          // console.log(res)
         }
       })
   },
@@ -112,9 +107,8 @@ Page({
   },
 
   saveSlang(e) {
-    console.log(e)
     let page = this
-    if (this.data.favorited == false){
+    if (page.data.slang.favorited === false){
       wx.request({
         url: `${app.globalData.url}favorites`,
         method: 'POST',
@@ -123,7 +117,6 @@ Page({
             slang_id: page.data.slang.id
         },
         success: (res) =>{
-          console.log(res)
           page.onLoad(page.options)
         }
       })
@@ -137,7 +130,6 @@ Page({
           slang_id: page.data.slang.id
         },
         success: (res) => {
-          console.log(res)
           page.onLoad(page.options)
         }
       })
@@ -145,13 +137,11 @@ Page({
   },
   ///////////////// Insert keys to tags /////////////////
   swiperListFormatter(sticker_url) {
-    console.log("swiperlisttttttttttttttttttt")
     let urls = sticker_url
     let i = 0
     let swiperList = []
     if (urls != null){ 
       urls.forEach((url) => {
-        console.log(url)
         swiperList.push({id: i,
           type: 'images',
           url: url})
@@ -171,13 +161,11 @@ Page({
       method: 'DELETE',
       header: app.globalData.header,
       success: res => {
-        console.log(res)
       }
     })
   },
 
   // towerSwiper
-  // 初始化towerSwiper
   towerSwiper(name) {
     let list = this.data[name];
     for (let i = 0; i < list.length; i++) {

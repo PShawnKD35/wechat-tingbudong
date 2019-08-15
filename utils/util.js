@@ -57,26 +57,44 @@ const uploadPromise = imgList => {
   
 }
 
-// module.exports = { uploadPromise: uploadPromise}
+const textFormatter = function (slangsRes, length){
+  // return new Promise(function(resolve, reject) {
+    console.log("in textformatter")
+    let slangs = slangsRes
+    slangs.forEach((slang)=>{
+      slang.definitions.forEach((definition)=>{
+        let str = definition.content
+        if (str.length > length) {
+          // console.log(str.substring(0, length) + '...')
+          //  str.substring(0, length) + '...';
+          definition.content = str.substring(0, length) + '...' 
+          console.log(definition.content)
+        }
+      })
+    });
+  return slangsRes
 
-const apiCall = function (route, methodChoosen, datahash){
+}
+
+const apiCall = function (route){
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: `${app.globalData.url}route`,
-      method: methodChoosen,
+      url: `${app.globalData.url}`+ route,
+      method: 'GET',
       header: app.globalData.header,
-      data: dataHash, 
       success: function (res) {
+        console.log(res)
         resolve(res)
       }, 
       fail: function (res) {
         reject(res)
       }
       })
-    }
-  )}
+    })
+  }
 
 module.exports = { 
   apiCall: apiCall,
-  uploadPromise: uploadPromise 
-  }
+  uploadPromise: uploadPromise,
+  textFormatter: textFormatter
+}

@@ -61,7 +61,6 @@ App({
           })
         }
         else {
-          // wx.hideLoading()
           console.log("im in get setting's elseeeeeeeeeeeee")
           wx.redirectTo({
             url: 'landing',

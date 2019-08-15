@@ -26,12 +26,11 @@ Page({
           userId: app.globalData.userId,
           slang: res.data.slang
         })
-        let sticker_url = []
-        if (slang.sticker_url != null) {
+        if (res.data.slang.sticker_url != null) {
           page.setData({
-            sticker_url: slang.sticker_url.split(',')
+            sticker_url: res.data.slang.sticker_url.split(',')
           })
-          console.log(stick_url)
+          console.log(res.data.slang.sticker_url.split(','))
         }
       } 
     })
@@ -150,26 +149,32 @@ Page({
   deleteDefinition(e){
     let definitionId = e.currentTarget.dataset.id
     let slangId = e.currentTarget.dataset.slangid
+    this.deleteDef(definitionId)
+    this.onLoad(this.options)
+  },
+
+  deleteDef(id){
     wx.request({
-      url: `${app.globalData.url}${definitionId}`,
+      url: `${app.globalData.url}definitions/`+ id,
       method: 'DELETE',
       header: app.globalData.header,
-      success: res=>{
+      success: res => {
         console.log(res)
       }
     })
   },
 
   deleteSlang(e) {
-    let slangId = e.currentTarget.id
-    // wx.request({
-    //   url: `${app.globalData.url}`,
-    // })
+    let slangId = e.currentTarget.dataset.id
+    console.log(e.currentTarget.dataset.id)
     wx.request({
-      url: `${app.globalData.url}slangId`,
+      url: `${app.globalData.url}slangs/${slangId}`,
       method: 'DELETE',
       header: app.globalData.header,
       success: res => {
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
       }
     })
   },

@@ -110,14 +110,16 @@ Page({
   },
 
   saveSlang(e) {
+    console.log(e.currentTarget.dataset.id)
+    console.log(e.currentTarget.dataset.favorited)
     let page = this
-    if (page.data.slang.favorited === false) {
+    if (e.currentTarget.dataset.favorited === false) {
       wx.request({
         url: `${app.globalData.url}favorites`,
         method: 'POST',
         header: app.globalData.header,
         data: {
-          slang_id: page.data.slang.id
+          slang_id: e.currentTarget.dataset.id
         },
         success: (res) => {
           page.onLoad(page.options)
@@ -130,7 +132,7 @@ Page({
         method: 'DELETE',
         header: app.globalData.header,
         data: {
-          slang_id: page.data.slang.id
+          slang_id: e.currentTarget.dataset.id
         },
         success: (res) => {
           page.onLoad(page.options)

@@ -39,10 +39,11 @@ Page({
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
+        user_id: app.globalData.userId,
         isLoad: true
       })
       wx.request({
-        url: `${app.globalData.url}users/${user_id}`,
+        url: `${app.globalData.url}users/${that.data.user_id}`,
         method: 'PUT',
         header: app.globalData.header,
         data: {

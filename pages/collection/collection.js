@@ -9,6 +9,7 @@ Page({
   },
 
   onLoad: function () {
+    console.log("this is my collection onLoad")
     let page = this
     console.log("favoritteeeeeeeeeeeeeeeeeee")
     wx.request({
@@ -54,5 +55,44 @@ Page({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id - 1) * 60
     })
-  }
+  },
+
+  allCollection(e){
+    console.log(e)
+    this.onLoad
+  },
+
+  goToslang(e){
+    console.log(e.data.slangId)
+  },
+
+  saveSlang(e) {
+    let page = this
+    if (page.data.slang.favorited === false) {
+      wx.request({
+        url: `${app.globalData.url}favorites`,
+        method: 'POST',
+        header: app.globalData.header,
+        data: {
+          slang_id: page.data.slang.id
+        },
+        success: (res) => {
+          page.onLoad(page.options)
+        }
+      })
+    }
+    else {
+      wx.request({
+        url: `${app.globalData.url}favorites`,
+        method: 'DELETE',
+        header: app.globalData.header,
+        data: {
+          slang_id: page.data.slang.id
+        },
+        success: (res) => {
+          page.onLoad(page.options)
+        }
+      })
+    }
+  },
 })

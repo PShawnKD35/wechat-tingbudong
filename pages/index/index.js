@@ -13,7 +13,8 @@ Page({
     scrollLeft: 0,
     tags: [],
     searchTags: [],
-    value: ''
+    value: '',
+    offset: 10
   },
 //////////////////////////// On load ////////////////////////////
   onLoad: function (options) {
@@ -109,7 +110,6 @@ Page({
         } 
       }
     });
-
   },
 ///////////////// cardSwiper /////////////////
   cardSwiper(e) {
@@ -184,5 +184,18 @@ Page({
     this.setData({
       tags: tags,
     })
+  },
+  
+  onReachBottom(){
+    utilApi.apiCall(`slangs?offset=${this.data.offset + 10}`).then(res => {
+      let slangsTmp = this.data.slangs
+      utilApi.textFormatter(res.data.slangs, 55).forEach((slang)=>{
+        slangsTmp.push(slang)
+      })
+      this.setData({
+        slangs: slangsTmp,
+        offset: this.data.offset + 10
+      })
+    });
   }
 })

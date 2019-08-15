@@ -28,7 +28,6 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-family: PingFang HK;
   font-size: 18px;
   color:#0081ff;
-  margin-bottom: 30rpx;
 }
 
 
@@ -77,6 +76,7 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin-top: 86rpx;
   text-align: center;
   text-decoration: #1cbbb4;
+  margin-left: -25rpx;
 
 }
 .slang-date {

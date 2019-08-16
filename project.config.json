@@ -126,12 +126,6 @@
 					"pathName": "pages/collection/collection",
 					"query": "",
 					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "test",
-					"pathName": "pages/test/test",
-					"scene": null
 				}
 			]
 		}

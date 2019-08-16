@@ -14,20 +14,21 @@ Page({
     tags: [],
     searchTags: [],
     value: '',
-    offset: 10
+    offset: 10,
+    body: {}
   },
 //////////////////////////// On load ////////////////////////////
   onLoad: function (options) {
     // wx.hideLoading()
     wx.showShareMenu({
       withShareTicket: true
-    }),
-    console.log("***************Index on Load********************")
+    })
     var that = this;
-    utilApi.apiCall('slangs').then(res=>{
+    let body = { name: this.data.search }
+    utilApi.apiCall('slangs').then(res => {
       this.setData({
-        slangs: utilApi.textFormatter(res.data.slangs, 55)
-        })
+        slangs: utilApi.textFormatter(res.data.slangs, 85),
+      })
     });
     var that = this;
     wx.request({
@@ -35,8 +36,6 @@ Page({
       header: app.globalData.header,
       method: 'GET',
       success: res => {
-        console.log("Getting tagssssssssssssssss")
-        console.log(res.data)
         that.insertChecker(res.data)
       }
     })
@@ -45,8 +44,8 @@ Page({
     })
     this.selectComponent("#slang-card")
   },
+
   toSlangShow: function (event) {
-    console.log(event)
     let id = event.currentTarget.dataset.id
     wx.navigateTo({
       url: `/pages/show/show?id=${id}`,
@@ -84,31 +83,17 @@ Page({
       wx.updateShareMenu({
         withShareTicket: true,
         success(res) {
-          console.log(res)
         }
       })
   },
 ///////////////// search slang /////////////////
   onSearch: function(e) {
-    console.log("SEARCHHHHHHHHINGGGGGGGGGG")
-    console.log(e.detail)
-    let page = this
-    wx.request({
-      url: `${app.globalData.url}slangs`,
-      method: 'GET',
-      header: app.globalData.header,
-      data: { name: e.detail },
-      success: function(res) {
-        page.setData({
-         searched: true,
-         slangs: res.data.slangs
-        })
-        if (e.detail == '') {
-          page.setData({
-            searched: false
-          })
-        } 
-      }
+    let body = { name: e.detail }
+    utilApi.apiWithData('slangs', body).then(res => {
+      this.setData({
+        slangs: utilApi.textFormatter(res.data.slangs, 85),
+        body: body
+      })
     });
   },
 ///////////////// cardSwiper /////////////////
@@ -137,7 +122,7 @@ Page({
     })
     this.setData({
       searchTags: searchTags,
-      value: searchTags
+      value: searchTags,
     })
     this.searchTags(searchTags)
   },
@@ -146,34 +131,25 @@ Page({
     let searchTags = tags.toString()
     let page = this
     let dialects = app.globalData.dialects
-    console.log('this is the TAG Searcher!!!!!!!!!!!!!!!!!')
-    console.log(tags.toString())
-    wx.request({
-      url: `${app.globalData.url}slangs`,
-      method: 'GET',
-      header: app.globalData.header,
-      data: {
-        tag: searchTags
-      },
-      success: function(res){
-        console.log(res)
-        page.setData({
-          searched: true,
-          slangs: res.data.slangs
-        })
-      }
-    })
+    let body = { tag: searchTags}
     tags.forEach((tag) => {
-      if (dialects.includes(tag)) {
+    if (dialects.includes(tag)) {
         wx.redirectTo({
           url: `/pages/dialect/dialect?dialect=${tag}&tags=${searchTags}`,
         })
+      } 
+      else {
+        utilApi.apiWithData('slangs', body).then(res => {
+          this.setData({
+            slangs: utilApi.textFormatter(res.data.slangs, 85),
+            body: body
+          })
+        });
       }
     })
   },
 /////////////////////////// chooseing tags: function //////////////////////////////
   chooseTag(e) {
-    console.log(e)
     let tags = this.data.tags;
     let selectedTag = e.currentTarget.dataset.selected;
     tags.forEach((tag)=> {
@@ -187,9 +163,9 @@ Page({
   },
   
   onReachBottom(){
-    utilApi.apiCall(`slangs?offset=${this.data.offset + 10}`).then(res => {
+    utilApi.apiWithData(`slangs?offset=${this.data.offset + 10}`, this.data.body).then(res => {
       let slangsTmp = this.data.slangs
-      utilApi.textFormatter(res.data.slangs, 55).forEach((slang)=>{
+      utilApi.textFormatter(res.data.slangs, 85).forEach((slang) => {
         slangsTmp.push(slang)
       })
       this.setData({

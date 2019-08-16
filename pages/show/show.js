@@ -67,8 +67,10 @@ Page({
   editSlang: function (e) {
     let id = e.currentTarget.dataset.id
     let name = e.currentTarget.dataset.name
+    let url = e.currentTarget.dataset.url
+    console.log(e.currentTarget.dataset)
     wx.navigateTo({
-      url: `/pages/editSlang/editSlang?id=${id}&name=${name}`,
+      url: `/pages/editSlang/editSlang?id=${id}&name=${name}&url=${url}`,
     })
   },
 
@@ -140,6 +142,7 @@ Page({
           slang_id: page.data.slang.id
         },
         success: (res) => {
+          console.log(res)
           page.onLoad(page.options)
         }
       })

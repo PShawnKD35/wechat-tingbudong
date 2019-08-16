@@ -1,4 +1,4 @@
-<view class="container" style="max-height: 100vh; height: 100vh;">
+<view class="container" style="max-height: 100vh; height: 100vh;background-image: url(https://lc-l8bhbw53.cn-n1.lcfile.com/f4efa69fcd1c93e9bb19/A9C0E4F4-9058-4029-8DAA-D805EFD31D06.gif);background-position:center;background-size:cover;" mode="aspectFill">
   <cu-custom bgColor="bg-gradual-blue" isCustom="true">
     <view slot="content">听不懂</view>
   </cu-custom>
@@ -7,7 +7,7 @@
 
 <!-- blockkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk -->
 <view wx:for="{{slangs}}" wx:for-item="slang" wx:key="slang" id="slang-{{index}}" class="body" 
-style="background-image: url(https://lc-l8bhbw53.cn-n1.lcfile.com/f94b1586a0ef63ccf5da/B0419FEF-4C45-4197-A323-F0C07385E0BE.gif); width: 100vw; display: inline-block; vertical-align:top;">
+style=" width: 100vw; display: inline-block; vertical-align:top;">
   <view class="title">
     <text>“ {{slang.name}} ”</text>
   </view>

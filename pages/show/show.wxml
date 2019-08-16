@@ -46,7 +46,7 @@
 <!------------------------------ /delete definition ------------------------------>
         <view class="text-content" id="definition-text">
                 {{definition.content}}</view>
-      <view class="content flex-sub">
+      <view class="content flex-sub" style="position:absolute; bottom:20%">
         <view id="definition-contributor" class="text-grey text-sm"> Contributed by {{definition.user.name}} {{definition.created_at}}
 <!-----------------------------------liked?-------------------------------------->
 <block wx:if="{{definition.user_like_id}}">
@@ -80,9 +80,6 @@
       <view class="cu-tag bg-pink light round" bindtap="goTotag" data-tag="{{item}}"><text class="cuIcon-tag"></text>{{item}}</view>
     </block>
   </view>
-<!---------------------------------- share button ----------------------------------->
-
-<!---------------------------------- share button ----------------------------------->
 
 <scroll-view scroll-x style="white-space: nowrap; height: 100%;">
   <view 
@@ -100,8 +97,12 @@
       <button open-type="share" id="share" class="cu-btn lg bg-white" style="padding-bottom: 15px"><text class="cuIcon-share">Share</text></button>
 
   </view>
+
   </view>
 </view>
+ <!---------------------------------- share button ----------------------------------->
+      <button open-type="share" id="share" class="cu-bar lg bg-white"><text class="cuIcon-share">Share</text></button>
+<!---------------------------------- share button ----------------------------------->
 </view>
 </view>
 </view>

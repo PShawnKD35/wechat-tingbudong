@@ -69,10 +69,12 @@ Page({
 
   editSlang(e) {
     let page = this
+
     wx.showLoading({
       title: 'Updating Slang🤩',
     })
-    if (page.data.url != null) {
+    if (page.data.url != 'none') {
+      console.log("in sticker_url != none")
     if (this.data.imgList.length != 0) {
       utilApi.uploadPromise(this.data.imgList).then(sticker_url=>{
         let page = this
@@ -141,9 +143,9 @@ Page({
     } 
     }
     else {
-      if (this.data.imgList.length != 0) {
-        utilApi.uploadPromise(this.data.imgList).then(sticker_url => {
-          let page = this
+      console.log("in sticker_url === null")
+      if (page.data.imgList.length != 0) {
+        utilApi.uploadPromise(page.data.imgList).then(sticker_url => {
           let newSticker_url = sticker_url.toString()
           console.log("*************Adding Tag****************")
           console.log(page.data.dialect_name)

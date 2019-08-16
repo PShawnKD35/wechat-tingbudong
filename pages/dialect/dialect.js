@@ -48,7 +48,7 @@ Page({
 
     utilApi.apiWithData('slangs', body).then(res=>{
       this.setData({
-        slangs: utilApi.textFormatter(res.data.slangs, 55),
+        slangs: utilApi.textFormatter(res.data.slangs, 85),
         body: { tag: options.tags }
       })
     });
@@ -83,7 +83,7 @@ Page({
   onReachBottom() {
     utilApi.apiWithData(`slangs?offset=${this.data.offset + 10}`, this.data.body).then(res => {
       let slangsTmp = this.data.slangs
-      utilApi.textFormatter(res.data.slangs, 55).forEach((slang) => {
+      utilApi.textFormatter(res.data.slangs, 85).forEach((slang) => {
         slangsTmp.push(slang)
         console.log("okokok:     " + res.data.slangs)
       })

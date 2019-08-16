@@ -27,7 +27,7 @@ Page({
     let body = { name: this.data.search }
     utilApi.apiCall('slangs').then(res => {
       this.setData({
-        slangs: utilApi.textFormatter(res.data.slangs, 55),
+        slangs: utilApi.textFormatter(res.data.slangs, 85),
       })
     });
     var that = this;
@@ -91,7 +91,7 @@ Page({
     let body = { name: e.detail }
     utilApi.apiWithData('slangs', body).then(res => {
       this.setData({
-        slangs: utilApi.textFormatter(res.data.slangs, 55),
+        slangs: utilApi.textFormatter(res.data.slangs, 85),
         body: body
       })
     });
@@ -141,7 +141,7 @@ Page({
       else {
         utilApi.apiWithData('slangs', body).then(res => {
           this.setData({
-            slangs: utilApi.textFormatter(res.data.slangs, 55),
+            slangs: utilApi.textFormatter(res.data.slangs, 85),
             body: body
           })
         });
@@ -165,7 +165,7 @@ Page({
   onReachBottom(){
     utilApi.apiWithData(`slangs?offset=${this.data.offset + 10}`, this.data.body).then(res => {
       let slangsTmp = this.data.slangs
-      utilApi.textFormatter(res.data.slangs, 55).forEach((slang) => {
+      utilApi.textFormatter(res.data.slangs, 85).forEach((slang) => {
         slangsTmp.push(slang)
       })
       this.setData({

@@ -19,22 +19,20 @@ text-align: center;
   margin-bottom: 70rpx;
 
 }
-
-
 #definition-text {
-  font-size:30rpx;
-  margin-right: 20rpx;
-  padding: 15rpx;
-  margin-bottom: 30rpx;
   color: black !important;
-  text-align: justify;
   background: white !important;
-  display: -webkit-box;
   overflow: hidden;
+  text-overflow: ellipsis;
   word-wrap: break-word;
-  white-space: normal !important;
-  -webkit-box-orient: vertical;
+  display: block;
+  line-height: 1.5em; /* a */
+  max-height: 12em; /* times x line-height */
+  text-align: justify;
+  padding: 15rpx;
 }
+
+
 
 #definition-contributor {
   color:grey;
@@ -45,19 +43,16 @@ text-align: center;
 
 .title {
   font-family: PingFang HK;
-font-weight: 500;
-font-size: 90rpx;
-line-height: 123rpx;
-color: white;
+  font-weight: 500;
+  font-size: 90rpx;
+  line-height: 123rpx;
+  color: white;
 }
 
 #definition-swiper {
   height: 200px;
 }
 
-/* swiper-item{
-  margin:30rpx;
-} */
 
 
 /* index */
@@ -107,10 +102,6 @@ color: white;
 .van-icon-upgrade::before {
     content:"\F058";
 }
-.test {
-    font-size:50px;
-    font-family:'youth';
-}
 
 
 /* show-card */
@@ -135,8 +126,7 @@ color: white;
   border-width: 10rpx;
   border-color:  rgb(82, 77, 179, 0.7);
   border-radius: 30rpx;
-  /* outline: 5px black; */
-  /* outline-offset: 0px; */
+
 }
 
 .content {
@@ -150,16 +140,6 @@ color: white;
   font-size: 60rpx;
   color:black;
   margin-top: 40rpx;
-
-
-}
-
-
-#definition-text {
-  padding: 30rpx;
-  color: black !important;
-  text-align: justify;
-  background: white !important;
 }
 
 .contributor {

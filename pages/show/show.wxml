@@ -38,7 +38,7 @@
 <!------------------------------ edit definition ------------------------------>
 <block wx:if="{{userId == definition.user.id}}">
 
-  <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id="edit" class="cuIcon-edit lg text-grey" bindtap="editDefinition"></text>
+  <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" id="edit" class="cuIcon-edit lg text-grey " bindtap="editDefinition"></text>
 <!------------------------------ /edit definition ------------------------------>
 <!------------------------------ delete definition ------------------------------>
   <text data-id="{{definition.id}}" data-content="{{definition.content}}" data-name="{{slang.name}}" data-slangid="{{slang.id}}" bindtap="deleteDefinition" id="edit" class="cuIcon-deletefill lg text-grey"></text>

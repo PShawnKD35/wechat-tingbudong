@@ -23,7 +23,7 @@
 
         <swiper-item>
           <view class="cu-card dynamic">
-                <view class="text-content" 
+                <view 
                   id="definition-text">{{definition.content}}
                 </view>
           

@@ -63,11 +63,14 @@ border-radius: 15rpx;
   margin-top: 15px;
   padding-left: 30rpx;
   text-align: left;
-  height:200rpx;
-
+  padding-bottom: 20rpx;
+  /* height:200rpx; */
 }
-
-
+/* 
+#definition-edit{
+  color:grey;
+  display: inline-block;
+} */
 
 .h1 text {
   color:grey;
@@ -91,6 +94,7 @@ border-radius: 15rpx;
 
 #definition-text {
   margin-bottom:10rpx;
+  margin-right: 12px;
   /* font-size: 29rpx; */
   overflow: hidden;
   text-overflow: ellipsis;

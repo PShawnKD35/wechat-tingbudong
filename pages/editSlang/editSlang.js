@@ -72,6 +72,7 @@ Page({
     wx.showLoading({
       title: 'Updating Slang🤩',
     })
+    if (page.data.url != null) {
     if (this.data.imgList.length != 0) {
       utilApi.uploadPromise(this.data.imgList).then(sticker_url=>{
         let page = this
@@ -138,6 +139,75 @@ Page({
         icon: 'none'
       });
     } 
+    }
+    else {
+      if (this.data.imgList.length != 0) {
+        utilApi.uploadPromise(this.data.imgList).then(sticker_url => {
+          let page = this
+          let newSticker_url = sticker_url.toString()
+          console.log("*************Adding Tag****************")
+          console.log(page.data.dialect_name)
+          wx.request({
+            url: `${app.globalData.url}tags`,
+            method: 'POST',
+            header: app.globalData.header,
+            data: {
+              tag: {
+                dialect_name: page.data.dialect_name.toString(),
+                tag_name: page.data.tags.toString(),
+                slang_id: page.data.slang_id
+              },
+            },
+            success: res => {
+              console.log(res)
+            }
+          })
+          wx.request({
+            url: `${app.globalData.url}slangs/${page.data.slang_id}`,
+            method: 'PUT',
+            header: app.globalData.header,
+            data: {
+              slang_id: page.data.slang_id,
+              sticker_url: newSticker_url
+            },
+            success: function (res) {
+              wx.navigateTo({
+                url: `/pages/show/show?id=${page.data.slang_id}`,
+              })
+              wx.hideLoading()
+              wx.showToast({
+                title: `New stuffs Added🥳`,
+                icon: 'none'
+              });
+            }
+          })
+        })
+      }
+      else {
+        wx.request({
+          url: `${app.globalData.url}tags`,
+          method: 'POST',
+          header: app.globalData.header,
+          data: {
+            tag: {
+              dialect_name: page.data.dialect_name,
+              tag_name: page.data.tags.toString(),
+              slang_id: page.data.slang_id
+            },
+          },
+          success: function (res) {
+            wx.navigateTo({
+              url: `/pages/show/show?id=${page.data.slang_id}`,
+            })
+          }
+        })
+        wx.hideLoading()
+        wx.showToast({
+          title: `New tags Added🥳`,
+          icon: 'none'
+        });
+      } 
+    }
   },
 
 

@@ -1,5 +1,7 @@
 // pages/dialect/dialect.js
 const app = getApp()
+const utilApi = require('../../utils/util.js');
+
 Page({
   data: {
     DotStyle: true,
@@ -7,10 +9,12 @@ Page({
     ColorList: app.globalData.ColorList,
     tags: [],
     dialect: '',
-    slangs: {}
+    slangs: {},
+    offset: 10,
+    searchTags: ''
   },
+
   toSlangShow: function (event) {
-    console.log(event)
     let id = event.currentTarget.dataset.id
     wx.navigateTo({
       url: `/pages/show/show?id=${id}`,
@@ -31,7 +35,8 @@ Page({
     if (options.show != 'show'){
       let tags = options.tags.split(',')
       this.setData({
-        dialect: options.dialect
+        dialect: options.dialect,
+        searchTags: options.tags
       })
     }
     else {
@@ -39,17 +44,14 @@ Page({
         dialect: options.tags
       })
     };
-    wx.request({
-      url: `${app.globalData.url}slangs`,
-      method: 'GET',
-      header: app.globalData.header,
-      data: {
-        tag: options.tags
-      },
-      success: function (res) {
-        page.tagsSpliter(res.data.slangs)
-      }
-    })
+    let body = {tag: options.tags}
+
+    utilApi.apiWithData('slangs', body).then(res=>{
+      this.setData({
+        slangs: utilApi.textFormatter(res.data.slangs, 85),
+        body: { tag: options.tags }
+      })
+    });
   },
 
   tagsSpliter(slangs) {
@@ -78,6 +80,17 @@ Page({
     })
   },
 
-  
-
+  onReachBottom() {
+    utilApi.apiWithData(`slangs?offset=${this.data.offset + 10}`, this.data.body).then(res => {
+      let slangsTmp = this.data.slangs
+      utilApi.textFormatter(res.data.slangs, 85).forEach((slang) => {
+        slangsTmp.push(slang)
+        console.log("okokok:     " + res.data.slangs)
+      })
+      this.setData({
+        slangs: slangsTmp,
+        offset: this.data.offset + 10
+      })
+    });
+  }
 })

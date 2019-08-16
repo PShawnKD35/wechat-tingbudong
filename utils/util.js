@@ -58,22 +58,15 @@ const uploadPromise = imgList => {
 }
 
 const textFormatter = function (slangsRes, length){
-  // return new Promise(function(resolve, reject) {
-    console.log("in textformatter")
     let slangs = slangsRes
     slangs.forEach((slang)=>{
       slang.definitions.forEach((definition)=>{
         let str = definition.content
         if (str.length > length) {
-          // console.log(str.substring(0, length) + '...')
-          //  str.substring(0, length) + '...';
           definition.content = str.substring(0, length) + '...' 
-          console.log(definition.content)
         }
       })
     });
-    console.log("this is SlangsRes")
-    console.log(slangsRes)
   return slangsRes
 
 }
@@ -85,15 +78,14 @@ const apiCall = function (route){
       method: 'GET',
       header: app.globalData.header,
       success: function (res) {
-        console.log(res)
         resolve(res)
       }, 
       fail: function (res) {
         reject(res)
       }
-      })
     })
-  }
+  })
+}
 
 const urlSplitter = function (slang) {
   let stickerAry = slang.sticker_url.split(',')
@@ -101,9 +93,27 @@ const urlSplitter = function (slang) {
   return stickerAry
 }
 
+const apiWithData = function (route, body) {
+  return new Promise(function (resolve, reject) {
+    wx.request({
+      url: `${app.globalData.url}` + route,
+      method: 'GET',
+      header: app.globalData.header,
+      data: body,
+      success: function (res) {
+        resolve(res)
+      },
+      fail: function (res) {
+        reject(res)
+      }
+    })
+  })
+}
+
 module.exports = { 
   apiCall: apiCall,
   uploadPromise: uploadPromise,
   textFormatter: textFormatter,
-  urlSplitter: urlSplitter
+  urlSplitter: urlSplitter,
+  apiWithData: apiWithData
 }

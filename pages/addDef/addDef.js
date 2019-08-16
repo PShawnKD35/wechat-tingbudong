@@ -26,25 +26,34 @@ Page({
 
   submitAddDefinition (e){
     let page = this
-    wx.request({
-      url: `${app.globalData.url}definitions`,
-      method: 'POST',
-      header: app.globalData.header,
-      data: {
-        slang_id: page.data.slang_id,
-        content: page.data.content
-      },
-      success: function (res) {
-        console.log(res)
-      }
+    if (page.data.content == '') {
+      wx.showToast({
+        title: 'Definition can\'t be blank',
+        icon: 'none',
+        duration: 2000,
+        mask: true,
+      })
+    }
+    else {
+      wx.request({
+        url: `${app.globalData.url}definitions`,
+        method: 'POST',
+        header: app.globalData.header,
+        data: {
+          slang_id: page.data.slang_id,
+          content: page.data.content
+        },
+        success: function (res) {
+          console.log(res)
+        }
+      })
+    wx.navigateTo({
+      url: `/pages/show/show?id=${page.data.slang_id}`,
     })
-  wx.navigateTo({
-    url: `/pages/show/show?id=${page.data.slang_id}`,
-  })
-  wx.showToast({
-    title: `Definition Added🥳`,
-    icon: 'none'
-  });
+    wx.showToast({
+      title: `Definition Added🥳`,
+      icon: 'none'
+    });
+    }
   }
-
 })

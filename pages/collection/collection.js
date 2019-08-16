@@ -25,18 +25,15 @@ Page({
       } 
     })
   },
+
+  onShow: function() {
+    this.onLoad
+  },
+
   // cardSwiper
   cardSwiper(e) {
     this.setData({
       cardCur: e.detail.current
-    })
-  },
-  onPullDownRefresh: function () {
-
-  },
-  editSlang(e){
-    wx.navigateTo({
-      url: '/pages/test/test',
     })
   },
 

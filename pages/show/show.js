@@ -68,10 +68,14 @@ Page({
     let id = e.currentTarget.dataset.id
     let name = e.currentTarget.dataset.name
     let url = e.currentTarget.dataset.url
+    console.log(url)
     console.log(e.currentTarget.dataset)
-    wx.navigateTo({
-      url: `/pages/editSlang/editSlang?id=${id}&name=${name}&url=${url}`,
-    })
+    if (url == null) {
+      url = 'none'
+      wx.navigateTo({
+        url: `/pages/editSlang/editSlang?id=${id}&name=${name}&url=${url}`,
+      })
+    }
   },
 
   editDefinition: function (e) {
